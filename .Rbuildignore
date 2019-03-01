@@ -1,0 +1,8 @@
+^\.github$
+^pkgdown$
+^_pkgdown\.yml$
+^docs$
+^LICENSE\.md$
+^README\.Rmd$
+^RVerbalExpressions\.Rproj$
+^\.Rproj\.user$

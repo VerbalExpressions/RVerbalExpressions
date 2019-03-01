@@ -1,0 +1,45 @@
+destination: docs
+template:
+  params:
+    bootswatch: lumen
+reference:
+- title: Utilities
+  desc: ~
+  contents:
+  - '`sanitize`'
+- title: Rules
+  desc: ~
+  contents:
+  - '`any`'
+  - '`any_of`'
+  - '`anything`'
+  - '`anything_but`'
+  - '`end_of_line`'
+  - '`find`'
+  - '`maybe`'
+  - '`range`'
+  - '`something_but`'
+  - '`start_of_line`'
+  - '`then`'
+- title: Loops
+  desc: ~
+  contents:
+  - '`one_or_more`'
+- title: Special Characters
+  desc: ~
+  contents:
+  - '`br`'
+  - '`digit`'
+  - '`line_break`'
+  - '`tab`'
+  - '`whitespace`'
+  - '`word`'
+- title: Capture Groups
+  desc: ~
+  contents:
+  - '`begin_capture`'
+  - '`end_capture`'
+- title: Modifiers
+  desc: ~
+  contents:
+  - '`with_any_case`'
