@@ -21,3 +21,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/tyluRp/RVerbalExpressions
+BugReports: https://github.com/tyluRp/RVerbalExpressions/issues
