@@ -1,3 +1,6 @@
+^appveyor\.yml$
+^codecov\.yml$
+^\.travis\.yml$
 ^\.github$
 ^pkgdown$
 ^_pkgdown\.yml$

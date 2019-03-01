@@ -19,7 +19,8 @@ Imports:
 Suggests: 
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
 URL: https://github.com/tyluRp/RVerbalExpressions
 BugReports: https://github.com/tyluRp/RVerbalExpressions/issues

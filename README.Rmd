@@ -16,7 +16,11 @@ knitr::opts_chunk$set(
 # RVerbalExpressions
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/tyluRp/RVerbalExpressions.svg?branch=master)](https://travis-ci.org/tyluRp/RVerbalExpressions)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/tyluRp/RVerbalExpressions?branch=master&svg=true)](https://ci.appveyor.com/project/tyluRp/RVerbalExpressions)
+[![Codecov test coverage](https://codecov.io/gh/tyluRp/RVerbalExpressions/branch/master/graph/badge.svg)](https://codecov.io/gh/tyluRp/RVerbalExpressions?branch=master)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e49a67b8-17c9-40ba-9e53-3f9d83590e87/deploy-status)](https://app.netlify.com/sites/rverbalexpressions/deploys)
 <!-- badges: end -->
 
 The goal of `RVerbalExpressions` is to make it easier to construct regular expressions. Grammar and functionality inspired by [VerbalExpressions](https://github.com/VerbalExpressions), this is essentially another port using the R programming language. Usage of `%>%` is encouraged to build expressions in a chain like fashion.
@@ -25,6 +29,8 @@ There are a couple of functions missing from the original [JSVerbalExpressions](
 
 1. `replace` isn't included because there are numerous R functions for this, `gsub` being one example
 2. `add` is a utility function for appending expressions to one another and isn't included because we use `%>%` for that
+
+Others just haven't made it yet, see [here](.github/CONTRIBUTING.md).
 
 ## Installation
 
