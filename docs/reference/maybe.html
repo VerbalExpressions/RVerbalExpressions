@@ -32,7 +32,9 @@
 
 <meta property="og:title" content="Optionally match an expression. — maybe" />
 
-<meta property="og:description" content="Optionally match an expression." />
+<meta property="og:description" content="This expression uses a quantifier ? to optionally
+match things. Specifically, the question mark makes the preceding token in
+the regular expression optional." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -128,7 +130,9 @@
 
     <div class="ref-description">
     
-    <p>Optionally match an expression.</p>
+    <p>This expression uses a <em>quantifier</em> <code>?</code> to optionally
+match things. Specifically, the question mark makes the preceding token in
+the regular expression optional.</p>
     
     </div>
 
@@ -147,13 +151,9 @@
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>This function is slighly different than <code><a href='start_of_line.html'>start_of_line()</a></code>
-because it has the additional argument <code>.data</code> which allows the user to
-pass a value to to it. This is meant to allow <code>dplyr</code> chains to
-function properly as <code>.data</code> defaults to <code>NULL</code> and will pull
-the data from the previous step in the chain.</p>
+    <p>Quantifiers: <a href='https://www.regular-expressions.info/optional.html'>https://www.regular-expressions.info/optional.html</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -163,14 +163,15 @@ the data from the previous step in the chain.</p>
   <span class='fu'>maybe</span>(<span class='st'>"abc"</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='end_of_line.html'>end_of_line</a></span>(<span class='kw'>enable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"xyz"</span>) <span class='co'># should be true</span></div><div class='output co'>#&gt; [1] TRUE</div></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"xyz"</span>) <span class='co'># should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#references">References</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

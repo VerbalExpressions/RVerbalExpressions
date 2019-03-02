@@ -10,9 +10,6 @@ word(.data = NULL)
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 }
 \description{
-Match a word.
-}
-\details{
 Match a word—a string of word characters (a–z, A–Z, 0–9 or _).
 This function is looks for tabs with the following expression: \code{\\w+}
 }

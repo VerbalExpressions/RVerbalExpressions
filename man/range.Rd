@@ -13,20 +13,10 @@ range(.data = NULL, value)
 parameters; unpaired parameters are ignored.}
 }
 \description{
-Match any character within the range defined by the parameters.
-}
-\details{
-This function is slighly different than \code{start_of_line()}
-because it has the additional argument \code{.data} which allows the user to
-pass a value to to it. This is meant to allow \code{dplyr} chains to
-function properly as \code{.data} defaults to \code{NULL} and will pull
-the data from the previous step in the chain.
-
-Arguments will be interpreted as pairs.
-
-For example, \code{range(c('a', 'z', '0', '9'))} will be interpreted to mean
-any character within the ranges a–z (ascii x–y) or 0–9 (ascii x–y). The
-method expects an even number of parameters; unpaired parameters are ignored.
+Value parameter will be interpreted as pairs. For example,
+\code{range(c('a', 'z', '0', '9'))} will be interpreted to mean any
+character within the ranges a–z (ascii x–y) or 0–9 (ascii x–y). The method
+expects an even number of parameters; unpaired parameters are ignored.
 }
 \examples{
 range(value = c('1', '3'))

@@ -1,6 +1,6 @@
 #' Match a word.
 #'
-#' @details Match a word—a string of word characters (a–z, A–Z, 0–9 or _).
+#' @description Match a word—a string of word characters (a–z, A–Z, 0–9 or _).
 #' This function is looks for tabs with the following expression: \code{\\w+}
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }

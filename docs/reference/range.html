@@ -32,7 +32,10 @@
 
 <meta property="og:title" content="Match any character within the range defined by the parameters. — range" />
 
-<meta property="og:description" content="Match any character within the range defined by the parameters." />
+<meta property="og:description" content="Value parameter will be interpreted as pairs. For example,
+range(c('a', 'z', '0', '9')) will be interpreted to mean any
+character within the ranges a–z (ascii x–y) or 0–9 (ascii x–y). The method
+expects an even number of parameters; unpaired parameters are ignored." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -128,7 +131,10 @@
 
     <div class="ref-description">
     
-    <p>Match any character within the range defined by the parameters.</p>
+    <p>Value parameter will be interpreted as pairs. For example,
+<code>range(c('a', 'z', '0', '9'))</code> will be interpreted to mean any
+character within the ranges a–z (ascii x–y) or 0–9 (ascii x–y). The method
+expects an even number of parameters; unpaired parameters are ignored.</p>
     
     </div>
 
@@ -148,18 +154,6 @@ parameters; unpaired parameters are ignored.</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>This function is slighly different than <code><a href='start_of_line.html'>start_of_line()</a></code>
-because it has the additional argument <code>.data</code> which allows the user to
-pass a value to to it. This is meant to allow <code>dplyr</code> chains to
-function properly as <code>.data</code> defaults to <code>NULL</code> and will pull
-the data from the previous step in the chain.</p>
-<p>Arguments will be interpreted as pairs.</p>
-<p>For example, <code>range(c('a', 'z', '0', '9'))</code> will be interpreted to mean
-any character within the ranges a–z (ascii x–y) or 0–9 (ascii x–y). The
-method expects an even number of parameters; unpaired parameters are ignored.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>range</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>'1'</span>, <span class='st'>'3'</span>))</div><div class='output co'>#&gt; [1] "[1-3]"</div><div class='input'>
@@ -172,9 +166,7 @@ method expects an even number of parameters; unpaired parameters are ignored.</p
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

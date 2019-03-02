@@ -12,14 +12,9 @@ maybe(.data = NULL, value)
 \item{value}{Expression to optionally match}
 }
 \description{
-Optionally match an expression.
-}
-\details{
-This function is slighly different than \code{start_of_line()}
-because it has the additional argument \code{.data} which allows the user to
-pass a value to to it. This is meant to allow \code{dplyr} chains to
-function properly as \code{.data} defaults to \code{NULL} and will pull
-the data from the previous step in the chain.
+This expression uses a \emph{quantifier} \code{?} to optionally
+match things. Specifically, the question mark makes the preceding token in
+the regular expression optional.
 }
 \examples{
 maybe(value = "abc")
@@ -30,4 +25,8 @@ x <- start_of_line() \%>\%
   end_of_line(enable = FALSE)
 
 grepl(x, "xyz") # should be true
+
+}
+\references{
+Quantifiers: \url{https://www.regular-expressions.info/optional.html}
 }
