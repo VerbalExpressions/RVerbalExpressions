@@ -6,11 +6,11 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.org/tyluRp/RVerbalExpressions.svg?branch=master)](https://travis-ci.org/tyluRp/RVerbalExpressions)
+status](https://travis-ci.org/VerbalExpressions/RVerbalExpressions.svg?branch=master)](https://travis-ci.org/VerbalExpressions/RVerbalExpressions)
 [![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/tyluRp/RVerbalExpressions?branch=master&svg=true)](https://ci.appveyor.com/project/tyluRp/RVerbalExpressions)
+status](https://ci.appveyor.com/api/projects/status/github/VerbalExpressions/RVerbalExpressions?branch=master&svg=true)](https://ci.appveyor.com/project/VerbalExpressions/RVerbalExpressions)
 [![Codecov test
-coverage](https://codecov.io/gh/tyluRp/RVerbalExpressions/branch/master/graph/badge.svg)](https://codecov.io/gh/tyluRp/RVerbalExpressions?branch=master)
+coverage](https://codecov.io/gh/VerbalExpressions/RVerbalExpressions/branch/master/graph/badge.svg)](https://codecov.io/gh/VerbalExpressions/RVerbalExpressions?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Netlify
