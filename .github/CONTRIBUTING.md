@@ -24,5 +24,5 @@ As of now, there are handful of things on my todo list. My top priority is to wr
 1. Add datasets for demonstration
 2. Add hex logo
 3. More unit testing
-4. Integrate with travis-ci and appveyor
-5. Add travis/appveyor/codecov/netlify badges
+4. ~~Integrate with travis-ci and appveyor~~
+5. ~~Add travis/appveyor/codecov/netlify badges~~
