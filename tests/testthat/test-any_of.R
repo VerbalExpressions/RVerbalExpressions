@@ -1,5 +1,6 @@
 context("test-any_of")
 
+# comments so github doesn't think this is Rebol
 test_that("any_of rule works", {
   expect_equal(any_of(value = ""), "[]")
   expect_true(grepl(any_of(value = "abc"), "b"))

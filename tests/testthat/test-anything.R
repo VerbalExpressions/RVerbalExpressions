@@ -1,5 +1,6 @@
 context("test-anything")
 
+# comments so github doesn't think this is Rebol
 test_that("anything rule works", {
   expect_equal(anything(), "(?:.*)")
   expect_true(grepl(anything(), "b"))
