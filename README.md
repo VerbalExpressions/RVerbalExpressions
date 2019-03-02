@@ -86,6 +86,11 @@ You can see an up to date list of all ports on
   - [Perl](https://github.com/VerbalExpressions/PerlVerbalExpressions)
   - [Swift](https://github.com/VerbalExpressions/SwiftVerbalExpressions)
 
+Additionally, there is another R package
+[rex](https://github.com/kevinushey/rex) by
+[@kevinushey](https://twitter.com/kevin_ushey) that tries to solve the
+same problem. I encourage you to check it out\!
+
 ## Contributing
 
 If you find any issues, please file an issue or submit a PR. All
