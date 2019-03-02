@@ -11,8 +11,8 @@ Materials:
 
 ##### _Rules_
 1. ~~`something`~~
-2. `or`
-3. `not`
+2. ~~`or`~~
+3. ~~`not`~~
 
 ##### _Modifiers_
 1. `add_modifier`

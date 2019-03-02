@@ -19,6 +19,8 @@ reference:
   - '`end_of_line`'
   - '`find`'
   - '`maybe`'
+  - '`not`'
+  - '`or`'
   - '`range`'
   - '`something`'
   - '`something_but`'

@@ -8,6 +8,7 @@
 #' \code{. | * ? + ( ) { } ^ $ \\ : = [ ]}
 #'
 #' @param .data String to sanitize
+#'
 #' @examples
 #' sanitize("^")
 #' sanitize("^+")

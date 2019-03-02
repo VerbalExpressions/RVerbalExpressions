@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contributing to RVerbalExpressions • RVerbalExpressions</title>
+<title>Ensure that the parameter does not follow. — not • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -25,12 +25,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
-<meta property="og:title" content="Contributing to RVerbalExpressions" />
+<meta property="og:title" content="Ensure that the parameter does not follow. — not" />
+
+<meta property="og:description" content="This expression uses a negative lookahead to ensure the
+value given does not follow the previous verbal expression." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -57,7 +61,7 @@
   </head>
 
   <body>
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -69,7 +73,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">RVerbalExpressions</a>
+        <a class="navbar-link" href="../index.html">RVerbalExpressions</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -77,13 +81,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -93,7 +97,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/examples.html">Examples</a>
+      <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
 </li>
@@ -116,70 +120,66 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Contributing to RVerbalExpressions</h1>
+    <h1>Ensure that the parameter does not follow.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/not.R'><code>R/not.R</code></a></small>
+    <div class="hidden name"><code>not.Rd</code></div>
     </div>
 
-<div id="contributing-to-rverbalexpressions" class="section level1">
+    <div class="ref-description">
+    
+    <p>This expression uses a <em>negative lookahead</em> to ensure the
+value given does not follow the previous verbal expression.</p>
+    
+    </div>
 
-<p>As of now, there are handful of things on my todo list. My top priority is to wrap up all the remaining functions that are missing then work on the miscellaneous todo items. If you’d like to contribute, feel free to snag something from this list! Otherwise, typos, bugs, enhancements are encouraged.</p>
-<p>Materials:</p>
-<ol>
-<li><a href="https://verbalexpressions.github.io/JSVerbalExpressions/">JavaScript Documentation</a></li>
-<li><a href="https://github.com/VerbalExpressions/JSVerbalExpressions/blob/master/dist/verbalexpressions.js">JavaScript Source</a></li>
-</ol>
-<div id="missing-functions" class="section level4">
-<h4 class="hasAnchor">
-<a href="#missing-functions" class="anchor"></a>Missing Functions</h4>
-<div id="rules" class="section level5">
-<h5 class="hasAnchor">
-<a href="#rules" class="anchor"></a><em>Rules</em>
-</h5>
-<ol>
-<li><del><code>something</code></del></li>
-<li><del><code>or</code></del></li>
-<li><del><code>not</code></del></li>
-</ol>
-</div>
-<div id="modifiers" class="section level5">
-<h5 class="hasAnchor">
-<a href="#modifiers" class="anchor"></a><em>Modifiers</em>
-</h5>
-<ol>
-<li><code>add_modifier</code></li>
-<li><code>remove_modifier</code></li>
-<li><code>stop_at_first</code></li>
-<li><code>search_one_line</code></li>
-<li><code>repeat_previous</code></li>
-</ol>
-</div>
-<div id="loops" class="section level5">
-<h5 class="hasAnchor">
-<a href="#loops" class="anchor"></a><em>Loops</em>
-</h5>
-<ol>
-<li><code>multiple</code></li>
-</ol>
-</div>
-</div>
-<div id="miscellaneous" class="section level4">
-<h4 class="hasAnchor">
-<a href="#miscellaneous" class="anchor"></a>Miscellaneous</h4>
-<ol>
-<li>Add datasets for demonstration</li>
-<li>Add hex logo</li>
-<li>More unit testing</li>
-<li><del>Integrate with travis-ci and appveyor</del></li>
-<li><del>Add travis/appveyor/codecov/netlify badges</del></li>
-</ol>
-</div>
-</div>
+    <pre class="usage"><span class='fu'>not</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>value</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>.data</th>
+      <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>Value to ensure absence of</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Negative lookahead: <a href='https://www.regular-expressions.info/lookaround.html'>https://www.regular-expressions.info/lookaround.html</a></p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>not</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"FEB-28"</span>)</div><div class='output co'>#&gt; [1] "(?!FEB-28)"</div><div class='input'>
+<span class='co'># construct expression</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='start_of_line.html'>start_of_line</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='find.html'>find</a></span>(<span class='st'>'FEB-29'</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>not</span>(<span class='st'>"FEB-28"</span>)
+
+<span class='co'># create a string</span>
+<span class='no'>string</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"FEB-29-2017"</span>, <span class='st'>"FEB-28-2017"</span>)
+
+<span class='co'># extract matches, perl = TRUE is required for negative lookahead</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>, <span class='kw'>perl</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1] "FEB-29"</div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#references">References</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
-
 </div>
-
 
       <footer>
       <div class="copyright">
