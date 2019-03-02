@@ -7,8 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.org/VerbalExpressions/RVerbalExpressions.svg?branch=master)](https://travis-ci.org/VerbalExpressions/RVerbalExpressions)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/VerbalExpressions/RVerbalExpressions?branch=master&svg=true)](https://ci.appveyor.com/project/VerbalExpressions/RVerbalExpressions)
+[![AppVeyor Build
+status](https://ci.appveyor.com/api/projects/status/phr93q0rp7edf376?svg=true)](https://ci.appveyor.com/project/tyluRp/rverbalexpressions-4tt0n)
 [![Codecov test
 coverage](https://codecov.io/gh/VerbalExpressions/RVerbalExpressions/branch/master/graph/badge.svg)](https://codecov.io/gh/VerbalExpressions/RVerbalExpressions?branch=master)
 [![Lifecycle:
