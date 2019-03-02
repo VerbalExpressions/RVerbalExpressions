@@ -40,7 +40,7 @@ with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("tyluRp/RVerbalExpressions")
+devtools::install_github("VerbalExpressions/RVerbalExpressions")
 ```
 
 ## Example
