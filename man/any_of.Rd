@@ -12,14 +12,10 @@ any_of(.data = NULL, value)
 \item{value}{Expression to optionally match}
 }
 \description{
-Match any of these characters exactly once.
-}
-\details{
-This function is slighly different than \code{start_of_line()}
-because it has the additional argument \code{.data} which allows the user to
-pass a value to to it. This is meant to allow \code{dplyr} chains to
-function properly as \code{.data} defaults to \code{NULL} and will pull
-the data from the previous step in the chain.
+Constructs a \emph{character class}, sometimes called a
+\emph{character set}. With this particular expression, you can tell the
+regex engine to match only one out of several characters. Simply place the
+characters you want to match between square brackets.
 }
 \examples{
 any_of(value = "abc")
@@ -29,4 +25,8 @@ x <- any_of(value = "abc")
 
 grepl(x, "c") # should be true
 grepl(x, "d") # should be false
+
+}
+\references{
+Character class: \url{https://www.regular-expressions.info/charclass.html}
 }
