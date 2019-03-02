@@ -2,6 +2,8 @@ destination: docs
 template:
   params:
     bootswatch: lumen
+    ganalytics: UA-135464357-1
+
 reference:
 - title: Utilities
   desc: ~
