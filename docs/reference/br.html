@@ -32,7 +32,8 @@
 
 <meta property="og:title" content="Match a line break (alias of <code>line_break()</code>). — br" />
 
-<meta property="og:description" content="Match a line break (alias of line_break())." />
+<meta property="og:description" content="This expression looks for line breaks, both Unix and Windows
+style by using the appropriate non printable characters." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,7 +119,8 @@
 
     <div class="ref-description">
     
-    <p>Match a line break (alias of <code><a href='line_break.html'>line_break()</a></code>).</p>
+    <p>This expression looks for line breaks, both Unix and Windows
+style by using the appropriate <em>non printable characters</em>.</p>
     
     </div>
 
@@ -133,13 +135,11 @@
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>This function is looks for line breaks with the following
-expression: <code>(?:\r\n|\r|\n)</code></p><ol>
-<li><p>Unix style: <a href='https://codepoints.net/U+000A'>https://codepoints.net/U+000A</a></p></li>
-<li><p>Windows style: <a href='https://codepoints.net/U+000D'>https://codepoints.net/U+000D</a></p></li>
-</ol>
+    <p>Unix style: <a href='https://codepoints.net/U+000A'>https://codepoints.net/U+000A</a></p>
+<p>Windows style: <a href='https://codepoints.net/U+000D'>https://codepoints.net/U+000D</a></p>
+<p>Non printable character: <a href='https://www.regular-expressions.info/nonprint.html'>https://www.regular-expressions.info/nonprint.html</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -151,14 +151,15 @@ expression: <code>(?:\r\n|\r|\n)</code></p><ol>
 <span class='no'>string</span> <span class='kw'>&lt;-</span> <span class='st'>"foo\nbar"</span>
 
 <span class='co'># extract match</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [1] "\n"</div></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [1] "\n"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#references">References</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

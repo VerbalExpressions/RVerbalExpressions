@@ -12,15 +12,20 @@ anything_but(.data = NULL, value)
 \item{value}{Characters to not match}
 }
 \description{
-Match any character(s) except these any (including zero) number of times.
-}
-\details{
-This function is slighly different than \code{start_of_line()}
-because it has the additional argument \code{.data} which allows the user to
-pass a value to to it. This is meant to allow \code{dplyr} chains to
-function properly as \code{.data} defaults to \code{NULL} and will pull
-the data from the previous step in the chain.
+This expression will match everything except whatever characters
+the user specifies in the \code{value} parameter. It does this by adding a
+caret symbol \code{^} at the beginning of a character set \code{[]}. Typing
+a caret after the opening square bracket negates the character class. The
+result is that the character class matches any character that is not in the
+character class. Unlike the dot, negated character classes also match
+(invisible) line break characters. If you don't want a negated character
+class to match line breaks, you need to include the line break characters in
+the class.
 }
 \examples{
 anything_but(value = "abc")
+
+}
+\references{
+Character Class: \url{https://www.regular-expressions.info/charclass.html}
 }

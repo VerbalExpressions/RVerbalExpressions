@@ -32,7 +32,15 @@
 
 <meta property="og:title" content="Match any character(s) except these any (including zero) number of times. — anything_but" />
 
-<meta property="og:description" content="Match any character(s) except these any (including zero) number of times." />
+<meta property="og:description" content="This expression will match everything except whatever characters
+the user specifies in the value parameter. It does this by adding a
+caret symbol ^ at the beginning of a character set []. Typing
+a caret after the opening square bracket negates the character class. The
+result is that the character class matches any character that is not in the
+character class. Unlike the dot, negated character classes also match
+(invisible) line break characters. If you don't want a negated character
+class to match line breaks, you need to include the line break characters in
+the class." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,7 +126,15 @@
 
     <div class="ref-description">
     
-    <p>Match any character(s) except these any (including zero) number of times.</p>
+    <p>This expression will match everything except whatever characters
+the user specifies in the <code>value</code> parameter. It does this by adding a
+caret symbol <code>^</code> at the beginning of a character set <code>[]</code>. Typing
+a caret after the opening square bracket negates the character class. The
+result is that the character class matches any character that is not in the
+character class. Unlike the dot, negated character classes also match
+(invisible) line break characters. If you don't want a negated character
+class to match line breaks, you need to include the line break characters in
+the class.</p>
     
     </div>
 
@@ -137,24 +153,21 @@
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>This function is slighly different than <code><a href='start_of_line.html'>start_of_line()</a></code>
-because it has the additional argument <code>.data</code> which allows the user to
-pass a value to to it. This is meant to allow <code>dplyr</code> chains to
-function properly as <code>.data</code> defaults to <code>NULL</code> and will pull
-the data from the previous step in the chain.</p>
+    <p>Character Class: <a href='https://www.regular-expressions.info/charclass.html'>https://www.regular-expressions.info/charclass.html</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>anything_but</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"abc"</span>)</div><div class='output co'>#&gt; [1] "(?:[^abc]*)"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>anything_but</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"abc"</span>)</div><div class='output co'>#&gt; [1] "(?:[^abc]*)"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#references">References</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
