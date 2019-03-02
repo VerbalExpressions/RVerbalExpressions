@@ -23,7 +23,9 @@ x <- start_of_line() \%>\%
   anything() \%>\%
   end_of_line()
 
-grepl(x, "anything!") # this should be true
+grepl(x, "anything!")  # this should be true
+grepl(anything(), "")  # this should be true
+grepl(something(), "") # this should be false
 
 }
 \references{

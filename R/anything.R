@@ -15,7 +15,9 @@
 #'   anything() %>%
 #'   end_of_line()
 #'
-#' grepl(x, "anything!") # this should be true
+#' grepl(x, "anything!")  # this should be true
+#' grepl(anything(), "")  # this should be true
+#' grepl(something(), "") # this should be false
 #'
 #' @references
 #' Dot: \url{https://www.regular-expressions.info/dot.html}

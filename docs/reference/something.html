@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Match any character(s) any (including zero) number of times. — anything • RVerbalExpressions</title>
+<title>Match any character(s) at least once. — something • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,13 +30,12 @@
 
 
 
-<meta property="og:title" content="Match any character(s) any (including zero) number of times. — anything" />
+<meta property="og:title" content="Match any character(s) at least once. — something" />
 
-<meta property="og:description" content="This expression will match everything except line breaks using
-the dot and the star. The Dot . is a
-metacharacter and the Star * is a quantifier. When
-combined the expression is considered greedy because it will match everything
-(except line breaks) 0 or more times." />
+<meta property="og:description" content="This expression is almost identical to anything()
+with one major exception, a + is used instead of a *. This
+means something() expects something whereas
+anything() expects anything including... nothing!" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -125,22 +124,21 @@ combined the expression is considered greedy because it will match everything
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Match any character(s) any (including zero) number of times.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/anything.R'><code>R/anything.R</code></a></small>
-    <div class="hidden name"><code>anything.Rd</code></div>
+    <h1>Match any character(s) at least once.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/something.R'><code>R/something.R</code></a></small>
+    <div class="hidden name"><code>something.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This expression will match everything except line breaks using
-the <em>dot</em> and the <em>star</em>. The Dot <code>.</code> is a
-<em>metacharacter</em> and the Star <code>*</code> is a <em>quantifier</em>. When
-combined the expression is considered greedy because it will match everything
-(except line breaks) 0 or more times.</p>
+    <p>This expression is almost identical to <code><a href='anything.html'>anything()</a></code>
+with one major exception, a <code>+</code> is used instead of a <code>*</code>. This
+means <code>something()</code> expects <em>something</em> whereas
+<code><a href='anything.html'>anything()</a></code> expects <em>anything</em> including... nothing!</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>anything</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>something</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,17 +151,15 @@ combined the expression is considered greedy because it will match everything
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Dot: <a href='https://www.regular-expressions.info/dot.html'>https://www.regular-expressions.info/dot.html</a></p>
-<p>Star Quantifier: <a href='https://www.regular-expressions.info/repeat.html'>https://www.regular-expressions.info/repeat.html</a></p>
+    <p>Metacharacters: <a href='https://www.regular-expressions.info/characters.html#special'>https://www.regular-expressions.info/characters.html#special</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>anything</span>()</div><div class='output co'>#&gt; [1] "(?:.*)"</div><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='start_of_line.html'>start_of_line</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>anything</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='end_of_line.html'>end_of_line</a></span>()
+    <pre class="examples"><div class='input'><span class='fu'>something</span>()</div><div class='output co'>#&gt; [1] "(?:.+)"</div><div class='input'>
+<span class='co'># construct an expression</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>something</span>()
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"anything!"</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'>anything</span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='something.html'>something</a></span>(), <span class='st'>""</span>) <span class='co'># this should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"something!"</span>) <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>""</span>)           <span class='co'># this should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='anything.html'>anything</a></span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
