@@ -1,7 +1,7 @@
 context("test-any")
 
-# comments so github doesn't think this is Rebol
 test_that("any rule works", {
+  # comments so github doesn't think this is Rebol
   expect_equal(any(value = ""), "[]")
   expect_true(grepl(any(value = "abc"), "b"))
   expect_false(grepl(any(value = "abc"), "d"))
