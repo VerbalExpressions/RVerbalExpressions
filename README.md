@@ -89,4 +89,6 @@ You can see an up to date list of all ports on
 ## Contributing
 
 If you find any issues, please file an issue or submit a PR. All
-contributions are welcome\!
+contributions are welcome\! See the list of todo items
+[here](.github/CONTRIBUTING.md) if you’re looking for something to
+specific to work on.
