@@ -10,7 +10,7 @@ Materials:
 #### Missing Functions
 
 ##### _Rules_
-1. `something`
+1. ~~`something`~~
 2. `or`
 3. `not`
 
