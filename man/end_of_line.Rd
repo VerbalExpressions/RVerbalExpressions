@@ -13,14 +13,11 @@ end_of_line(.data = NULL, enable = TRUE)
 }
 \description{
 Control whether to match the expression only if it appears till
-the end of the line.
-}
-\details{
-This function is slighly different than \code{start_of_line()}
-because it has the additional argument \code{.data} which allows the user to
-pass a value to to it. This is meant to allow \code{dplyr} chains to
-function properly as \code{.data} defaults to \code{NULL} and will pull
-the data from the previous step in the chain.
+the end of the line. Basically, append a \code{$} to the end of the
+expression. The dollar sign is considered an \emph{anchor} and matches the
+position of characters. It can be used to "anchor" the regex match at a
+certain position, in this case the dollar sign matches right after the last
+character in the string.
 }
 \examples{
 end_of_line(enable = TRUE)
@@ -34,4 +31,8 @@ x <- start_of_line(FALSE) \%>\%
 
 grepl(x, "apples") # should be false
 grepl(x, "apple")  # should be true
+
+}
+\references{
+Anchors: \url{https://www.regular-expressions.info/anchors.html}
 }
