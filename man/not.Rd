@@ -14,9 +14,9 @@ not(.data = NULL, value)
 \description{
 This expression uses a \emph{negative lookahead} to ensure the
 value given does not follow the previous verbal expression,
-\code{perl = TRUE} is required. For example, if you were look for the letter
-\emph{q} but not the letter \emph{u} you might translate this to, "find the
-letter q everytime the letter u does \emph{not} come after it".
+\code{perl = TRUE} is required. For example, if you were to look for the
+letter \emph{q} but not the letter \emph{u} you might translate this to,
+"find the letter q everytime the letter u does \emph{not} come after it".
 }
 \examples{
 not(value = "FEB-28")
