@@ -50,7 +50,7 @@ Source: https://stackoverflow.com/questions/31105862
 
 ## Remove everything after a specific character
 
-In this example, we want to remove everything after a period. For example, NM_020506.1 should give us NM_020506:
+In this example, we want to remove everything after the _last_ period. For example, NM.020506.1 should give us NM.020506:
 
 ```{r}
 string <- c("NM_020506.1", 
