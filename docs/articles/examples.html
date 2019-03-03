@@ -132,26 +132,27 @@
 <a class="sourceLine" id="cb3-3" data-line-number="3">            <span class="st">"NM_001030297.2"</span>, </a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">            <span class="st">"NM_010281.2"</span>, </a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">            <span class="st">"NM_011419.3"</span>, </a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">            <span class="st">"NM_053155.2"</span>)  </a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">            <span class="st">"NM.053155.2"</span>)  </a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/find.html">find</a></span>(<span class="dt">value =</span> <span class="st">"."</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/anything.html">anything</a></span>()</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">x</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; [1] "(?:\\.)(?:.*)"</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># base R approach</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(x, <span class="st">""</span>, string)</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; [1] "NM_020506"    "NM_020519"    "NM_001030297" "NM_010281"   </span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; [5] "NM_011419"    "NM_053155"</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co"># stringr approach</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co"># stringr::str_remove(string, x)</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/anything_but.html">anything_but</a></span>(<span class="st">"."</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="../reference/end_of_line.html">end_of_line</a></span>()</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">x</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; [1] "(?:\\.)(?:[^\\.]*)$"</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co"># base R approach</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(x, <span class="st">""</span>, string)</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; [1] "NM_020506"    "NM_020519"    "NM_001030297" "NM_010281"   </span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; [5] "NM_011419"    "NM.053155"</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co"># stringr approach</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co"># stringr::str_remove(string, x)</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>First, <code>find</code> the period</li>
-<li>Second, match <code>anything</code>
-</li>
-<li>Third, use <code>gsub</code> to replace <code>anything</code> we found after the period with an empty character</li>
+<li>Second, match <code>anything_but</code> a period</li>
+<li>Third, enable <code>end_of_line</code> behavior to ensure we grab the last period</li>
+<li>Fourth, use <code>gsub</code> to replace <code>anything</code> we found after the last period with an empty character</li>
 </ol>
 <p>Source: <a href="https://stackoverflow.com/questions/10617702" class="uri">https://stackoverflow.com/questions/10617702</a></p>
 </div>

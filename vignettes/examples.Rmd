@@ -58,10 +58,11 @@ string <- c("NM_020506.1",
             "NM_001030297.2", 
             "NM_010281.2", 
             "NM_011419.3", 
-            "NM_053155.2")  
+            "NM.053155.2")  
 
 x <- find(value = ".") %>% 
-  anything()
+  anything_but(".") %>% 
+  end_of_line()
 
 x
 
@@ -73,8 +74,9 @@ gsub(x, "", string)
 ```
 
 1. First, `find` the period
-2. Second, match `anything`
-3. Third, use `gsub` to replace `anything` we found after the period with an empty character
+2. Second, match `anything_but` a period
+3. Third, enable `end_of_line` behavior to ensure we grab the last period
+4. Fourth, use `gsub` to replace `anything` we found after the last period with an empty character
 
 Source: https://stackoverflow.com/questions/10617702
 
