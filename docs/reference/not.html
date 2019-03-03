@@ -33,7 +33,10 @@
 <meta property="og:title" content="Ensure that the parameter does not follow. — not" />
 
 <meta property="og:description" content="This expression uses a negative lookahead to ensure the
-value given does not follow the previous verbal expression." />
+value given does not follow the previous verbal expression,
+perl = TRUE is required. For example, if you were look for the letter
+q but not the letter u you might translate this to, &quot;find the
+letter q everytime the letter u does not come after it&quot;." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -130,7 +133,10 @@ value given does not follow the previous verbal expression." />
     <div class="ref-description">
     
     <p>This expression uses a <em>negative lookahead</em> to ensure the
-value given does not follow the previous verbal expression.</p>
+value given does not follow the previous verbal expression,
+<code>perl = TRUE</code> is required. For example, if you were look for the letter
+<em>q</em> but not the letter <em>u</em> you might translate this to, "find the
+letter q everytime the letter u does <em>not</em> come after it".</p>
     
     </div>
 
@@ -166,6 +172,10 @@ value given does not follow the previous verbal expression.</p>
 
 <span class='co'># extract matches, perl = TRUE is required for negative lookahead</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>, <span class='kw'>perl</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1] "FEB-29"</div><div class='input'>
+<span class='co'># another example</span>
+<span class='fu'><a href='find.html'>find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"q"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>not</span>(<span class='st'>"u"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"qu"</span>, <span class='st'>"qa"</span>, <span class='st'>"qq"</span>, <span class='st'>"q"</span>, <span class='st'>"q u"</span>), <span class='kw'>perl</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] FALSE  TRUE  TRUE  TRUE  TRUE</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

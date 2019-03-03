@@ -16,4 +16,5 @@ test_that("br special character works", {
 
   # expect match
   expect_true(grepl(br(), "hello\rworld"))
+
 })

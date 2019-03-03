@@ -13,7 +13,10 @@ not(.data = NULL, value)
 }
 \description{
 This expression uses a \emph{negative lookahead} to ensure the
-value given does not follow the previous verbal expression.
+value given does not follow the previous verbal expression,
+\code{perl = TRUE} is required. For example, if you were look for the letter
+\emph{q} but not the letter \emph{u} you might translate this to, "find the
+letter q everytime the letter u does \emph{not} come after it".
 }
 \examples{
 not(value = "FEB-28")
@@ -28,6 +31,11 @@ string <- c("FEB-29-2017", "FEB-28-2017")
 
 # extract matches, perl = TRUE is required for negative lookahead
 regmatches(string, regexpr(x, string, perl = TRUE))
+
+# another example
+find(value = "q") \%>\%
+  not("u") \%>\%
+  grepl(x = c("qu", "qa", "qq", "q", "q u"), perl = TRUE)
 
 }
 \references{
