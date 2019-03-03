@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette compiles a variety of examples, most taken straight from [Stack Overflow](https://stackoverflow.com/). When possible, I will link the source of the example. To run any of the examples (i.e. copy/paste), just run the following:
+This vignette compiles a variety of examples, most taken straight from [Stack Overflow](https://stackoverflow.com/). When possible, I will link the source of the example. To run any of the examples (i.e. copy/paste), load the following package:
 
 ```{r setup, message=FALSE}
 library(RVerbalExpressions)
@@ -48,4 +48,33 @@ unlist(regmatches(string, gregexpr(x, string)))
 
 Source: https://stackoverflow.com/questions/31105862
 
+## Remove everything after a specific character
+
+In this example, we want to remove everything after a period. For example, NM_020506.1 should give us NM_020506:
+
+```{r}
+string <- c("NM_020506.1", 
+            "NM_020519.1", 
+            "NM_001030297.2", 
+            "NM_010281.2", 
+            "NM_011419.3", 
+            "NM_053155.2")  
+
+x <- find(value = ".") %>% 
+  anything()
+
+x
+
+# base R approach
+gsub(x, "", string)
+
+# stringr approach
+# stringr::str_remove(string, x)
+```
+
+1. First, `find` the period
+2. Second, match `anything`
+3. Third, use `gsub` to replace `anything` we found after the period with an empty character
+
+Source: https://stackoverflow.com/questions/10617702
 
