@@ -18,9 +18,8 @@ Status](https://api.netlify.com/api/v1/badges/e49a67b8-17c9-40ba-9e53-3f9d83590e
 <!-- badges: end -->
 
 The goal of `RVerbalExpressions` is to make it easier to construct
-regular expressions. Grammar and functionality inspired by
-[VerbalExpressions](https://github.com/VerbalExpressions), this is
-essentially another port using the R programming language. Usage of
+regular expressions using grammar and functionality inspired by
+[VerbalExpressions](https://github.com/VerbalExpressions). Usage of
 `%>%` is encouraged to build expressions in a chain like fashion.
 
 There are a couple of functions missing from the original
@@ -86,10 +85,13 @@ You can see an up to date list of all ports on
   - [Perl](https://github.com/VerbalExpressions/PerlVerbalExpressions)
   - [Swift](https://github.com/VerbalExpressions/SwiftVerbalExpressions)
 
-Additionally, there is another R package
-[rex](https://github.com/kevinushey/rex) by
-[@kevinushey](https://twitter.com/kevin_ushey) that tries to solve the
-same problem. I encourage you to check it out\!
+Additionally, there are two R packages that try to solve the same
+problem. I encourage you to check these out:
+
+1.  [rex](https://github.com/kevinushey/rex) by
+    [@kevinushey](https://twitter.com/kevin_ushey)
+2.  [rebus](https://github.com/richierocks/rebus) by
+    [@richierocks](https://twitter.com/richierocks?lang=en)
 
 ## Contributing
 
