@@ -11,7 +11,7 @@ test_that("any_of rule works", {
   expect_false(grepl(any_of(value = "abc"), "d"))
 
   # expect pipe functionality
-  expect_equal(any(.data = "^", value = "abc"), "^[abc]")
+  expect_equal(any_of(.data = "^", value = "abc"), "^[abc]")
 
   # expect correct number of matches
   expect_true(length(unlist(regmatches("abba", gregexpr(any_of(value = "a"), "abba")))) == 2)

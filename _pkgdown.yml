@@ -12,7 +12,6 @@ reference:
 - title: Rules
   desc: ~
   contents:
-  - '`any`'
   - '`any_of`'
   - '`anything`'
   - '`anything_but`'
@@ -25,7 +24,6 @@ reference:
   - '`something`'
   - '`something_but`'
   - '`start_of_line`'
-  - '`then`'
 - title: Loops
   desc: ~
   contents:

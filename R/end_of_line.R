@@ -17,7 +17,7 @@
 #'
 #' # create expression
 #' x <- start_of_line(FALSE) %>%
-#'   then("apple") %>%
+#'   find("apple") %>%
 #'   end_of_line()
 #'
 #' grepl(x, "apples") # should be false

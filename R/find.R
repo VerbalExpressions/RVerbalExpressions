@@ -1,24 +1,19 @@
-#' Match an expression (alias for \code{then()}).
+#' Match an expression.
 #'
 #' @description This expression uses a \emph{non capturing group} to identify a
-#' specific pattern when you do not need the group to capture its match. Alias
-#' for then. Meant for semantics when used at the beginning of a verbal
-#' expression. For example, \code{find(value = 'foo')} is more readable than
-#' \code{then(value = 'foo')}.
+#' specific pattern exactly.
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#' @param value Expression to match
+#' @param value Exact expression to match
 #'
 #' @examples
 #' find(value = "apple")
 #'
 #' # create expression
-#' x <- start_of_line() %>%
-#'   find("apple") %>%
-#'   end_of_line()
+#' x <- find(value = "apples")
 #'
-#' grepl(x, "apples") # should be false
-#' grepl(x, "apple")  # should be true
+#' grepl(x, "apple")  # should be false
+#' grepl(x, "apples") # should be true
 #'
 #' @references
 #' Non capturing group: \url{https://www.regular-expressions.info/brackets.html}

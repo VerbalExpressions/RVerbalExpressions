@@ -9,7 +9,7 @@ test_that("maybe rule works", {
   expect_true(grepl(maybe(value = "xyz"), "abc"))
 
   # expect match
-  expect_true(start_of_line() %>% then("http") %>%  maybe("s") %>% grepl(x = "http"))
+  expect_true(start_of_line() %>% find("http") %>%  maybe("s") %>% grepl(x = "http"))
 
   # expect error when value param is not assigned
   expect_error(maybe())

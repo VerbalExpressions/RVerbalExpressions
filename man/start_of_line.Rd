@@ -19,7 +19,7 @@ start_of_line(enable = FALSE)
 
 # create expression
 x <- start_of_line() \%>\%
-  then("apple")
+  find("apple")
 
 grepl(x, "pineapple") # should be false
 grepl(x, "apple")     # should be true

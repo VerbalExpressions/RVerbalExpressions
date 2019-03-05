@@ -119,9 +119,9 @@
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># construct an expression</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw"><a href="reference/start_of_line.html">start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/then.html">then</a></span>(<span class="st">'http'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/find.html">find</a></span>(<span class="st">'http'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/maybe.html">maybe</a></span>(<span class="st">'s'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/then.html">then</a></span>(<span class="st">'://'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/find.html">find</a></span>(<span class="st">'://'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/maybe.html">maybe</a></span>(<span class="st">'www.'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/anything_but.html">anything_but</a></span>(<span class="st">' '</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/end_of_line.html">end_of_line</a></span>()</a>

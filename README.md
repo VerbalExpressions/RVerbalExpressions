@@ -52,9 +52,9 @@ library(RVerbalExpressions)
 
 # construct an expression
 x <- start_of_line() %>% 
-  then('http') %>% 
+  find('http') %>% 
   maybe('s') %>% 
-  then('://') %>% 
+  find('://') %>% 
   maybe('www.') %>% 
   anything_but(' ') %>% 
   end_of_line()
