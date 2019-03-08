@@ -4,12 +4,15 @@
 \alias{something_but}
 \title{Match any character(s) except these at least once.}
 \usage{
-something_but(.data = NULL, value)
+something_but(.data = NULL, value, mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 
 \item{value}{Expression to optionally match}
+
+\item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
+searching until end of the string and then back-tracks to the last match.}
 }
 \description{
 This expression is almost identical to \code{anything_but()}
@@ -29,4 +32,6 @@ grepl(x, "py") # should be false
 }
 \references{
 Metacharacters: \url{https://www.regular-expressions.info/characters.html#special}
+
+Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 }

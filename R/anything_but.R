@@ -12,6 +12,8 @@
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #' @param value Characters to not match
+#' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
+#' searching until end of the string and then back-tracks to the last match.
 #'
 #' @examples
 #' anything_but(value = "abc")
@@ -19,6 +21,10 @@
 #' @references
 #' Character Class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
-anything_but <- function(.data = NULL, value) {
-  paste0(.data, "(?:[^", sanitize(value), "]*)")
+anything_but <- function(.data = NULL, value, mode = "greedy") {
+  switch(mode,
+    greedy = paste0(.data, "(?:[^", sanitize(value), "]*)"),
+    lazy = paste0(.data, "(?:[^", sanitize(value), "]*?)"),
+    stop("Please, provide valid 'mode' argument")
+    )
 }
