@@ -30,9 +30,9 @@ There are a couple of functions missing from the original
 2.  `add` is a utility function for appending expressions to one another
     and isn’t included because we use `%>%` for that
 3.  `then` is not included because the pipe `%>%` is often pronounced
-    “then” and `find` provides the same functionality
+    “then” and `rx_find` provides the same functionality
 4.  `any` is not included because it collides with `base::any()` and
-    `any_of` provides the same functionality
+    `rx_any_of` provides the same functionality
 
 Others just haven’t made it yet, see [here](.github/CONTRIBUTING.md).
 
