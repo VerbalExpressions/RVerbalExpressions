@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Begin a Verbal Expression — rx • RVerbalExpressions</title>
+<title>Constructs a Verbal Expression — rx • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="Begin a Verbal Expression — rx" />
+<meta property="og:title" content="Constructs a Verbal Expression — rx" />
 
-<meta property="og:description" content="Begin a Verbal Expression" />
+<meta property="og:description" content="Add this to the beginning of every verbal expression chain. This
+simply returns an empty character vector so that the next step in the chain
+can provide a value without explicityly writing value = &quot;blah&quot;." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,25 +126,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Begin a Verbal Expression</h1>
+    <h1>Constructs a Verbal Expression</h1>
     <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/rx.R'><code>R/rx.R</code></a></small>
     <div class="hidden name"><code>rx.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Begin a Verbal Expression</p>
+    <p>Add this to the beginning of every verbal expression chain. This
+simply returns an empty character vector so that the next step in the chain
+can provide a value without explicityly writing <code>value = "blah"</code>.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>rx</span>()</pre>
         
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>rx</span>()</div><div class='output co'>#&gt; [1] ""</div><div class='input'>
+<span class='co'># this</span>
+<span class='fu'>rx</span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"cat"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_anything.html'>rx_anything</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"dog"</span>)</div><div class='output co'>#&gt; [1] "(?:cat)(?:.*)(?:dog)"</div><div class='input'>
+<span class='co'># instead of</span>
+<span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"cat"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_anything.html'>rx_anything</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"dog"</span>)</div><div class='output co'>#&gt; [1] "(?:cat)(?:.*)(?:dog)"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

@@ -2,10 +2,26 @@
 % Please edit documentation in R/rx.R
 \name{rx}
 \alias{rx}
-\title{Begin a Verbal Expression}
+\title{Constructs a Verbal Expression}
 \usage{
 rx()
 }
 \description{
-Begin a Verbal Expression
+Add this to the beginning of every verbal expression chain. This
+simply returns an empty character vector so that the next step in the chain
+can provide a value without explicityly writing \code{value = "blah"}.
+}
+\examples{
+rx()
+
+# this
+rx() \%>\%
+  rx_find("cat") \%>\%
+  rx_anything() \%>\%
+  rx_find("dog")
+
+# instead of
+rx_find(value = "cat") \%>\%
+  rx_anything() \%>\%
+  rx_find("dog")
 }

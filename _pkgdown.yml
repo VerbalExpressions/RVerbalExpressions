@@ -9,6 +9,7 @@ reference:
   desc: ~
   contents:
   - '`sanitize`'
+  - '`rx`'
 - title: Rules
   desc: ~
   contents:
