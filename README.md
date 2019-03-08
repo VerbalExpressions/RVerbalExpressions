@@ -55,13 +55,13 @@ expression:
 library(RVerbalExpressions)
 
 # construct an expression
-x <- start_of_line() %>% 
-  find('http') %>% 
-  maybe('s') %>% 
-  find('://') %>% 
-  maybe('www.') %>% 
-  anything_but(' ') %>% 
-  end_of_line()
+x <- rx_start_of_line() %>% 
+  rx_find('http') %>% 
+  rx_maybe('s') %>% 
+  rx_find('://') %>% 
+  rx_maybe('www.') %>% 
+  rx_anything_but(' ') %>% 
+  rx_end_of_line()
 
 x
 #> [1] "^(?:http)(?:s)?(?:\\://)(?:www\\.)?(?:[^ ]*)$"

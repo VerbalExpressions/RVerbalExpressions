@@ -12,37 +12,37 @@ reference:
 - title: Rules
   desc: ~
   contents:
-  - '`any_of`'
-  - '`anything`'
-  - '`anything_but`'
-  - '`end_of_line`'
-  - '`find`'
-  - '`maybe`'
-  - '`not`'
-  - '`or`'
-  - '`range`'
-  - '`something`'
-  - '`something_but`'
-  - '`start_of_line`'
+  - '`rx_any_of`'
+  - '`rx_anything`'
+  - '`rx_anything_but`'
+  - '`rx_end_of_line`'
+  - '`rx_find`'
+  - '`rx_maybe`'
+  - '`rx_not`'
+  - '`rx_or`'
+  - '`rx_range`'
+  - '`rx_something`'
+  - '`rx_something_but`'
+  - '`rx_start_of_line`'
 - title: Loops
   desc: ~
   contents:
-  - '`one_or_more`'
+  - '`rx_one_or_more`'
 - title: Special Characters
   desc: ~
   contents:
-  - '`br`'
-  - '`digit`'
-  - '`line_break`'
-  - '`tab`'
-  - '`whitespace`'
-  - '`word`'
+  - '`rx_br`'
+  - '`rx_digit`'
+  - '`rx_line_break`'
+  - '`rx_tab`'
+  - '`rx_whitespace`'
+  - '`rx_word`'
 - title: Capture Groups
   desc: ~
   contents:
-  - '`begin_capture`'
-  - '`end_capture`'
+  - '`rx_begin_capture`'
+  - '`rx_end_capture`'
 - title: Modifiers
   desc: ~
   contents:
-  - '`with_any_case`'
+  - '`rx_with_any_case`'

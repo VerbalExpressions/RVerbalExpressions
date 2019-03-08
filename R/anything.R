@@ -9,21 +9,21 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' anything()
+#' rx_anything()
 #'
-#' x <- start_of_line() %>%
-#'   anything() %>%
-#'   end_of_line()
+#' x <- rx_start_of_line() %>%
+#'   rx_anything() %>%
+#'   rx_end_of_line()
 #'
 #' grepl(x, "anything!")  # this should be true
-#' grepl(anything(), "")  # this should be true
-#' grepl(something(), "") # this should be false
+#' grepl(rx_anything(), "")  # this should be true
+#' grepl(rx_something(), "") # this should be false
 #'
 #' @references
 #' Dot: \url{https://www.regular-expressions.info/dot.html}
 #'
 #' Star Quantifier: \url{https://www.regular-expressions.info/repeat.html}
 #' @export
-anything <- function(.data = NULL) {
+rx_anything <- function(.data = NULL) {
   paste0(.data, "(?:.*)")
 }

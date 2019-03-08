@@ -6,10 +6,10 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' word()
+#' rx_word()
 #'
 #' # create an expression
-#' x <- word()
+#' x <- rx_word()
 #'
 #' # create inputs
 #' string1 <- "foo_bar"
@@ -19,6 +19,6 @@
 #' regmatches(string1, regexpr(x, string1))
 #' regmatches(string2, regexpr(x, string2)) # doesn't match -
 #' @export
-word <- function(.data = NULL) {
+rx_word <- function(.data = NULL) {
   paste0(.data, "\\w+")
 }

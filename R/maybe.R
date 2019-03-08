@@ -8,18 +8,18 @@
 #' @param value Expression to optionally match
 #'
 #' @examples
-#' maybe(value = "abc")
+#' rx_maybe(value = "abc")
 #'
 #' # create expression
-#' x <- start_of_line() %>%
-#'   maybe("abc") %>%
-#'   end_of_line(enable = FALSE)
+#' x <- rx_start_of_line() %>%
+#'   rx_maybe("abc") %>%
+#'   rx_end_of_line(enable = FALSE)
 #'
 #' grepl(x, "xyz") # should be true
 #'
 #' @references
 #' Quantifiers: \url{https://www.regular-expressions.info/optional.html}
 #' @export
-maybe <- function(.data = NULL, value) {
+rx_maybe <- function(.data = NULL, value) {
   paste0(.data, "(?:", sanitize(value), ")?")
 }

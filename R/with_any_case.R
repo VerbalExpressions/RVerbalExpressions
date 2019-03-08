@@ -6,20 +6,20 @@
 #' @param enable Whether to enable this behavior
 #'
 #' @examples
-#' with_any_case()
+#' rx_with_any_case()
 #'
 #' # case insensitive
-#' x <- find(value = "abc") %>%
-#'   with_any_case()
+#' x <- rx_find(value = "abc") %>%
+#'   rx_with_any_case()
 #'
 #' # case sensitive
-#' y <- find(value = "abc") %>%
-#'   with_any_case(enable = FALSE)
+#' y <- rx_find(value = "abc") %>%
+#'   rx_with_any_case(enable = FALSE)
 #'
 #' grepl(x, "ABC") # should be true
 #' grepl(y, "ABC") # should be false
 #' @export
-with_any_case <- function(.data = NULL, enable = TRUE) {
+rx_with_any_case <- function(.data = NULL, enable = TRUE) {
   if(is.null(.data) & enable == TRUE) {
     paste0("(?i)")
   } else if(!is.null(.data) & enable == TRUE) {

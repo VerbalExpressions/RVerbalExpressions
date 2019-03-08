@@ -1,13 +1,13 @@
-context("test-tab")
+context("test-rx_tab")
 
 test_that("tab special character works", {
   # expect minimal output
-  expect_equal(tab(), "\\t")
+  expect_equal(rx_tab(), "\\t")
 
   # expect match
-  expect_true(grepl(tab(), "\t"))
+  expect_true(grepl(rx_tab(), "\t"))
 
   # expect match
-  expect_true(grepl(tab(), "hello\tworld"))
+  expect_true(grepl(rx_tab(), "hello\tworld"))
 
 })

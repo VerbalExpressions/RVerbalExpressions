@@ -11,14 +11,14 @@
 #' @param enable Whether to enable this behavior, defaults to \code{TRUE}
 #'
 #' @examples
-#' end_of_line(enable = TRUE)
-#' end_of_line(enable = FALSE)
-#' end_of_line("abc", enable = TRUE)
+#' rx_end_of_line(enable = TRUE)
+#' rx_end_of_line(enable = FALSE)
+#' rx_end_of_line("abc", enable = TRUE)
 #'
 #' # create expression
-#' x <- start_of_line(FALSE) %>%
-#'   find("apple") %>%
-#'   end_of_line()
+#' x <- rx_start_of_line(FALSE) %>%
+#'   rx_find("apple") %>%
+#'   rx_end_of_line()
 #'
 #' grepl(x, "apples") # should be false
 #' grepl(x, "apple")  # should be true
@@ -26,7 +26,7 @@
 #' @references
 #' Anchors: \url{https://www.regular-expressions.info/anchors.html}
 #' @export
-end_of_line <- function(.data = NULL, enable = TRUE) {
+rx_end_of_line <- function(.data = NULL, enable = TRUE) {
   if (enable) {
     paste0(.data, "$")
   } else {

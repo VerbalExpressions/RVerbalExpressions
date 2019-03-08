@@ -10,15 +10,15 @@
 #' parameters; unpaired parameters are ignored.
 #'
 #' @examples
-#' range(value = c('1', '3'))
+#' rx_range(value = c('1', '3'))
 #'
 #' # create an expression
-#' x <- range(value = c('1', '3'))
+#' x <- rx_range(value = c('1', '3'))
 #'
 #' grepl(x, "2") # should be true
 #' grepl(x, "4") # should be false
 #' @export
-range <- function(.data = NULL, value) {
+rx_range <- function(.data = NULL, value) {
   value <- split(value, ceiling(seq_along(value)/2))
   value <- value[lengths(value) == 2]
   value <- lapply(value, function(i) paste0(i[1], "-", i[2]))

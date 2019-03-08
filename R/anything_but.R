@@ -14,11 +14,11 @@
 #' @param value Characters to not match
 #'
 #' @examples
-#' anything_but(value = "abc")
+#' rx_anything_but(value = "abc")
 #'
 #' @references
 #' Character Class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
-anything_but <- function(.data = NULL, value) {
+rx_anything_but <- function(.data = NULL, value) {
   paste0(.data, "(?:[^", sanitize(value), "]*)")
 }
