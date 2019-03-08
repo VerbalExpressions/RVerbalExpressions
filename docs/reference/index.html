@@ -145,6 +145,12 @@
           <p><code><a href="sanitize.html">sanitize()</a></code> </p>
         </td>
         <td><p>Escape characters expected special by regex engines</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rx.html">rx()</a></code> </p>
+        </td>
+        <td><p>Constructs a Verbal Expression</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -156,73 +162,73 @@
       <tr>
         
         <td>
-          <p><code><a href="any_of.html">any_of()</a></code> </p>
+          <p><code><a href="rx_any_of.html">rx_any_of()</a></code> </p>
         </td>
         <td><p>Match any of these characters exactly once.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="anything.html">anything()</a></code> </p>
+          <p><code><a href="rx_anything.html">rx_anything()</a></code> </p>
         </td>
         <td><p>Match any character(s) any (including zero) number of times.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="anything_but.html">anything_but()</a></code> </p>
+          <p><code><a href="rx_anything_but.html">rx_anything_but()</a></code> </p>
         </td>
         <td><p>Match any character(s) except these any (including zero) number of times.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="end_of_line.html">end_of_line()</a></code> </p>
+          <p><code><a href="rx_end_of_line.html">rx_end_of_line()</a></code> </p>
         </td>
         <td><p>Match the expression only if it appears till the end of the line.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="find.html">find()</a></code> </p>
+          <p><code><a href="rx_find.html">rx_find()</a></code> </p>
         </td>
         <td><p>Match an expression.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="maybe.html">maybe()</a></code> </p>
+          <p><code><a href="rx_maybe.html">rx_maybe()</a></code> </p>
         </td>
         <td><p>Optionally match an expression.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="not.html">not()</a></code> </p>
+          <p><code><a href="rx_not.html">rx_not()</a></code> </p>
         </td>
         <td><p>Ensure that the parameter does not follow.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="or.html">or()</a></code> </p>
+          <p><code><a href="rx_or.html">rx_or()</a></code> </p>
         </td>
         <td><p>Alternatively, match another expression.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="range.html">range()</a></code> </p>
+          <p><code><a href="rx_range.html">rx_range()</a></code> </p>
         </td>
         <td><p>Match any character within the range defined by the parameters.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="something.html">something()</a></code> </p>
+          <p><code><a href="rx_something.html">rx_something()</a></code> </p>
         </td>
         <td><p>Match any character(s) at least once.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="something_but.html">something_but()</a></code> </p>
+          <p><code><a href="rx_something_but.html">rx_something_but()</a></code> </p>
         </td>
         <td><p>Match any character(s) except these at least once.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="start_of_line.html">start_of_line()</a></code> </p>
+          <p><code><a href="rx_start_of_line.html">rx_start_of_line()</a></code> </p>
         </td>
         <td><p>Match the expression only if it appears from beginning of line.</p></td>
       </tr>
@@ -236,7 +242,7 @@
       <tr>
         
         <td>
-          <p><code><a href="one_or_more.html">one_or_more()</a></code> </p>
+          <p><code><a href="rx_one_or_more.html">rx_one_or_more()</a></code> </p>
         </td>
         <td><p>Match the previous stuff one or more times.</p></td>
       </tr>
@@ -250,37 +256,37 @@
       <tr>
         
         <td>
-          <p><code><a href="br.html">br()</a></code> </p>
+          <p><code><a href="rx_br.html">rx_br()</a></code> </p>
         </td>
-        <td><p>Match a line break (alias of <code>line_break()</code>).</p></td>
+        <td><p>Match a line break (alias of <code>rx_line_break()</code>).</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="digit.html">digit()</a></code> </p>
+          <p><code><a href="rx_digit.html">rx_digit()</a></code> </p>
         </td>
         <td><p>Match a digit (0–9).</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="line_break.html">line_break()</a></code> </p>
+          <p><code><a href="rx_line_break.html">rx_line_break()</a></code> </p>
         </td>
         <td><p>Match a line break.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="tab.html">tab()</a></code> </p>
+          <p><code><a href="rx_tab.html">rx_tab()</a></code> </p>
         </td>
         <td><p>Match a tab character.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="whitespace.html">whitespace()</a></code> </p>
+          <p><code><a href="rx_whitespace.html">rx_whitespace()</a></code> </p>
         </td>
         <td><p>Match a whitespace character.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="word.html">word()</a></code> </p>
+          <p><code><a href="rx_word.html">rx_word()</a></code> </p>
         </td>
         <td><p>Match a word.</p></td>
       </tr>
@@ -294,13 +300,13 @@
       <tr>
         
         <td>
-          <p><code><a href="begin_capture.html">begin_capture()</a></code> </p>
+          <p><code><a href="rx_begin_capture.html">rx_begin_capture()</a></code> </p>
         </td>
         <td><p>Begin a capture group.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="end_capture.html">end_capture()</a></code> </p>
+          <p><code><a href="rx_end_capture.html">rx_end_capture()</a></code> </p>
         </td>
         <td><p>End a capture group.</p></td>
       </tr>
@@ -314,7 +320,7 @@
       <tr>
         
         <td>
-          <p><code><a href="with_any_case.html">with_any_case()</a></code> </p>
+          <p><code><a href="rx_with_any_case.html">rx_with_any_case()</a></code> </p>
         </td>
         <td><p>Control case-insensitive matching.</p></td>
       </tr>

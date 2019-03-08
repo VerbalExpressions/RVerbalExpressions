@@ -11,16 +11,16 @@
 #' searching until end of the string and then back-tracks to the last match.
 #'
 #' @examples
-#' anything()
-#' anything(mode = "lazy")
+#' rx_anything()
+#' rx_anything(mode = "lazy")
 #'
-#' x <- start_of_line() %>%
-#'   anything() %>%
-#'   end_of_line()
+#' x <- rx_start_of_line() %>%
+#'   rx_anything() %>%
+#'   rx_end_of_line()
 #'
 #' grepl(x, "anything!")  # this should be true
-#' grepl(anything(), "")  # this should be true
-#' grepl(something(), "") # this should be false
+#' grepl(rx_anything(), "")  # this should be true
+#' grepl(rx_something(), "") # this should be false
 #'
 #' @references
 #' Dot: \url{https://www.regular-expressions.info/dot.html}
@@ -29,7 +29,7 @@
 #'
 #' Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 #' @export
-anything <- function(.data = NULL, mode = "greedy") {
+rx_anything <- function(.data = NULL, mode = "greedy") {
   switch(mode,
     greedy = paste0(.data, "(?:.*)"),
     lazy = paste0(.data, "(?:.*?)"),

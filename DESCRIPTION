@@ -1,11 +1,9 @@
 Package: RVerbalExpressions
 Title: Create regular expressions easily
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "Tyler",
-           family = "Littlefield",
-           role = c("aut", "cre"),
-           email = "tylurp1@gmail.com")
+Authors@R: as.person(c(
+    "Tyler Littlefield <tylurp1@gmail.com> [aut, cre]"
+  ))
 Description: The goal of `RVerbalExpressions` is to make it easier to construct 
     regular expressions. Grammar and functionality inspired by 
     [VerbalExpressions](https://github.com/VerbalExpressions). Usage of the 

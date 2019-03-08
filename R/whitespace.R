@@ -15,10 +15,10 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' whitespace()
+#' rx_whitespace()
 #'
 #' # create an expression
-#' x <- whitespace()
+#' x <- rx_whitespace()
 #'
 #' # create input
 #' string <- "1 apple"
@@ -26,6 +26,6 @@
 #' # extract match
 #' regmatches(string, regexpr(x, string))
 #' @export
-whitespace <- function(.data = NULL) {
+rx_whitespace <- function(.data = NULL) {
   paste0(.data, "\\s")
 }

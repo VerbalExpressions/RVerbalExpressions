@@ -6,10 +6,10 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' digit()
+#' rx_digit()
 #'
 #' # create an expression
-#' x <- digit()
+#' x <- rx_digit()
 #'
 #' # create input
 #' string <- "1 apple"
@@ -17,6 +17,6 @@
 #' # extract match
 #' regmatches(string, regexpr(x, string))
 #' @export
-digit <- function(.data = NULL) {
+rx_digit <- function(.data = NULL) {
   paste0(.data, "\\d")
 }

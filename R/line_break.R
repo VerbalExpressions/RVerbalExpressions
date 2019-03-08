@@ -6,10 +6,10 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' line_break()
+#' rx_line_break()
 #'
 #' # create an expression
-#' x <- line_break()
+#' x <- rx_line_break()
 #'
 #' # create input
 #' string <- "foo\nbar"
@@ -24,6 +24,6 @@
 #'
 #' Non printable character: \url{https://www.regular-expressions.info/nonprint.html}
 #' @export
-line_break <- function(.data = NULL) {
+rx_line_break <- function(.data = NULL) {
   paste0(.data, "(?:\\r\\n|\\r|\\n)")
 }

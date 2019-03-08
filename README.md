@@ -30,9 +30,9 @@ There are a couple of functions missing from the original
 2.  `add` is a utility function for appending expressions to one another
     and isn’t included because we use `%>%` for that
 3.  `then` is not included because the pipe `%>%` is often pronounced
-    “then” and `find` provides the same functionality
+    “then” and `rx_find` provides the same functionality
 4.  `any` is not included because it collides with `base::any()` and
-    `any_of` provides the same functionality
+    `rx_any_of` provides the same functionality
 
 Others just haven’t made it yet, see [here](.github/CONTRIBUTING.md).
 
@@ -55,13 +55,13 @@ expression:
 library(RVerbalExpressions)
 
 # construct an expression
-x <- start_of_line() %>% 
-  find('http') %>% 
-  maybe('s') %>% 
-  find('://') %>% 
-  maybe('www.') %>% 
-  anything_but(' ') %>% 
-  end_of_line()
+x <- rx_start_of_line() %>% 
+  rx_find('http') %>% 
+  rx_maybe('s') %>% 
+  rx_find('://') %>% 
+  rx_maybe('www.') %>% 
+  rx_anything_but(' ') %>% 
+  rx_end_of_line()
 
 x
 #> [1] "^(?:http)(?:s)?(?:\\://)(?:www\\.)?(?:[^ ]*)$"

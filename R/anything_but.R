@@ -16,12 +16,12 @@
 #' searching until end of the string and then back-tracks to the last match.
 #'
 #' @examples
-#' anything_but(value = "abc")
+#' rx_anything_but(value = "abc")
 #'
 #' @references
 #' Character Class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
-anything_but <- function(.data = NULL, value, mode = "greedy") {
+rx_anything_but <- function(.data = NULL, value, mode = "greedy") {
   switch(mode,
     greedy = paste0(.data, "(?:[^", sanitize(value), "]*)"),
     lazy = paste0(.data, "(?:[^", sanitize(value), "]*?)"),

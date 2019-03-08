@@ -1,4 +1,4 @@
-#' Match a line break (alias of \code{line_break()}).
+#' Match a line break (alias of \code{rx_line_break()}).
 #'
 #' @description This expression looks for line breaks, both Unix and Windows
 #' style by using the appropriate \emph{non printable characters}.
@@ -6,10 +6,10 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' br()
+#' rx_br()
 #'
 #' # create an expression
-#' x <- br()
+#' x <- rx_br()
 #'
 #' # create input
 #' string <- "foo\nbar"
@@ -24,6 +24,6 @@
 #'
 #' Non printable character: \url{https://www.regular-expressions.info/nonprint.html}
 #' @export
-br <- function(.data = NULL) {
+rx_br <- function(.data = NULL) {
   paste0(.data, "(?:\\r\\n|\\r|\\n)")
 }

@@ -10,8 +10,8 @@
 #'
 #' @examples
 #' # create an expression
-#' x <- find(value = "foo") %>%
-#'   or(find(value = "bar"))
+#' x <- rx_find(value = "foo") %>%
+#'   rx_or(rx_find(value = "bar"))
 #'
 #' # create strings
 #' string1 <- "foo!"
@@ -22,7 +22,7 @@
 #' regmatches(string2, gregexpr(x, string2))[[1]]
 #'
 #' @export
-or <- function(.data, value) {
+rx_or <- function(.data, value) {
   # Not sure if I like this. I would prefer:
   #
   # find(value = "foo") %>%

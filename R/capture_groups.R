@@ -6,7 +6,7 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @export
-begin_capture <- function(.data = NULL) {
+rx_begin_capture <- function(.data = NULL) {
   if(is.null(.data)) {
     paste0("(")
   } else {
@@ -22,7 +22,7 @@ begin_capture <- function(.data = NULL) {
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @export
-end_capture <- function(.data = NULL) {
+rx_end_capture <- function(.data = NULL) {
   if(is.null(.data)) {
     paste0(")")
   } else {

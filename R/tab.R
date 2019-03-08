@@ -9,10 +9,10 @@
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #'
 #' @examples
-#' tab()
+#' rx_tab()
 #'
 #' # create an expression
-#' x <- tab()
+#' x <- rx_tab()
 #'
 #' # create input
 #' string <- "foo\tbar"
@@ -20,6 +20,6 @@
 #' # extract match
 #' regmatches(string, regexpr(x, string))
 #' @export
-tab <- function(.data = NULL) {
+rx_tab <- function(.data = NULL) {
   paste0(.data, "\\t") # shouldn't this just be \t
 }

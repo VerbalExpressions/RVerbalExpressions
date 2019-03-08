@@ -9,10 +9,10 @@
 #' @param value Expression to optionally match
 #'
 #' @examples
-#' any_of(value = "abc")
+#' rx_any_of(value = "abc")
 #'
 #' # create an expression
-#' x <- any_of(value = "abc")
+#' x <- rx_any_of(value = "abc")
 #'
 #' grepl(x, "c") # should be true
 #' grepl(x, "d") # should be false
@@ -20,6 +20,6 @@
 #' @references
 #' Character class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
-any_of <- function(.data = NULL, value) {
+rx_any_of <- function(.data = NULL, value) {
   paste0(.data, "[", sanitize(value), "]")
 }

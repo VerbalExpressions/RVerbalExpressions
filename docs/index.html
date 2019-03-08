@@ -106,9 +106,9 @@
 <li>
 <code>add</code> is a utility function for appending expressions to one another and isn’t included because we use <code>%&gt;%</code> for that</li>
 <li>
-<code>then</code> is not included because the pipe <code>%&gt;%</code> is often pronounced “then” and <code>find</code> provides the same functionality</li>
+<code>then</code> is not included because the pipe <code>%&gt;%</code> is often pronounced “then” and <code>rx_find</code> provides the same functionality</li>
 <li>
-<code>any</code> is not included because it collides with <code><a href="https://www.rdocumentation.org/packages/base/topics/any">base::any()</a></code> and <code>any_of</code> provides the same functionality</li>
+<code>any</code> is not included because it collides with <code><a href="https://www.rdocumentation.org/packages/base/topics/any">base::any()</a></code> and <code>rx_any_of</code> provides the same functionality</li>
 </ol>
 <p>Others just haven’t made it yet, see <a href="CONTRIBUTING.html">here</a>.</p>
 <div id="installation" class="section level2">
@@ -125,13 +125,13 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(RVerbalExpressions)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># construct an expression</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw"><a href="reference/start_of_line.html">start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/find.html">find</a></span>(<span class="st">'http'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/maybe.html">maybe</a></span>(<span class="st">'s'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/find.html">find</a></span>(<span class="st">'://'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/maybe.html">maybe</a></span>(<span class="st">'www.'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/anything_but.html">anything_but</a></span>(<span class="st">' '</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/end_of_line.html">end_of_line</a></span>()</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw"><a href="reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/rx_find.html">rx_find</a></span>(<span class="st">'http'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/rx_maybe.html">rx_maybe</a></span>(<span class="st">'s'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/rx_find.html">rx_find</a></span>(<span class="st">'://'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/rx_maybe.html">rx_maybe</a></span>(<span class="st">'www.'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/rx_anything_but.html">rx_anything_but</a></span>(<span class="st">' '</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/rx_end_of_line.html">rx_end_of_line</a></span>()</a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12">x</a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; [1] "^(?:http)(?:s)?(?:\\://)(?:www\\.)?(?:[^ ]*)$"</span></a>

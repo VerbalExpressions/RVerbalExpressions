@@ -7,10 +7,10 @@
 #' @param value Exact expression to match
 #'
 #' @examples
-#' find(value = "apple")
+#' rx_find(value = "apple")
 #'
 #' # create expression
-#' x <- find(value = "apples")
+#' x <- rx_find(value = "apples")
 #'
 #' grepl(x, "apple")  # should be false
 #' grepl(x, "apples") # should be true
@@ -20,6 +20,6 @@
 #'
 #' Stack Overflow: \url{https://stackoverflow.com/questions/3512471}
 #' @export
-find <- function(.data = NULL, value) {
+rx_find <- function(.data = NULL, value) {
   paste0(.data, "(?:", sanitize(value), ")")
 }

@@ -10,12 +10,12 @@
 #' @param value Value to ensure absence of
 #'
 #' @examples
-#' not(value = "FEB-28")
+#' rx_not(value = "FEB-28")
 #'
 #' # construct expression
-#' x <- start_of_line() %>%
-#'   find('FEB-29') %>%
-#'   not("FEB-28")
+#' x <- rx_start_of_line() %>%
+#'   rx_find('FEB-29') %>%
+#'   rx_not("FEB-28")
 #'
 #' # create a string
 #' string <- c("FEB-29-2017", "FEB-28-2017")
@@ -24,14 +24,14 @@
 #' regmatches(string, regexpr(x, string, perl = TRUE))
 #'
 #' # another example
-#' find(value = "q") %>%
-#'   not("u") %>%
+#' rx_find(value = "q") %>%
+#'   rx_not("u") %>%
 #'   grepl(x = c("qu", "qa", "qq", "q", "q u"), perl = TRUE)
 #'
 #' @references
 #' Negative lookahead: \url{https://www.regular-expressions.info/lookaround.html}
 #'
 #' @export
-not <- function(.data = NULL, value) {
+rx_not <- function(.data = NULL, value) {
   paste0(.data, "(?!", sanitize(value), ")")
 }
