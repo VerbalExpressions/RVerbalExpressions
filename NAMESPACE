@@ -2,6 +2,7 @@
 
 export("%>%")
 export(rx)
+export(rx_alnum)
 export(rx_any_of)
 export(rx_anything)
 export(rx_anything_but)

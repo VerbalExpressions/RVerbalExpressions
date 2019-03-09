@@ -41,6 +41,7 @@ reference:
 - title: Special Characters
   desc: ~
   contents:
+  - '`rx_alnum`'
   - '`rx_br`'
   - '`rx_digit`'
   - '`rx_line_break`'
