@@ -42,6 +42,7 @@ reference:
   desc: ~
   contents:
   - '`rx_alnum`'
+  - '`rx_alpha`'
   - '`rx_br`'
   - '`rx_digit`'
   - '`rx_line_break`'
