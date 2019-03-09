@@ -104,60 +104,25 @@
 <p>In this example, we want to extract every word that comes after a @, including the @. To do this, we will:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">string &lt;-<span class="st"> "nowy commit, nowa przygoda @OSKI @data2 @pankote testujemy kod @oski2"</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="dt">value =</span> <span class="st">"@"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_range.html">rx_range</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"a"</span>, <span class="st">"z"</span>, <span class="dv">0</span>, <span class="dv">9</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_one_or_more.html">rx_one_or_more</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_with_any_case.html">rx_with_any_case</a></span>()</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="dt">value =</span> <span class="st">"@"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_alnum.html">rx_alnum</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_one_or_more.html">rx_one_or_more</a></span>()</a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">x</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] "(?i)(?:@)[a-z0-9]+"</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># base R approach</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/regmatches">regmatches</a></span>(string, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gregexpr</a></span>(x, string)))</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; [1] "@OSKI"    "@data2"   "@pankote" "@oski2"</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># stringr approach</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co"># stringr::str_extract_all(string, x)</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co"># base R approach</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/regmatches">regmatches</a></span>(string, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gregexpr</a></span>(x, string)))</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; [1] "@OSKI"    "@data2"   "@pankote" "@oski2"</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># stringr approach</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># stringr::str_extract_all(string, x)</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>First, <code>find</code> the @ tag</li>
-<li>Then, match a <code>range</code> of characters, a through z and 0 through 9</li>
+<li>First, construct the verbal expression with <code>rx</code>
+</li>
+<li>Then, <code>rx_find</code> the @ tag</li>
+<li>Then, match all alphanumeric characters</li>
 <li>Then, match <code>one_or_more</code> characters in the range</li>
-<li>Then, match <code>with_any_case</code> thereby enabling case insensitive matching</li>
 </ol>
 <p>Source: <a href="https://stackoverflow.com/questions/31105862" class="uri">https://stackoverflow.com/questions/31105862</a></p>
-</div>
-<div id="remove-everything-after-a-specific-character" class="section level2">
-<h2 class="hasAnchor">
-<a href="#remove-everything-after-a-specific-character" class="anchor"></a>Remove everything after a specific character</h2>
-<p>In this example, we want to remove everything after the <em>last</em> period. For example, NM.020506.1 should give us NM.020506:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">string &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"NM_020506.1"</span>, </a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">            <span class="st">"NM_020519.1"</span>, </a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">            <span class="st">"NM_001030297.2"</span>, </a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">            <span class="st">"NM_010281.2"</span>, </a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">            <span class="st">"NM_011419.3"</span>, </a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">            <span class="st">"NM.053155.2"</span>)  </a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="dt">value =</span> <span class="st">"."</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything_but.html">rx_anything_but</a></span>(<span class="st">"."</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="../reference/rx_end_of_line.html">rx_end_of_line</a></span>()</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">x</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; [1] "(?:\\.)(?:[^\\.]*)$"</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co"># base R approach</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(x, <span class="st">""</span>, string)</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; [1] "NM_020506"    "NM_020519"    "NM_001030297" "NM_010281"   </span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; [5] "NM_011419"    "NM.053155"</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co"># stringr approach</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co"># stringr::str_remove(string, x)</span></a></code></pre></div>
-<ol style="list-style-type: decimal">
-<li>First, <code>find</code> the period</li>
-<li>Then, match <code>anything_but</code> a period</li>
-<li>Then, enable <code>end_of_line</code> behavior to ensure we grab the last period</li>
-<li>Finally, use <code>gsub</code> to replace <code>anything</code> we found after the last period with an empty character</li>
-</ol>
-<p>Source: <a href="https://stackoverflow.com/questions/10617702" class="uri">https://stackoverflow.com/questions/10617702</a></p>
 </div>
   </div>
 
@@ -167,7 +132,6 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#extract-all-words-after-a-specific-tag">Extract all words after a specific tag</a></li>
-      <li><a href="#remove-everything-after-a-specific-character">Remove everything after a specific character</a></li>
       </ul>
 </div>
       </div>

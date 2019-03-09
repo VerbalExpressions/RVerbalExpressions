@@ -27,12 +27,10 @@ In this example, we want to extract every word that comes after a @, including t
 ```{r}
 string <- "nowy commit, nowa przygoda @OSKI @data2 @pankote testujemy kod @oski2"
 
-x <- rx_find(value = "@") %>% 
-  rx_range(c("a", "z", 0, 9)) %>% 
-  rx_one_or_more() %>% 
-  rx_with_any_case()
-
-x
+x <- rx() %>% 
+  rx_find(value = "@") %>% 
+  rx_alnum() %>% 
+  rx_one_or_more()
 
 # base R approach
 unlist(regmatches(string, gregexpr(x, string)))
@@ -41,41 +39,9 @@ unlist(regmatches(string, gregexpr(x, string)))
 # stringr::str_extract_all(string, x)
 ```
 
-1. First, `find` the @ tag
-2. Then, match a `range` of characters, a through z and 0 through 9
-3. Then, match `one_or_more` characters in the range
-4. Then, match `with_any_case` thereby enabling case insensitive matching
+1. First, construct the verbal expression with `rx`
+2. Then, `rx_find` the @ tag
+3. Then, match all alphanumeric characters
+4. Then, match `one_or_more` characters in the range
 
 Source: https://stackoverflow.com/questions/31105862
-
-## Remove everything after a specific character
-
-In this example, we want to remove everything after the _last_ period. For example, NM.020506.1 should give us NM.020506:
-
-```{r}
-string <- c("NM_020506.1", 
-            "NM_020519.1", 
-            "NM_001030297.2", 
-            "NM_010281.2", 
-            "NM_011419.3", 
-            "NM.053155.2")  
-
-x <- rx_find(value = ".") %>% 
-  rx_anything_but(".") %>% 
-  rx_end_of_line()
-
-x
-
-# base R approach
-gsub(x, "", string)
-
-# stringr approach
-# stringr::str_remove(string, x)
-```
-
-1. First, `find` the period
-2. Then, match `anything_but` a period
-3. Then, enable `end_of_line` behavior to ensure we grab the last period
-4. Finally, use `gsub` to replace `anything` we found after the last period with an empty character
-
-Source: https://stackoverflow.com/questions/10617702
