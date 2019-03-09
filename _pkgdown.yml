@@ -46,9 +46,9 @@ reference:
   - '`rx_br`'
   - '`rx_digit`'
   - '`rx_line_break`'
-  - '`rx_lower`'
+  - '`rx_lowercase`'
   - '`rx_tab`'
-  - '`rx_upper`'
+  - '`rx_uppercase`'
   - '`rx_whitespace`'
   - '`rx_word`'
 - title: Capture Groups
