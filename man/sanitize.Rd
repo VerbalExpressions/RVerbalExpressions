@@ -4,7 +4,7 @@
 \alias{sanitize}
 \title{Escape characters expected special by regex engines}
 \usage{
-sanitize(.data)
+sanitize(.data = NULL)
 }
 \arguments{
 \item{.data}{String to sanitize}
