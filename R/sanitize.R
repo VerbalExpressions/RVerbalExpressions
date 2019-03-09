@@ -14,7 +14,9 @@
 #' sanitize("^+")
 #' sanitize("^+?")
 #' @export
-sanitize <- function(.data) {
+sanitize <- function(.data = NULL) {
+  if(missing(.data))
+    stop("The 'value' argument is missing. Did you forget to start the rx chain with rx()", .call = FALSE)
   escape_chrs <- c(".", "|", "*", "?", "+", "(", ")", "{", "}", "^", "$", "\\", ":", "=", "[", "]")
   string_chrs <- strsplit(.data, "")[[1]]
   idx <- which(string_chrs %in% escape_chrs)
