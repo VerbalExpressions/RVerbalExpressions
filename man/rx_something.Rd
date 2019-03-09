@@ -4,10 +4,13 @@
 \alias{rx_something}
 \title{Match any character(s) at least once.}
 \usage{
-rx_something(.data = NULL)
+rx_something(.data = NULL, mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
+searching until end of the string and then back-tracks to the last match.}
 }
 \description{
 This expression is almost identical to \code{rx_anything()}
@@ -28,4 +31,6 @@ grepl(rx_anything(), "") # this should be true
 }
 \references{
 Metacharacters: \url{https://www.regular-expressions.info/characters.html#special}
+
+Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 }

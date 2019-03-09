@@ -4,10 +4,13 @@
 \alias{rx_anything}
 \title{Match any character(s) any (including zero) number of times.}
 \usage{
-rx_anything(.data = NULL)
+rx_anything(.data = NULL, mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
+searching until end of the string and then back-tracks to the last match.}
 }
 \description{
 This expression will match everything except line breaks using
@@ -18,6 +21,7 @@ combined the expression is considered greedy because it will match everything
 }
 \examples{
 rx_anything()
+rx_anything(mode = "lazy")
 
 x <- rx_start_of_line() \%>\%
   rx_anything() \%>\%
@@ -32,4 +36,6 @@ grepl(rx_something(), "") # this should be false
 Dot: \url{https://www.regular-expressions.info/dot.html}
 
 Star Quantifier: \url{https://www.regular-expressions.info/repeat.html}
+
+Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 }

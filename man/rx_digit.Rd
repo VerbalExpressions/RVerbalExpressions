@@ -2,19 +2,20 @@
 % Please edit documentation in R/digit.R
 \name{rx_digit}
 \alias{rx_digit}
+\alias{rx_digits}
 \title{Match a digit (0–9).}
 \usage{
 rx_digit(.data = NULL)
+
+rx_digits(.data = NULL, n = 1)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{n}{Exact number of digits to match.}
 }
 \description{
 Match a digit (0–9).
-}
-\details{
-This function is looks for tabs with the following expression:
-\code{\\d}
 }
 \examples{
 rx_digit()

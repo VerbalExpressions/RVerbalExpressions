@@ -6,6 +6,8 @@
 #' \code{anything()} expects \emph{anything} including... nothing!
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
+#' searching until end of the string and then back-tracks to the last match.
 #'
 #' @examples
 #' rx_something()
@@ -19,7 +21,13 @@
 #'
 #' @references
 #' Metacharacters: \url{https://www.regular-expressions.info/characters.html#special}
+#'
+#' Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 #' @export
-rx_something <- function(.data = NULL) {
-  paste0(.data, "(?:.+)")
+rx_something <- function(.data = NULL, mode="greedy") {
+  switch(mode,
+    greedy = paste0(.data, "(?:.+)"),
+    lazy = paste0(.data, "(?:.+?)"),
+    stop("Please, provide valid 'mode' argument")
+  )
 }
