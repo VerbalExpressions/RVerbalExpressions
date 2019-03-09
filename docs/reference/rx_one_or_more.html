@@ -135,7 +135,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_one_or_more</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_one_or_more</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"greedy"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,6 +143,11 @@
     <tr>
       <th>.data</th>
       <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
+    </tr>
+    <tr>
+      <th>mode</th>
+      <td><p>Matching mode (<code>greedy</code> (default) or<code>lazy</code>). <code>Lazy</code> matching stops after the first match, <code>greedy</code> continues
+searching until end of the string and then back-tracks to the last match.</p></td>
     </tr>
     </table>
     

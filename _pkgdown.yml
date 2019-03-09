@@ -16,6 +16,7 @@ reference:
   - '`rx_any_of`'
   - '`rx_anything`'
   - '`rx_anything_but`'
+  - '`rx_count`'
   - '`rx_end_of_line`'
   - '`rx_find`'
   - '`rx_maybe`'
@@ -25,9 +26,17 @@ reference:
   - '`rx_something`'
   - '`rx_something_but`'
   - '`rx_start_of_line`'
+- title: Lookarounds
+  desc: ~
+  contents:
+  - '`rx_avoid_prefix`'
+  - '`rx_avoid_suffix`'
+  - '`rx_seek_prefix`'
+  - '`rx_seek_suffix`'
 - title: Loops
   desc: ~
   contents:
+  - '`rx_none_or_more`'
   - '`rx_one_or_more`'
 - title: Special Characters
   desc: ~

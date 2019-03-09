@@ -180,6 +180,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="rx_count.html">rx_count()</a></code> </p>
+        </td>
+        <td><p>Match the previous stuff exact number of times.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="rx_end_of_line.html">rx_end_of_line()</a></code> </p>
         </td>
         <td><p>Match the expression only if it appears till the end of the line.</p></td>
@@ -235,11 +241,37 @@
     </tbody><tbody>
       <tr>
         <th colspan="2">
+          <h2 id="section-lookarounds" class="hasAnchor"><a href="#section-lookarounds" class="anchor"></a>Lookarounds</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="rx_avoid.html">rx_avoid_prefix()</a></code> <code><a href="rx_avoid.html">rx_avoid_suffix()</a></code> </p>
+        </td>
+        <td><p>Negative lookaround functions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rx_seek.html">rx_seek_prefix()</a></code> <code><a href="rx_seek.html">rx_seek_suffix()</a></code> </p>
+        </td>
+        <td><p>Positive lookaround functions</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
           <h2 id="section-loops" class="hasAnchor"><a href="#section-loops" class="anchor"></a>Loops</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
       <tr>
+        
+        <td>
+          <p><code><a href="rx_none_or_more.html">rx_none_or_more()</a></code> </p>
+        </td>
+        <td><p>Match the previous stuff zero or many times.</p></td>
+      </tr><tr>
         
         <td>
           <p><code><a href="rx_one_or_more.html">rx_one_or_more()</a></code> </p>
@@ -262,7 +294,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="rx_digit.html">rx_digit()</a></code> </p>
+          <p><code><a href="rx_digit.html">rx_digit()</a></code> <code><a href="rx_digit.html">rx_digits()</a></code> </p>
         </td>
         <td><p>Match a digit (0–9).</p></td>
       </tr><tr>
@@ -333,6 +365,7 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#section-utilities">Utilities</a></li>
       <li><a href="#section-rules">Rules</a></li>
+      <li><a href="#section-lookarounds">Lookarounds</a></li>
       <li><a href="#section-loops">Loops</a></li>
       <li><a href="#section-special-characters">Special Characters</a></li>
       <li><a href="#section-capture-groups">Capture Groups</a></li>

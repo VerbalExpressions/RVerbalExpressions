@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Match any character(s) except these at least once. — rx_something_but • RVerbalExpressions</title>
+<title>Match the previous stuff exact number of times. — rx_count • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,12 +30,9 @@
 
 
 
-<meta property="og:title" content="Match any character(s) except these at least once. — rx_something_but" />
+<meta property="og:title" content="Match the previous stuff exact number of times. — rx_count" />
 
-<meta property="og:description" content="This expression is almost identical to rx_anything_but()
-with one major exception, a + is used instead of a *. This
-means rx_something_but() expects something whereas
-rx_anything_but() expects anything including... nothing!" />
+<meta property="og:description" content="This function simply adds a {n} to the end of the expression." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -127,21 +124,18 @@ rx_anything_but() expects anything including... nothing!" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Match any character(s) except these at least once.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/something_but.R'><code>R/something_but.R</code></a></small>
-    <div class="hidden name"><code>rx_something_but.Rd</code></div>
+    <h1>Match the previous stuff exact number of times.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/count.R'><code>R/count.R</code></a></small>
+    <div class="hidden name"><code>rx_count.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This expression is almost identical to <code><a href='rx_anything_but.html'>rx_anything_but()</a></code>
-with one major exception, a <code>+</code> is used instead of a <code>*</code>. This
-means <code>rx_something_but()</code> expects <em>something</em> whereas
-<code><a href='rx_anything_but.html'>rx_anything_but()</a></code> expects <em>anything</em> including... nothing!</p>
+    <p>This function simply adds a <code>{n}</code> to the end of the expression.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_something_but</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>value</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"greedy"</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_count</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,37 +145,30 @@ means <code>rx_something_but()</code> expects <em>something</em> whereas
       <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>Expression to optionally match</p></td>
-    </tr>
-    <tr>
-      <th>mode</th>
-      <td><p>Matching mode (<code>greedy</code> (default) or<code>lazy</code>). <code>Lazy</code> matching stops after the first match, <code>greedy</code> continues
-searching until end of the string and then back-tracks to the last match.</p></td>
+      <th>n</th>
+      <td><p>Number of times previous expression shall be repeated. Default is 1.</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p>Metacharacters: <a href='https://www.regular-expressions.info/characters.html#special'>https://www.regular-expressions.info/characters.html#special</a></p>
-<p>Greedy and Lazy Quantifiers: <a href='https://www.regular-expressions.info/repeat.html#greedy'>https://www.regular-expressions.info/repeat.html#greedy</a></p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_something_but</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"abc"</span>)</div><div class='output co'>#&gt; [1] "(?:[^abc]+)"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_count</span>()</div><div class='output co'>#&gt; [1] "{1}"</div><div class='input'>
 <span class='co'># create an expression</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_something_but</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"python"</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"a"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>rx_count</span>(<span class='fl'>3</span>)
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"R"</span>)  <span class='co'># should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"py"</span>) <span class='co'># should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='co'># create input</span>
+<span class='no'>input</span> <span class='kw'>&lt;-</span> <span class='st'>"aaa"</span>
+
+<span class='co'># extract match</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>input</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>input</span>))</div><div class='output co'>#&gt; [1] "aaa"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#references">References</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
