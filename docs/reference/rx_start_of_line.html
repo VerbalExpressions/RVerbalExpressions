@@ -137,11 +137,15 @@ the beginning of the line.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_start_of_line</span>(<span class='kw'>enable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_start_of_line</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>enable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>.data</th>
+      <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
+    </tr>
     <tr>
       <th>enable</th>
       <td><p>Whether to enable this behavior, defaults to <code>TRUE</code></p></td>
