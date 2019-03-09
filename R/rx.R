@@ -2,7 +2,7 @@
 #'
 #' @description Add this to the beginning of every verbal expression chain. This
 #' simply returns an empty character vector so that the next step in the chain
-#' can provide a value without explicityly writing \code{value = "blah"}.
+#' can provide a value without explicitly writing \code{value = "blah"}.
 #'
 #' @examples
 #' rx()
@@ -18,6 +18,4 @@
 #'   rx_anything() %>%
 #'   rx_find("dog")
 #' @export
-rx <- function() {
-  ""
-}
+rx <- function() character()

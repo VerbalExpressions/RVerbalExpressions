@@ -5,7 +5,7 @@ Authors@R: as.person(c(
     "Tyler Littlefield <tylurp1@gmail.com> [aut, cre]"
   ))
 Description: The goal of `RVerbalExpressions` is to make it easier to construct 
-    regular expressions. Grammar and functionality inspired by 
+    regular expressions using rammar and functionality inspired by 
     [VerbalExpressions](https://github.com/VerbalExpressions). Usage of the 
     `%>%` is encouraged to build expressions in a chain like fashion.
 License: MIT + file LICENSE

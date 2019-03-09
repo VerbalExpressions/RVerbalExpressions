@@ -3,6 +3,7 @@
 #' @description Control whether to match the expression only if it appears from
 #' the beginning of the line.
 #'
+#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #' @param enable Whether to enable this behavior, defaults to \code{TRUE}
 #'
 #' @examples
@@ -16,6 +17,7 @@
 #' grepl(x, "pineapple") # should be false
 #' grepl(x, "apple")     # should be true
 #' @export
-rx_start_of_line <- function(enable = TRUE) {
-  if (enable) paste0("^")
+rx_start_of_line <- function(.data = NULL, enable = TRUE) {
+  if (enable) paste0(.data, "^")
 }
+

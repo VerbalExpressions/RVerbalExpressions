@@ -4,9 +4,11 @@
 \alias{rx_start_of_line}
 \title{Match the expression only if it appears from beginning of line.}
 \usage{
-rx_start_of_line(enable = TRUE)
+rx_start_of_line(.data = NULL, enable = TRUE)
 }
 \arguments{
+\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
 \item{enable}{Whether to enable this behavior, defaults to \code{TRUE}}
 }
 \description{
