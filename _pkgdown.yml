@@ -47,6 +47,7 @@ reference:
   - '`rx_digit`'
   - '`rx_line_break`'
   - '`rx_lowercase`'
+  - '`rx_punctuation`'
   - '`rx_tab`'
   - '`rx_uppercase`'
   - '`rx_whitespace`'
