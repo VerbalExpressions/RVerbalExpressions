@@ -26,6 +26,8 @@ reference:
   - '`rx_something`'
   - '`rx_something_but`'
   - '`rx_start_of_line`'
+  - '`rx_word_char`'
+  - '`rx_word_edge`'
 - title: Lookarounds
   desc: ~
   contents:
