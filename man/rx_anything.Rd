@@ -9,8 +9,9 @@ rx_anything(.data = NULL, mode = "greedy")
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 
-\item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
-searching until end of the string and then back-tracks to the last match.}
+\item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy}
+matching stops after the first match, \code{greedy} continues searching until
+end of the string and then back-tracks to the last match.}
 }
 \description{
 This expression will match everything except line breaks using
@@ -27,7 +28,7 @@ x <- rx_start_of_line() \%>\%
   rx_anything() \%>\%
   rx_end_of_line()
 
-grepl(x, "anything!")  # this should be true
+grepl(x, "anything!")     # this should be true
 grepl(rx_anything(), "")  # this should be true
 grepl(rx_something(), "") # this should be false
 

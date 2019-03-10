@@ -16,10 +16,7 @@
 #' @export
 sanitize <- function(.data = NULL) {
   if(missing(.data))
-    stop("The 'value' argument is missing. Did you forget to start the rx chain with rx()", .call = FALSE)
-  escape_chrs <- c(".", "|", "*", "?", "+", "(", ")", "{", "}", "^", "$", "\\", ":", "=", "[", "]")
-  string_chrs <- strsplit(.data, "")[[1]]
-  idx <- which(string_chrs %in% escape_chrs)
-  idx_new <- paste0("\\", string_chrs[idx])
-  paste0(replace(string_chrs, idx, idx_new), collapse = "")
+    stop("The 'value' argument is missing. Did you forget to start the rx chain with rx()?")
+  esc <- c(".", "|", "*", "?", "+", "(", ")", "{", "}", "^", "$", "\\", ":", "=", "[", "]")
+  gsub(paste0("([\\", paste0(collapse = "\\", esc), "])"), "\\\\\\1", .data, perl = TRUE)
 }

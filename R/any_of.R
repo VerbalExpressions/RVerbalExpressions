@@ -2,10 +2,10 @@
 #'
 #' @description Constructs a \emph{character class}, sometimes called a
 #' \emph{character set}. With this particular expression, you can tell the
-#' regex engine to match only one out of several characters. Simply place the
-#' characters you want to match between square brackets.
+#' regex engine to match only one out of several characters. It does this by
+#' simply placing the characters you want to match between square brackets.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Expression to optionally match
 #'
 #' @examples
@@ -16,6 +16,14 @@
 #'
 #' grepl(x, "c") # should be true
 #' grepl(x, "d") # should be false
+#'
+#' y <- rx() %>%
+#'   rx_find("gr") %>%
+#'   rx_any_of("ae") %>%
+#'   rx_find("y")
+#'
+#' regmatches("gray", regexec(y, "gray"))[[1]]
+#' regmatches("grey", regexec(y, "grey"))[[1]]
 #'
 #' @references
 #' Character class: \url{https://www.regular-expressions.info/charclass.html}

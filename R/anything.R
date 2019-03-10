@@ -7,8 +7,9 @@
 #' (except line breaks) 0 or more times.
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
-#' searching until end of the string and then back-tracks to the last match.
+#' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy}
+#' matching stops after the first match, \code{greedy} continues searching until
+#' end of the string and then back-tracks to the last match.
 #'
 #' @examples
 #' rx_anything()
@@ -18,7 +19,7 @@
 #'   rx_anything() %>%
 #'   rx_end_of_line()
 #'
-#' grepl(x, "anything!")  # this should be true
+#' grepl(x, "anything!")     # this should be true
 #' grepl(rx_anything(), "")  # this should be true
 #' grepl(rx_something(), "") # this should be false
 #'
