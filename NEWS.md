@@ -6,4 +6,5 @@
 * Add `rx()` constructor (#4)
 * Added lazy mode for `rx_anything()`, `rx_anything_but()`, `rx_something()`, `rx_something_but()`.
 * Added `rx_lowercase()`, `rx_uppercase()`, `rx_alnum()`, `rx_alpha()`.
+* Added `rx_word_char()`, `rx_word_edge()`, extended `rx_count()` to ranges of repetition 
 
