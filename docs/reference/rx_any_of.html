@@ -34,8 +34,8 @@
 
 <meta property="og:description" content="Constructs a character class, sometimes called a
 character set. With this particular expression, you can tell the
-regex engine to match only one out of several characters. Simply place the
-characters you want to match between square brackets." />
+regex engine to match only one out of several characters. It does this by
+simply placing the characters you want to match between square brackets." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -136,8 +136,8 @@ characters you want to match between square brackets." />
     
     <p>Constructs a <em>character class</em>, sometimes called a
 <em>character set</em>. With this particular expression, you can tell the
-regex engine to match only one out of several characters. Simply place the
-characters you want to match between square brackets.</p>
+regex engine to match only one out of several characters. It does this by
+simply placing the characters you want to match between square brackets.</p>
     
     </div>
 
@@ -148,7 +148,7 @@ characters you want to match between square brackets.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.data</th>
-      <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
+      <td><p>Expression to append, typically pulled from the pipe <code>%&gt;%</code></p></td>
     </tr>
     <tr>
       <th>value</th>
@@ -167,6 +167,12 @@ characters you want to match between square brackets.</p>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_any_of</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"abc"</span>)
 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"c"</span>) <span class='co'># should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"d"</span>) <span class='co'># should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx.html'>rx</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"gr"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>rx_any_of</span>(<span class='st'>"ae"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"y"</span>)
+
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='st'>"gray"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexec</a></span>(<span class='no'>y</span>, <span class='st'>"gray"</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; [1] "gray"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='st'>"grey"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexec</a></span>(<span class='no'>y</span>, <span class='st'>"grey"</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; [1] "grey"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

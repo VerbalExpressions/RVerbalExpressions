@@ -23,7 +23,8 @@ regular expressions using grammar and functionality inspired by
 `%>%` is encouraged to build expressions in a chain like fashion.
 
 There are a couple of functions missing from the original
-[JSVerbalExpressions](https://github.com/VerbalExpressions/JSVerbalExpressions):
+[JSVerbalExpressions](https://github.com/VerbalExpressions/JSVerbalExpressions)
+just to name a few:
 
 1.  `replace` isn’t included because there are numerous R functions for
     this, `gsub` being one example
@@ -31,10 +32,11 @@ There are a couple of functions missing from the original
     and isn’t included because we use `%>%` for that
 3.  `then` is not included because the pipe `%>%` is often pronounced
     “then” and `rx_find` provides the same functionality
-4.  `any` is not included because it collides with `base::any()` and
-    `rx_any_of` provides the same functionality
 
-Others just haven’t made it yet, see [here](.github/CONTRIBUTING.md).
+Note there are also a handful of additional features that aren’t
+available in JSVerbalExpressions. These will be documented for clarity
+at another time (i.e. once the package is more stable). This package is
+in the early stages of developement (see experimental badge).
 
 ## Installation
 

@@ -99,7 +99,7 @@
 <!-- badges: start -->
 
 <p>The goal of <code>RVerbalExpressions</code> is to make it easier to construct regular expressions using grammar and functionality inspired by <a href="https://github.com/VerbalExpressions">VerbalExpressions</a>. Usage of <code>%&gt;%</code> is encouraged to build expressions in a chain like fashion.</p>
-<p>There are a couple of functions missing from the original <a href="https://github.com/VerbalExpressions/JSVerbalExpressions">JSVerbalExpressions</a>:</p>
+<p>There are a couple of functions missing from the original <a href="https://github.com/VerbalExpressions/JSVerbalExpressions">JSVerbalExpressions</a> just to name a few:</p>
 <ol style="list-style-type: decimal">
 <li>
 <code>replace</code> isn’t included because there are numerous R functions for this, <code>gsub</code> being one example</li>
@@ -107,10 +107,8 @@
 <code>add</code> is a utility function for appending expressions to one another and isn’t included because we use <code>%&gt;%</code> for that</li>
 <li>
 <code>then</code> is not included because the pipe <code>%&gt;%</code> is often pronounced “then” and <code>rx_find</code> provides the same functionality</li>
-<li>
-<code>any</code> is not included because it collides with <code><a href="https://www.rdocumentation.org/packages/base/topics/any">base::any()</a></code> and <code>rx_any_of</code> provides the same functionality</li>
 </ol>
-<p>Others just haven’t made it yet, see <a href="CONTRIBUTING.html">here</a>.</p>
+<p>Note there are also a handful of additional features that aren’t available in JSVerbalExpressions. These will be documented for clarity at another time (i.e. once the package is more stable). This package is in the early stages of developement (see experimental badge).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>

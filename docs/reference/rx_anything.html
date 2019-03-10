@@ -154,8 +154,9 @@ combined the expression is considered greedy because it will match everything
     </tr>
     <tr>
       <th>mode</th>
-      <td><p>Matching mode (<code>greedy</code> (default) or<code>lazy</code>). <code>Lazy</code> matching stops after the first match, <code>greedy</code> continues
-searching until end of the string and then back-tracks to the last match.</p></td>
+      <td><p>Matching mode (<code>greedy</code> (default) or<code>lazy</code>). <code>Lazy</code>
+matching stops after the first match, <code>greedy</code> continues searching until
+end of the string and then back-tracks to the last match.</p></td>
     </tr>
     </table>
     
@@ -172,7 +173,7 @@ searching until end of the string and then back-tracks to the last match.</p></t
   <span class='fu'>rx_anything</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='rx_end_of_line.html'>rx_end_of_line</a></span>()
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"anything!"</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'>rx_anything</span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='rx_something.html'>rx_something</a></span>(), <span class='st'>""</span>) <span class='co'># this should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"anything!"</span>)     <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'>rx_anything</span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='rx_something.html'>rx_something</a></span>(), <span class='st'>""</span>) <span class='co'># this should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
