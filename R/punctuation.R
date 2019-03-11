@@ -9,7 +9,7 @@
 #'
 #' @examples
 #' rx_punctuation()
-#' rx_punctuation(inverse = FALSE)
+#' rx_punctuation(inverse = TRUE)
 #'
 #' # create an expression
 #' x <- rx_punctuation()
