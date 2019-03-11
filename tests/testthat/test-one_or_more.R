@@ -19,5 +19,6 @@ test_that("quanitfiers work", {
   expect_equal(rx_one_or_more(), "+")
   expect_equal(rx_none_or_more(), "*")
 
+  expect_error(rx_one_or_more(mode = "whatever"))
 
 })
