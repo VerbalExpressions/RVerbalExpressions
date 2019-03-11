@@ -21,16 +21,32 @@
 #' # extract match
 #' regmatches(string, gregexpr(x, string))
 #' @export
-rx_alnum <- function(.data = NULL, inverse = FALSE) {
-  error_msg <-
-    "
-    Inverse accepts either TRUE (don't match alphanumeric characters) or FALSE
-    (match alphanumeric characters, this is the default behavior)
-    "
+rx_alphanum <- function(.data = NULL, rep=NULL, mode="greedy") {
+  res <- paste0(.data, "[A-Za-z0-9]", parse_rep_mode(rep, mode))
+  new_rx(res)
+}
 
-  switch(as.character(inverse),
-    "FALSE" = paste0(.data, "[A-z0-9]"),
-    "TRUE" = paste0(.data, "[^A-z0-9]"),
-    stop(paste(strwrap(error_msg), collapse = "\n"))
-  )
+
+#' Match alphanumeric characters together with underscore (aka. "word character")
+#'
+#' @description Matches both letters (case insensitive), underscore \code{_} and numbers (a through
+#' z and 0 through 9).
+#'
+#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#'
+#' @examples
+#' rx_alpha_num()
+#'
+#' # create an expression
+#' x <- rx_alpha_num()
+#'
+#' # create input
+#' string <- "Apple_1!"
+#'
+#' # extract match
+#' regmatches(string, gregexpr(x, string))
+#' @export
+rx_alpha_num <- function(.data = NULL, rep=NULL, mode="greedy") {
+  res <- paste0(.data, "\\w", parse_rep_mode(rep, mode))
+  new_rx(res)
 }

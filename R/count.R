@@ -24,9 +24,5 @@
 #'
 #' @export
 rx_count <- function(.data = NULL, n = 1) {
-  if(length(n)>1){
-    n[is.na(n)]<-""
-    return(paste0(.data, "{", n[1], "," , n[length(n)], "}"))
-  }
-  paste0(.data, "{", n,"}")
+ parse_rep(n)
 }
