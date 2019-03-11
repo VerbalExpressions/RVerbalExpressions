@@ -23,7 +23,14 @@
 #' Windows style: \url{https://codepoints.net/U+000D}
 #'
 #' Non printable character: \url{https://www.regular-expressions.info/nonprint.html}
+#' @rdname rx_line_break
 #' @export
 rx_line_break <- function(.data = NULL) {
+  paste0(.data, "(?:\\r\\n|\\r|\\n)")
+}
+
+#' @rdname rx_line_break
+#' @export
+rx_br <- function(.data = NULL) {
   paste0(.data, "(?:\\r\\n|\\r|\\n)")
 }

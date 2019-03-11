@@ -2,9 +2,12 @@
 % Please edit documentation in R/line_break.R
 \name{rx_line_break}
 \alias{rx_line_break}
+\alias{rx_br}
 \title{Match a line break.}
 \usage{
 rx_line_break(.data = NULL)
+
+rx_br(.data = NULL)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
