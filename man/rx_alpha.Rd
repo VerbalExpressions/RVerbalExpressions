@@ -4,16 +4,21 @@
 \alias{rx_alpha}
 \title{Match alphabetic characters.}
 \usage{
-rx_alpha(.data = NULL)
+rx_alpha(.data = NULL, inverse = FALSE)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
+
+\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
+alphabetic characters). Use \code{FALSE} to \emph{not} match alphabetic
+characters.}
 }
 \description{
 Matches letters (case insensitive) only.
 }
 \examples{
 rx_alpha()
+rx_alpha(inverse = TRUE)
 
 # create an expression
 x <- rx_alpha()

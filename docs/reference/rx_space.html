@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Match alphabetic characters. — rx_alpha • RVerbalExpressions</title>
+<title>Match a space character. — rx_space • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Match alphabetic characters. — rx_alpha" />
+<meta property="og:title" content="Match a space character. — rx_space" />
 
-<meta property="og:description" content="Matches letters (case insensitive) only." />
+<meta property="og:description" content="Matches a space character." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,18 +124,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Match alphabetic characters.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/alpha.R'><code>R/alpha.R</code></a></small>
-    <div class="hidden name"><code>rx_alpha.Rd</code></div>
+    <h1>Match a space character.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/space.R'><code>R/space.R</code></a></small>
+    <div class="hidden name"><code>rx_space.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Matches letters (case insensitive) only.</p>
+    <p>Matches a space character.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_alpha</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_space</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,23 +147,28 @@
     <tr>
       <th>inverse</th>
       <td><p>Invert match behavior, defaults to <code>FALSE</code> (match
-alphabetic characters). Use <code>FALSE</code> to <em>not</em> match alphabetic
-characters.</p></td>
+space). Use <code>FALSE</code> to <em>not</em> match space.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_alpha</span>()</div><div class='output co'>#&gt; [1] "[[:alpha:]]"</div><div class='input'><span class='fu'>rx_alpha</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^[:alpha:]]"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='co'># match space, default</span>
+<span class='fu'>rx_space</span>()</div><div class='output co'>#&gt; [1] " "</div><div class='input'>
+<span class='co'># dont match space</span>
+<span class='fu'>rx_space</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^ ]"</div><div class='input'>
 <span class='co'># create an expression</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_alpha</span>()
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_space</span>()
 
 <span class='co'># create input</span>
-<span class='no'>string</span> <span class='kw'>&lt;-</span> <span class='st'>"Apple 1!"</span>
+<span class='no'>string</span> <span class='kw'>&lt;-</span> <span class='st'>"1 apple\t"</span>
 
 <span class='co'># extract match</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "A" "p" "p" "l" "e"
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [1] " "</div><div class='input'>
+<span class='co'># extract no whitespace by inverting behavior</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_space</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>y</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "1"  "a"  "p"  "p"  "l"  "e"  "\t"
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

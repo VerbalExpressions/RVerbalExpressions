@@ -4,10 +4,14 @@
 \alias{rx_alnum}
 \title{Match alphanumeric characters.}
 \usage{
-rx_alnum(.data = NULL)
+rx_alnum(.data = NULL, inverse = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
+alphanumeric characters). Use \code{FALSE} to \emph{not} match alphanumeric
+characters.}
 }
 \description{
 Matches both letters (case insensitive) and numbers (a through
@@ -15,6 +19,7 @@ z and 0 through 9).
 }
 \examples{
 rx_alnum()
+rx_alnum(inverse = TRUE)
 
 # create an expression
 x <- rx_alnum()

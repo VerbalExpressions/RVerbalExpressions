@@ -4,10 +4,13 @@
 \alias{rx_whitespace}
 \title{Match a whitespace character.}
 \usage{
-rx_whitespace(.data = NULL)
+rx_whitespace(.data = NULL, inverse = FALSE)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
+
+\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
+whitespace). Use \code{FALSE} to \emph{not} match whitespace.}
 }
 \description{
 Match a whitespace character.
@@ -26,7 +29,11 @@ the following expression: \code{\\d}
 }
 }
 \examples{
+# match whitespace, default
 rx_whitespace()
+
+# dont match whitespace
+rx_whitespace(inverse = TRUE)
 
 # create an expression
 x <- rx_whitespace()
@@ -36,4 +43,8 @@ string <- "1 apple"
 
 # extract match
 regmatches(string, regexpr(x, string))
+
+# extract no whitespace by inverting behavior
+y <- rx_whitespace(inverse = TRUE)
+regmatches(string, gregexpr(y, string))
 }

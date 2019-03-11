@@ -4,10 +4,13 @@
 \alias{rx_punctuation}
 \title{Match punctuation characters.}
 \usage{
-rx_punctuation(.data = NULL)
+rx_punctuation(.data = NULL, inverse = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
+punctuation). Use \code{FALSE} to \emph{not} match punctuation.}
 }
 \description{
 Matches punctuation characters only:
@@ -15,6 +18,7 @@ Matches punctuation characters only:
 }
 \examples{
 rx_punctuation()
+rx_punctuation(inverse = FALSE)
 
 # create an expression
 x <- rx_punctuation()
@@ -24,4 +28,8 @@ string <- 'Apple 1!'
 
 # extract match
 regmatches(string, gregexpr(x, string))
+
+# dont extract punctuation
+y <- rx_punctuation(inverse = TRUE)
+regmatches(string, gregexpr(y, string))
 }

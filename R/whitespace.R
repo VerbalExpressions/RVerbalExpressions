@@ -12,10 +12,16 @@
 #'   \item form feed: \url{https://codepoints.net/U+000C}
 #' }
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
+#' @param inverse Invert match behavior, defaults to \code{FALSE} (match
+#' whitespace). Use \code{FALSE} to \emph{not} match whitespace.
 #'
 #' @examples
+#' # match whitespace, default
 #' rx_whitespace()
+#'
+#' # dont match whitespace
+#' rx_whitespace(inverse = TRUE)
 #'
 #' # create an expression
 #' x <- rx_whitespace()
@@ -25,7 +31,15 @@
 #'
 #' # extract match
 #' regmatches(string, regexpr(x, string))
+#'
+#' # extract no whitespace by inverting behavior
+#' y <- rx_whitespace(inverse = TRUE)
+#' regmatches(string, gregexpr(y, string))
 #' @export
-rx_whitespace <- function(.data = NULL) {
-  paste0(.data, "\\s")
+rx_whitespace <- function(.data = NULL, inverse = FALSE) {
+  switch(as.character(inverse),
+    "FALSE" = paste0(.data, "\\s"),
+    "TRUE" = paste0(.data, "[^[:space:]]"),
+    stop("Inverse accepts either TRUE (don't match whitespace) or FALSE (default, match whitespace)")
+  )
 }
