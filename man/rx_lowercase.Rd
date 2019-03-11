@@ -4,23 +4,29 @@
 \alias{rx_lowercase}
 \title{Match lower case letters.}
 \usage{
-rx_lowercase(.data = NULL)
+rx_lowercase(.data = NULL, inverse = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
+lower case). Use \code{FALSE} to \emph{not} match lower case.}
 }
 \description{
 Matches lower case letters only.
 }
 \examples{
 rx_lowercase()
+rx_lowercase(inverse = TRUE)
 
 # create an expression
 x <- rx_lowercase()
+y <- rx_lowercase(inverse = TRUE)
 
 # create input
 string <- "Apple 1!"
 
 # extract match
 regmatches(string, gregexpr(x, string))
+regmatches(string, gregexpr(y, string))
 }

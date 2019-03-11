@@ -4,23 +4,29 @@
 \alias{rx_uppercase}
 \title{Match upper case letters.}
 \usage{
-rx_uppercase(.data = NULL)
+rx_uppercase(.data = NULL, inverse = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
+upper case). Use \code{FALSE} to \emph{not} match upper case.}
 }
 \description{
 Matches upper case letters only.
 }
 \examples{
 rx_uppercase()
+rx_uppercase(inverse = TRUE)
 
 # create an expression
 x <- rx_uppercase()
+y <- rx_uppercase(inverse = TRUE)
 
 # create input
 string <- "Apple 1!"
 
 # extract match
 regmatches(string, gregexpr(x, string))
+regmatches(string, gregexpr(y, string))
 }
