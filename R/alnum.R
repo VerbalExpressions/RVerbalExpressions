@@ -23,8 +23,8 @@
 #' @export
 rx_alnum <- function(.data = NULL, inverse = FALSE) {
   switch(as.character(inverse),
-         "FALSE" = paste0(.data, "[[:alnum:]]"),
-         "TRUE" = paste0(.data, "[^[:alnum:]]"),
-         stop("Inverse accepts either TRUE (don't match alphanumeric characters) or FALSE (default, match alphanumeric characters)")
+    "FALSE" = paste0(.data, "[[:alnum:]]"),
+    "TRUE" = paste0(.data, "[^[:alnum:]]"),
+    stop("Inverse accepts either TRUE (don't match alphanumeric characters) or FALSE (default, match alphanumeric characters)")
   )
 }

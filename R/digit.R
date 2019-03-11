@@ -36,7 +36,7 @@ rx_digit <- function(.data = NULL, inverse = FALSE) {
 rx_digits <- function(.data = NULL, n = 1, inverse = FALSE) {
   switch(as.character(inverse),
          "FALSE" = paste0(.data, "\\d", "{", n, "}"),
-         "TRUE" = paste0(.data, "[\\d", "{", n, "}]"),
+         "TRUE" = paste0(.data, "[^\\d", "{", n, "}]"),
          stop("Inverse accepts either TRUE (don't match digit characters) or FALSE (default, match digit characters)")
   )
 }

@@ -24,6 +24,7 @@
 rx_uppercase <- function(.data = NULL, inverse = FALSE) {
   switch (as.character(inverse),
     "FALSE" = paste0(.data, "[[:upper:]]"),
-    "TRUE" = paste0(.data, "[^[:upper:]]")
+    "TRUE" = paste0(.data, "[^[:upper:]]"),
+    stop("Inverse accepts either TRUE (don't match upper case characters) or FALSE (default, match upper case characters)")
   )
 }

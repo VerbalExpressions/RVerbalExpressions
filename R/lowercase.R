@@ -24,6 +24,7 @@
 rx_lowercase <- function(.data = NULL, inverse = FALSE) {
   switch (as.character(inverse),
     "FALSE" = paste0(.data, "[[:lower:]]"),
-    "TRUE" = paste0(.data, "[^[:lower:]]")
+    "TRUE" = paste0(.data, "[^[:lower:]]"),
+    stop("Inverse accepts either TRUE (don't match lower case characters) or FALSE (default, match lower case characters)")
   )
 }
