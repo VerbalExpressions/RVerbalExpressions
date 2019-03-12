@@ -4,7 +4,7 @@
 \alias{rx_any_of}
 \title{Match any of these characters exactly once.}
 \usage{
-rx_any_of(.data = NULL, value)
+rx_any_of(.data, value)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}

@@ -28,6 +28,18 @@
 #' @references
 #' Character class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
-rx_any_of <- function(.data = NULL, value) {
-  paste0(.data, "[", sanitize(value), "]")
+rx_any_of <- function(.data, value) {
+  message_usr <- "Note: rx_any_of() expected a value but none was given."
+
+  switch(
+    as.character(missing(.data)),
+    "TRUE" = .data <- "",
+    "FALSE" = .data
+    )
+
+  switch(
+    as.character(missing(value)),
+    "TRUE" = {message(paste(strwrap(message_usr), collapse = "\n")); .data},
+    "FALSE" = paste0(.data, "[", sanitize(value), "]")
+  )
 }

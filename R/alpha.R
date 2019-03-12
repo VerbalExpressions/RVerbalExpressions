@@ -21,9 +21,15 @@
 #' regmatches(string, gregexpr(x, string))
 #' @export
 rx_alpha <- function(.data = NULL, inverse = FALSE) {
+  error_msg <-
+    "
+    Inverse accepts either TRUE (don't match alphabetic characters) or FALSE
+    (match alphabetic characters, this is the default behavior)
+    "
+
   switch(as.character(inverse),
     "FALSE" = paste0(.data, "[A-z]"),
     "TRUE" = paste0(.data, "[^A-z]"),
-    stop("Inverse accepts either TRUE (don't match alphabetic characters) or FALSE (default, match alphabetic characters)")
+    stop(paste(strwrap(error_msg), collapse = "\n"))
   )
 }

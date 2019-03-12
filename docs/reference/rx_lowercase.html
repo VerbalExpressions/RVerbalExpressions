@@ -153,7 +153,7 @@ lower case). Use <code>FALSE</code> to <em>not</em> match lower case.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_lowercase</span>()</div><div class='output co'>#&gt; [1] "[[:lower:]]"</div><div class='input'><span class='fu'>rx_lowercase</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^[:lower:]]"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_lowercase</span>()</div><div class='output co'>#&gt; [1] "[a-z]"</div><div class='input'><span class='fu'>rx_lowercase</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^a-z]"</div><div class='input'>
 <span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_lowercase</span>()
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_lowercase</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)

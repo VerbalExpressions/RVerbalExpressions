@@ -22,9 +22,15 @@
 #' regmatches(string, gregexpr(x, string))
 #' @export
 rx_alnum <- function(.data = NULL, inverse = FALSE) {
+  error_msg <-
+    "
+    Inverse accepts either TRUE (don't match alphanumeric characters) or FALSE
+    (match alphanumeric characters, this is the default behavior)
+    "
+
   switch(as.character(inverse),
     "FALSE" = paste0(.data, "[A-z0-9]"),
     "TRUE" = paste0(.data, "[^A-z0-9]"),
-    stop("Inverse accepts either TRUE (don't match alphanumeric characters) or FALSE (default, match alphanumeric characters)")
+    stop(paste(strwrap(error_msg), collapse = "\n"))
   )
 }

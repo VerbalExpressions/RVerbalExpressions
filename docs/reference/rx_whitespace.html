@@ -169,7 +169,7 @@ the following expression: <code>\d</code></p><ol>
     <pre class="examples"><div class='input'><span class='co'># match whitespace, default</span>
 <span class='fu'>rx_whitespace</span>()</div><div class='output co'>#&gt; [1] "\\s"</div><div class='input'>
 <span class='co'># dont match whitespace</span>
-<span class='fu'>rx_whitespace</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^[:space:]]"</div><div class='input'>
+<span class='fu'>rx_whitespace</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^ \t\r\n]"</div><div class='input'>
 <span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_whitespace</span>()
 
