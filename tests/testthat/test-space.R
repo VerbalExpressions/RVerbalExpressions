@@ -8,6 +8,9 @@ test_that("space special character works", {
   # expect match
   expect_true(grepl(rx_space(), " "))
   expect_true(grepl(rx_space(), "cat dog"))
+  expect_true(grepl(rx_space(inverse = TRUE), "\t"))
+  expect_true(grepl(rx_space(inverse = TRUE), "\n"))
+  expect_true(grepl(rx_space(inverse = TRUE), "\r"))
 
   # dont expect match
   expect_false(grepl(rx_space(), ""))
