@@ -1,8 +1,7 @@
 #' Match a whitespace character.
 #'
 #' @details Match a whitespace character (one of space, tab, carriage return,
-#' new line, vertical tab and form feed). This function is looks for tabs with
-#' the following expression: \code{\\d}
+#' new line, vertical tab and form feed).
 #' \enumerate{
 #'   \item space: \url{https://codepoints.net/U+0020}
 #'   \item tab: \url{https://codepoints.net/U+0009}
