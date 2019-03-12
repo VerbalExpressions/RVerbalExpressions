@@ -10,7 +10,7 @@ rx_tab(.data = NULL, inverse = FALSE)
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 
 \item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-tabs). Use \code{FALSE} to \emph{not} match tabs.}
+tabs). Use \code{TRUE} to \emph{not} match tabs.}
 }
 \description{
 Match a tab character.

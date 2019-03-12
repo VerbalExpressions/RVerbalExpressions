@@ -3,9 +3,9 @@
 #' @description Matches both letters (case insensitive) and numbers (a through
 #' z and 0 through 9).
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' alphanumeric characters). Use \code{FALSE} to \emph{not} match alphanumeric
+#' alphanumeric characters). Use \code{TRUE} to \emph{not} match alphanumeric
 #' characters.
 #'
 #' @examples

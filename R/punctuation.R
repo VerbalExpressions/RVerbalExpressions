@@ -5,7 +5,7 @@
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' punctuation). Use \code{FALSE} to \emph{not} match punctuation.
+#' punctuation). Use \code{TRUE} to \emph{not} match punctuation.
 #'
 #' @examples
 #' rx_punctuation()

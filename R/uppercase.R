@@ -4,7 +4,7 @@
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' upper case). Use \code{FALSE} to \emph{not} match upper case.
+#' upper case). Use \code{TRUE} to \emph{not} match upper case.
 #'
 #' @examples
 #' rx_uppercase()

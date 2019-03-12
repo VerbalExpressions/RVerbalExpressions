@@ -10,7 +10,7 @@ rx_space(.data = NULL, inverse = FALSE)
 \item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-space). Use \code{FALSE} to \emph{not} match space.}
+space). Use \code{TRUE} to \emph{not} match space.}
 }
 \description{
 Matches a space character.

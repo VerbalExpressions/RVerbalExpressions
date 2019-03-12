@@ -10,7 +10,7 @@ rx_alpha(.data = NULL, inverse = FALSE)
 \item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-alphabetic characters). Use \code{FALSE} to \emph{not} match alphabetic
+alphabetic characters). Use \code{TRUE} to \emph{not} match alphabetic
 characters.}
 }
 \description{

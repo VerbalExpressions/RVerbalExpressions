@@ -7,10 +7,10 @@
 rx_alnum(.data = NULL, inverse = FALSE)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-alphanumeric characters). Use \code{FALSE} to \emph{not} match alphanumeric
+alphanumeric characters). Use \code{TRUE} to \emph{not} match alphanumeric
 characters.}
 }
 \description{

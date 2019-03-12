@@ -10,7 +10,7 @@ rx_uppercase(.data = NULL, inverse = FALSE)
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 
 \item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-upper case). Use \code{FALSE} to \emph{not} match upper case.}
+upper case). Use \code{TRUE} to \emph{not} match upper case.}
 }
 \description{
 Matches upper case letters only.

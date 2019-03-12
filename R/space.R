@@ -4,7 +4,7 @@
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' space). Use \code{FALSE} to \emph{not} match space.
+#' space). Use \code{TRUE} to \emph{not} match space.
 #'
 #' @examples
 #' # match space, default

@@ -14,7 +14,7 @@
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' whitespace). Use \code{FALSE} to \emph{not} match whitespace.
+#' whitespace). Use \code{TRUE} to \emph{not} match whitespace.
 #'
 #' @examples
 #' # match whitespace, default
