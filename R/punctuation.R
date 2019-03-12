@@ -26,8 +26,8 @@
 #' @export
 rx_punctuation <- function(.data = NULL, inverse = FALSE) {
   switch(as.character(inverse),
-         "FALSE" = paste0(.data, "[[:punct:]]"),
-         "TRUE" = paste0(.data, "[^[:punct:]]"),
-         stop("Inverse accepts either TRUE (don't match punctuation) or FALSE (default, match punctuation)")
+    "FALSE" = paste0(.data, "[[:punct:]]"),
+    "TRUE" = paste0(.data, "[^[:punct:]]"),
+    stop("Inverse accepts either TRUE (don't match punctuation) or FALSE (default, match punctuation)")
   )
 }

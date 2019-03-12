@@ -24,9 +24,9 @@
 #' @export
 rx_digit <- function(.data = NULL, inverse = FALSE) {
   switch(as.character(inverse),
-         "FALSE" = paste0(.data, "\\d"),
-         "TRUE" = paste0(.data, "\\D"),
-         stop("Inverse accepts either TRUE (don't match digit characters) or FALSE (default, match digit characters)")
+    "FALSE" = paste0(.data, "\\d"),
+    "TRUE" = paste0(.data, "\\D"),
+    stop("Inverse accepts either TRUE (don't match digit characters) or FALSE (default, match digit characters)")
   )
 }
 
@@ -35,8 +35,8 @@ rx_digit <- function(.data = NULL, inverse = FALSE) {
 #' @export
 rx_digits <- function(.data = NULL, n = 1, inverse = FALSE) {
   switch(as.character(inverse),
-         "FALSE" = paste0(.data, "\\d", "{", n, "}"),
-         "TRUE" = paste0(.data, "[^\\d", "{", n, "}]"),
-         stop("Inverse accepts either TRUE (don't match digit characters) or FALSE (default, match digit characters)")
+    "FALSE" = paste0(.data, "\\d", "{", n, "}"),
+    "TRUE" = paste0(.data, "[^\\d", "{", n, "}]"),
+    stop("Inverse accepts either TRUE (don't match digit characters) or FALSE (default, match digit characters)")
   )
 }

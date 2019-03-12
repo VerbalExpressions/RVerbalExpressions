@@ -22,6 +22,13 @@
 #' Character Class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
 rx_anything_but <- function(.data = NULL, value, mode = "greedy") {
+  message_usr <- "Note: rx_anything_but() expected a value but none was given."
+
+  switch(as.character(missing(value)),
+    "TRUE" = {message(paste(strwrap(message_usr), collapse = "\n")); .data},
+    "FALSE" = value
+  )
+
   switch(mode,
     greedy = paste0(.data, "(?:[^", sanitize(value), "]*)"),
     lazy = paste0(.data, "(?:[^", sanitize(value), "]*?)"),
