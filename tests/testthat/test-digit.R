@@ -14,4 +14,8 @@ test_that("digit special character works", {
   expect_true(grepl(rx_digit(inverse = TRUE), "a"))
   expect_true(grepl(rx_digits(inverse = TRUE), "not a number!"))
 
+  # expect error
+  expect_error(rx_digit(inverse = "nope"))
+  expect_error(rx_digits(inverse = "still no"))
+
 })
