@@ -10,7 +10,7 @@ test_that("lowercase works", {
   expect_false(grepl(rx_lowercase(), "!"))
 
   # expect pipe functionality
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_lowercase(), "^[[:lower:]]")
+  expect_equal(rx() %>% rx_start_of_line() %>% rx_lowercase(), "^[a-z]")
 
   # expect inverse
   expect_true(grepl(rx_lowercase(inverse = TRUE), "ABC"))

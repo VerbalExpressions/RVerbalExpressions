@@ -39,7 +39,7 @@
 rx_whitespace <- function(.data = NULL, inverse = FALSE) {
   switch(as.character(inverse),
     "FALSE" = paste0(.data, "\\s"),
-    "TRUE" = paste0(.data, "[^[:space:]]"),
+    "TRUE" = paste0(.data, "[^ \t\r\n]"),
     stop("Inverse accepts either TRUE (don't match whitespace) or FALSE (default, match whitespace)")
   )
 }

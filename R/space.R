@@ -29,7 +29,7 @@
 rx_space <- function(.data = NULL, inverse = FALSE) {
   switch(as.character(inverse),
          "FALSE" = paste0(.data, " "),
-         "TRUE" = paste0(.data, "[^ ]"),
+         "TRUE" = paste0(.data, "\\S"),
          stop("Inverse accepts either TRUE (don't match space) or FALSE (default, match space)")
   )
 }
