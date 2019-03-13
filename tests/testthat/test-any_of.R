@@ -15,4 +15,8 @@ test_that("any_of rule works", {
 
   # expect correct number of matches
   expect_true(length(unlist(regmatches("abba", gregexpr(rx_any_of(value = "a"), "abba")))) == 2)
+
+  # expect message
+  expect_message(rx_any_of())
+
 })
