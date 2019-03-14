@@ -28,8 +28,8 @@ In this example, we want to extract every word that comes after a @, including t
 string <- "nowy commit, nowa przygoda @OSKI @data2 @pankote testujemy kod @oski2"
 
 x <- rx() %>% 
-  rx_find(value = "@") %>% 
-  rx_alnum() %>% 
+  rx_find("@") %>% 
+  rx_alphanum() %>% 
   rx_one_or_more()
 
 # base R approach

@@ -4,15 +4,15 @@
 \alias{rx_anything_but}
 \title{Match any character(s) except these any (including zero) number of times.}
 \usage{
-rx_anything_but(.data = NULL, value, mode = "greedy")
+rx_anything_but(.data = NULL, ..., mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 
-\item{value}{Characters to not match}
-
 \item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
 searching until end of the string and then back-tracks to the last match.}
+
+\item{value}{Characters to not match}
 }
 \description{
 This expression will match everything except whatever characters

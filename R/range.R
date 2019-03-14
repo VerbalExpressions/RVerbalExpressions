@@ -18,9 +18,11 @@
 #' grepl(x, "2") # should be true
 #' grepl(x, "4") # should be false
 #' @export
-rx_range <- function(.data = NULL, value) {
+rx_range <- function(.data = NULL, value, rep=NULL, mode="greedy", negate = FALSE) {
   value <- split(value, ceiling(seq_along(value)/2))
   value <- value[lengths(value) == 2]
   value <- lapply(value, function(i) paste0(i[1], "-", i[2]))
-  paste0(.data, "[", paste0(unlist(value, use.names = FALSE), collapse = ""), "]")
+  txt <- paste0("[", paste0(unlist(value, use.names = FALSE), collapse = ""), "]")
+  res <- paste0(.data, parse_negate(negate, txt), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

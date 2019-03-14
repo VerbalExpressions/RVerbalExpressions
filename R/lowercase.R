@@ -16,6 +16,7 @@
 #' # extract match
 #' regmatches(string, gregexpr(x, string))
 #' @export
-rx_lowercase <- function(.data = NULL) {
-  paste0(.data, "[[:lower:]]")
+rx_lowercase <- function(.data = NULL, rep=NULL, mode="greedy", negate =FALSE) {
+  res <- paste0(.data, parse_negate(negate, "[[:lower:]]"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

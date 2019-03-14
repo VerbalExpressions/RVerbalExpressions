@@ -16,6 +16,8 @@
 #' # extract match
 #' regmatches(string, gregexpr(x, string))
 #' @export
-rx_uppercase <- function(.data = NULL) {
-  paste0(.data, "[[:upper:]]")
+rx_uppercase <- function(.data = NULL, rep=NULL, mode="greedy", negate =FALSE) {
+  res <- paste0(.data, parse_negate(negate, "[[:upper:]]"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }
+

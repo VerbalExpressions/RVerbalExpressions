@@ -5,9 +5,9 @@
 \alias{rx_avoid_suffix}
 \title{Negative lookaround functions}
 \usage{
-rx_avoid_prefix(.data = NULL, value)
+rx_avoid_prefix(.data = NULL, ...)
 
-rx_avoid_suffix(.data = NULL, value)
+rx_avoid_suffix(.data = NULL, ...)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

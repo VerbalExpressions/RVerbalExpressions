@@ -4,7 +4,7 @@
 \alias{rx_word}
 \title{Match a word.}
 \usage{
-rx_word(.data = NULL)
+rx_word(.data = NULL, mode = "greedy", negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

@@ -30,5 +30,6 @@ rx_or <- function(.data, value) {
   #   find("bar")
   #
   # Rather than having to nest a rule inside of or(), maybe use glue?
-  paste0("(?:", .data, ")|(?:", value, ")")
+  res <- paste0("(?:", .data, ")|(?:", value, ")")
+  new_rx(res)
 }

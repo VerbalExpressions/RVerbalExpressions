@@ -4,7 +4,7 @@
 \alias{rx_maybe}
 \title{Optionally match an expression.}
 \usage{
-rx_maybe(.data = NULL, value)
+rx_maybe(.data = NULL, ..., mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

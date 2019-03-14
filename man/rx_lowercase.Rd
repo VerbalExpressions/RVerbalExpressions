@@ -4,7 +4,8 @@
 \alias{rx_lowercase}
 \title{Match lower case letters.}
 \usage{
-rx_lowercase(.data = NULL)
+rx_lowercase(.data = NULL, rep = NULL, mode = "greedy",
+  negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

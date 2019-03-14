@@ -5,9 +5,9 @@
 \alias{rx_seek_suffix}
 \title{Positive lookaround functions}
 \usage{
-rx_seek_prefix(.data = NULL, value)
+rx_seek_prefix(.data = NULL, ...)
 
-rx_seek_suffix(.data = NULL, value)
+rx_seek_suffix(.data = NULL, ...)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

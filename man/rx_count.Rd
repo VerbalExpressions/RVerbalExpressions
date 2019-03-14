@@ -4,7 +4,7 @@
 \alias{rx_count}
 \title{Match the previous stuff exact number of times.}
 \usage{
-rx_count(.data = NULL, n = 1)
+rx_count(.data = NULL, n = NULL, mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

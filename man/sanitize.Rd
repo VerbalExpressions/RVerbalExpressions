@@ -4,7 +4,7 @@
 \alias{sanitize}
 \title{Escape characters expected special by regex engines}
 \usage{
-sanitize(.data = NULL)
+sanitize(x)
 }
 \arguments{
 \item{.data}{String to sanitize}
@@ -21,4 +21,6 @@ in their desired match. The following special characters are escaped
 sanitize("^")
 sanitize("^+")
 sanitize("^+?")
+#export - nade not exported
+
 }

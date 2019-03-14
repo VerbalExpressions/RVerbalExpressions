@@ -20,11 +20,8 @@
 #' regmatches(input, regexpr(x, input))
 #' @export
 rx_one_or_more <- function(.data = NULL, mode = "greedy") {
-  switch(mode,
-    greedy = paste0(.data, "+"),
-    lazy = paste0(.data, "+?"),
-    stop("Please, provide valid 'mode' argument")
-  )
+  res <- paste0(.data, parse_rep_mode(rep="some", mode))
+  new_rx(res)
 }
 
 #' Match the previous stuff zero or many times.
@@ -49,9 +46,6 @@ rx_one_or_more <- function(.data = NULL, mode = "greedy") {
 #' regmatches(input, regexpr(x, input))
 #' @export
 rx_none_or_more <- function(.data = NULL, mode = "greedy") {
-  switch(mode,
-    greedy = paste0(.data, "*"),
-    lazy = paste0(.data, "*?"),
-    stop("Please, provide valid 'mode' argument")
-  )
+  res <- paste0(.data, parse_rep_mode(rep="any", mode))
+  new_rx(res)
 }

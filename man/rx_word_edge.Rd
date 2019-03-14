@@ -4,7 +4,7 @@
 \alias{rx_word_edge}
 \title{Find beginning or end of a word.}
 \usage{
-rx_word_edge(.data = NULL)
+rx_word_edge(.data = NULL, negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

@@ -137,7 +137,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_punctuation</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_punctuation</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,11 +146,16 @@
       <th>.data</th>
       <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
     </tr>
+    <tr>
+      <th>inverse</th>
+      <td><p>Invert match behavior, defaults to <code>FALSE</code> (match
+punctuation). Use <code>FALSE</code> to <em>not</em> match punctuation.</p></td>
+    </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_punctuation</span>()</div><div class='output co'>#&gt; [1] "[[:punct:]]"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_punctuation</span>()</div><div class='output co'>#&gt; [1] "[[:punct:]]"</div><div class='input'><span class='fu'>rx_punctuation</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^[:punct:]]"</div><div class='input'>
 <span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_punctuation</span>()
 
@@ -160,6 +165,11 @@
 <span class='co'># extract match</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "!"
+#&gt; </div><div class='input'>
+<span class='co'># dont extract punctuation</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_punctuation</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>y</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "A" "p" "p" "l" "e" " " "1"
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

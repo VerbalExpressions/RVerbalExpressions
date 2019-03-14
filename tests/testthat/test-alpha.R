@@ -12,6 +12,6 @@ test_that("alpha works", {
   expect_false(grepl(rx_alpha(), "1"))
 
   # expect pipe functionality to work
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_alpha(), "^[[:alpha:]]")
+  expect_equal(rx() %>% rx_start_of_line() %>% rx_alpha() %>% as.character(), "^[[:alpha:]]")
 
 })

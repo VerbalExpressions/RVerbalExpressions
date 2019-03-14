@@ -2,25 +2,23 @@
 % Please edit documentation in R/digit.R
 \name{rx_digit}
 \alias{rx_digit}
-\alias{rx_digits}
 \title{Match a digit (0–9).}
 \usage{
-rx_digit(.data = NULL)
-
-rx_digits(.data = NULL, n = 1)
+rx_digit(.data = NULL, rep = NULL, mode = "greedy", negate = FALSE)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
-\item{n}{Exact number of digits to match.}
+\item{negate}{Invert match behavior, defaults to \code{FALSE} (match
+digit characters). Use \code{FALSE} to \emph{not} match digit characters.}
 }
 \description{
 The function \code{rx_digit()}looks for tabs with the following
-expression: \code{\%\%d} and matches single digit. Plural version matches
-specified number of digits \code{n} (equivalent to \code{rx_digit() \%>\% rx_count(n)}).
+expression: \code{\%\%d} and matches single digit.
 }
 \examples{
 rx_digit()
+rx_digit(negate = TRUE)
 
 # create an expression
 x <- rx_digit()

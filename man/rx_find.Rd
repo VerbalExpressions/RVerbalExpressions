@@ -4,10 +4,14 @@
 \alias{rx_find}
 \title{Match an expression.}
 \usage{
-rx_find(.data = NULL, value)
+rx_find(.data, ..., rep = NULL, mode = "greedy")
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+
+\item{rep}{Number of repetitions. Valid formats include "maybe/any/some" or numeric vector of \code{c(min, max)} or \code{min:max} number of repetitions, where \code{NA} indicates unbounded number of repetitions.}
+
+\item{mode}{Repetition mode. Valid modes include "greedy/lazy/possessive".}
 
 \item{value}{Exact expression to match}
 }
