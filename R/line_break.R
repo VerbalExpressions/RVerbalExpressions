@@ -25,13 +25,11 @@
 #' Non printable character: \url{https://www.regular-expressions.info/nonprint.html}
 #' @rdname rx_line_break
 #' @export
-rx_line_break <- function(.data = NULL) {
-  paste0(.data, "(?:\\r\\n|\\r|\\n)")
-}
-
-#' @rdname rx_line_break
-#' @export
 rx_br <- function(.data = NULL, rep=NULL, mode="greedy", negate = FALSE) {
   res <- paste0(.data, parse_negate(negate, "(?:\\r\\n|\\r|\\n)", "\\r\\n"), parse_rep_mode(rep, mode))
   new_rx(res)
 }
+
+#' @rdname rx_line_break
+#' @export
+rx_line_break <- rx_br

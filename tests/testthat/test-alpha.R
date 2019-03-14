@@ -15,7 +15,7 @@ test_that("alpha works", {
 
   # expect pipe functionality to work
 
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_alpha(), "^[A-z]")
+  expect_equal(rx() %>% rx_start_of_line() %>% rx_alpha(), new_rx("^[[:alpha:]]"))
 
   # expect inverse
   expect_true(grepl(rx_alpha(negate = TRUE), "!"))
@@ -23,7 +23,7 @@ test_that("alpha works", {
   # expect error message
   expect_error(grepl(rx_alpha(negate = 1), "!"))
 
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_alpha() %>% as.character(), "^[[:alpha:]]")
+
 
 
 })

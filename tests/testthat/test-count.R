@@ -4,7 +4,7 @@ test_that("count works", {
   x <- rx() %>% rx_find("a") %>%  rx_count(n = 3)
 
   # expect n vector working properly
-  expect_equal(rx_count(n = c(1, 2)), "{1,2}")
+  expect_equal(rx_count(n = c(1, 2)), new_rx("{1,2}"))
 
   # expect match
   expect_equal(rx_count(), rx())

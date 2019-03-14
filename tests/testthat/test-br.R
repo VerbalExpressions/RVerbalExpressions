@@ -3,8 +3,8 @@ context("test-rx_br")
 test_that("br special character works", {
 
   # expect minimal output
-  expect_equal(rx_br(), "(?:\\r\\n|\\r|\\n)")
-  expect_equal(rx_line_break(), "(?:\\r\\n|\\r|\\n)")
+  expect_equal(rx_br(), new_rx("(?:\\r\\n|\\r|\\n)"))
+  expect_equal(rx_line_break(), new_rx("(?:\\r\\n|\\r|\\n)"))
 
   # expect match
   expect_true(grepl(rx_br(), "\n"))

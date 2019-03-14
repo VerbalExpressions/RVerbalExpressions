@@ -10,15 +10,14 @@ test_that("alnum works", {
 
   # expect pipe functionality to work
 
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_alnum(), "^[A-z0-9]")
+  expect_equal(rx() %>% rx_start_of_line() %>% rx_alphanum(), new_rx("^[[:alnum:]]"))
 
   # expect inverse
-  expect_true(grepl(rx_alnum(inverse = TRUE), "!"))
+  expect_true(grepl(rx_alphanum(negate = TRUE), "!"))
 
   # expect error if incorrect inverse value
-  expect_error(grepl(rx_alnum(inverse = 1), "!"))
+  expect_error(grepl(rx_alphanum(negate = 1), "!"))
 
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_alphanum() %>% as.character(), "^[[:alnum:]]")
 
 
 })
