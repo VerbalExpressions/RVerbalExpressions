@@ -149,7 +149,11 @@
     <tr>
       <th>inverse</th>
       <td><p>Invert match behavior, defaults to <code>FALSE</code> (match
+<<<<<<< HEAD
 whitespace). Use <code>TRUE</code> to <em>not</em> match whitespace.</p></td>
+=======
+whitespace). Use <code>FALSE</code> to <em>not</em> match whitespace.</p></td>
+>>>>>>> major rewriting of all functions
     </tr>
     </table>
     
@@ -170,7 +174,11 @@ new line, vertical tab and form feed).</p><ol>
     <pre class="examples"><div class='input'><span class='co'># match whitespace, default</span>
 <span class='fu'>rx_whitespace</span>()</div><div class='output co'>#&gt; [1] "\\s"</div><div class='input'>
 <span class='co'># dont match whitespace</span>
+<<<<<<< HEAD
 <span class='fu'>rx_whitespace</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^ \t\r\n]"</div><div class='input'>
+=======
+<span class='fu'>rx_whitespace</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^[:space:]]"</div><div class='input'>
+>>>>>>> major rewriting of all functions
 <span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_whitespace</span>()
 

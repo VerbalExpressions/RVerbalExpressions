@@ -4,13 +4,13 @@
 \alias{rx_tab}
 \title{Match a tab character.}
 \usage{
-rx_tab(.data = NULL, inverse = FALSE)
+rx_tab(.data = NULL, rep = NULL, mode = "greedy", negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
 
-\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-tabs). Use \code{TRUE} to \emph{not} match tabs.}
+\item{negate}{Invert match behavior, defaults to \code{FALSE} (match
+tabs). Use \code{FALSE} to \emph{not} match tabs.}
 }
 \description{
 Match a tab character.
@@ -24,7 +24,7 @@ expression: \code{\\t}
 }
 \examples{
 rx_tab()
-rx_tab(inverse = TRUE)
+rx_tab(negate = TRUE)
 
 # create an expression
 x <- rx_tab()

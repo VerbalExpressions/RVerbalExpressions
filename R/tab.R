@@ -7,12 +7,12 @@
 #' }
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' tabs). Use \code{TRUE} to \emph{not} match tabs.
+#' @param negate Invert match behavior, defaults to \code{FALSE} (match
+#' tabs). Use \code{FALSE} to \emph{not} match tabs.
 #'
 #' @examples
 #' rx_tab()
-#' rx_tab(inverse = TRUE)
+#' rx_tab(negate = TRUE)
 #'
 #' # create an expression
 #' x <- rx_tab()
@@ -23,10 +23,7 @@
 #' # extract match
 #' regmatches(string, regexpr(x, string))
 #' @export
-rx_tab <- function(.data = NULL, inverse = FALSE) {
-  switch(as.character(inverse),
-         "FALSE" = paste0(.data, "\\t"),
-         "TRUE" = paste0(.data, "[^\\t]"),
-         stop("Inverse accepts either TRUE (don't match tabs) or FALSE (default, match tabs)")
-  )
+rx_tab <- function(.data = NULL, rep=NULL, mode="greedy", negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "\\t"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

@@ -24,10 +24,8 @@
 #'
 #' Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 #' @export
-rx_something <- function(.data = NULL, mode = "greedy") {
-  switch(mode,
-    greedy = paste0(.data, "(?:.+)"),
-    lazy = paste0(.data, "(?:.+?)"),
-    stop("Please, provide valid 'mode' argument")
-  )
+rx_something <- function(.data = NULL, mode="greedy") {
+  res <- paste0(.data, ".", parse_rep_mode(rep="some", mode))
+  new_rx(res)
 }
+

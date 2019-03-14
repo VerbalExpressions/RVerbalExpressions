@@ -15,12 +15,18 @@
 #'
 #' @rdname rx_avoid
 #' @export
-rx_avoid_prefix <- function(.data = NULL, value) {
-  paste0(.data, "(?<!", sanitize(value), ")")
+rx_avoid_prefix <- function(.data = NULL, ...) {
+  if (!inherits(.data, "rx_string")) stop("This function is not to be used as first element of the pipe! Please start pipe with constructor funcion rx()")
+  san_args <- sapply(list(...), sanitize)
+  res <- paste0(.data, "(?<!", paste0(san_args, collapse = ""), ")")
+  new_rx(res)
 }
 
 #' @rdname rx_avoid
 #' @export
-rx_avoid_suffix <- function(.data = NULL, value) {
-  paste0(.data, "(?!", sanitize(value), ")")
+rx_avoid_suffix <- function(.data = NULL, ...) {
+  if (!inherits(.data, "rx_string")) stop("This function is not to be used as first element of the pipe! Please start pipe with constructor funcion rx()")
+  san_args <- sapply(list(...), sanitize)
+  res <- paste0(.data, "(?!", paste0(san_args, collapse = ""), ")")
+  new_rx(res)
 }

@@ -19,10 +19,10 @@
 #' regmatches(string1, regexpr(x, string1))
 #' regmatches(string2, regexpr(x, string2)) # doesn't match -
 #' @export
-rx_word <- function(.data = NULL) {
-  paste0(.data, "\\w+")
+rx_word <- function(.data = NULL, mode="greedy", negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "\\w", "\\W"), parse_rep_mode("some", mode))
+  new_rx(res)
 }
-
 
 #' Find beginning or end of a word.
 #'
@@ -47,8 +47,9 @@ rx_word <- function(.data = NULL) {
 #'# matches 'foo' and 'bar' separately
 #'regmatches(string2, gregexpr(x, string2))
 #' @export
-rx_word_edge <- function(.data = NULL){
-  paste0(.data, "\\b")
+rx_word_edge <- function(.data = NULL, negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "\\b", "\\B"))
+  new_rx(res)
 }
 
 
@@ -66,6 +67,8 @@ rx_word_edge <- function(.data = NULL){
 #'  rx_one_or_more()
 #'
 #' @export
-rx_word_char<- function(.data = NULL){
-  paste0(.data, "\\w")
+rx_word_char<- function(.data = NULL, rep=NULL, mode="greedy", negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "\\w", "\\W"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }
+

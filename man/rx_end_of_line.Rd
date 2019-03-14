@@ -4,12 +4,10 @@
 \alias{rx_end_of_line}
 \title{Match the expression only if it appears till the end of the line.}
 \usage{
-rx_end_of_line(.data = NULL, enable = TRUE)
+rx_end_of_line(.data = NULL)
 }
 \arguments{
 \item{.data}{Expression to match, typically pulled from the pipe \code{ \%>\% }}
-
-\item{enable}{Whether to enable this behavior, defaults to \code{TRUE}}
 }
 \description{
 Control whether to match the expression only if it appears till
@@ -20,12 +18,11 @@ certain position, in this case the dollar sign matches right after the last
 character in the string.
 }
 \examples{
-rx_end_of_line(enable = TRUE)
-rx_end_of_line(enable = FALSE)
-rx_end_of_line("abc", enable = TRUE)
+rx_end_of_line()
+rx_end_of_line("abc")
 
 # create expression
-x <- rx_start_of_line(FALSE) \%>\%
+x <- rx_start_of_line() \%>\%
   rx_find("apple") \%>\%
   rx_end_of_line()
 

@@ -20,11 +20,6 @@
 #' grepl(y, "ABC") # should be false
 #' @export
 rx_with_any_case <- function(.data = NULL, enable = TRUE) {
-  if(is.null(.data) & enable == TRUE) {
-    paste0("(?i)")
-  } else if(!is.null(.data) & enable == TRUE) {
-    paste0("(?i)", .data)
-  } else {
-    .data
-  }
+   res <- paste0("(?i)", .data)
+   new_rx(res)
 }

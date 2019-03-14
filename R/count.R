@@ -23,6 +23,7 @@
 #' regmatches(input, regexpr(x, input))
 #'
 #' @export
-rx_count <- function(.data = NULL, n = 1) {
- parse_rep(n)
+rx_count <- function(.data = NULL, n = NULL, mode="greedy") {
+ res <- paste0(.data, parse_rep_mode(rep=n, mode))
+ new_rx(res)
 }

@@ -22,19 +22,26 @@
 #'
 #' Stack Overflow: \url{https://stackoverflow.com/questions/3512471}
 #' @export
-rx_find <- function(.data, value=NULL, rep=NULL, mode="greedy") {
-  UseMethod("rx_find", .data)
-}
-
-#' @export
-rx_find.rx_string <- function(.data, value=NULL, rep=NULL, mode="greedy") {
-  res <- paste0(.data, "(?:", sanitize(value), ")", parse_rep_mode(rep, mode))
+rx_find <- function(.data, ..., rep=NULL, mode="greedy") {
+  if (!inherits(.data, "rx_string")) stop("This function is not to be used as first element of the pipe! Please start pipe with constructor funcion rx()")
+  san_args <- sapply(list(...), sanitize)
+  res <- paste0(.data, "(?:", paste0(san_args, collapse = ""), ")", parse_rep_mode(rep, mode))
   new_rx(res)
 }
 
-#' @export
-rx_find.default <- function(.data, value=NULL, rep=NULL, mode="greedy") {
-  res <- paste0("(?:", sanitize(.data), value, ")", parse_rep_mode(rep, mode))
-  new_rx(res)
-}
 
+#rx_find <- function(.data, value=NULL, rep=NULL, mode="greedy") {
+#  UseMethod("rx_find", .data)
+#}
+#
+
+#rx_find.rx_string <- function(.data, value=NULL, rep=NULL, mode="greedy") {
+#  res <- paste0(.data, "(?:", sanitize(value), ")", parse_rep_mode(rep, mode))
+#  new_rx(res)
+#}
+#
+
+#rx_find.default <- function(.data, value=NULL, rep=NULL, mode="greedy") {
+#  res <- paste0("(?:", sanitize(.data), value, ")", parse_rep_mode(rep, mode))
+#  new_rx(res)
+#}

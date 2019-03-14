@@ -2,20 +2,20 @@ context("test-rx_anything")
 
 test_that("anything rule works", {
   # expect bare output
-  expect_equal(rx_anything(), "(?:.*)")
-  expect_equal(rx_anything(mode = "lazy"), "(?:.*?)")
+  expect_equal(rx_anything() , new_rx(".*"))
+  expect_equal(rx_anything(mode = "lazy"), new_rx(".*?"))
 
   # expect match
-  expect_true(grepl(rx_anything(), "b"))
-  expect_true(grepl(rx_anything(mode = "lazy"), "b"))
+  expect_true(grepl(rx_anything(), new_rx("b")))
+  expect_true(grepl(rx_anything(mode = "lazy"), new_rx("b")))
 
   # expect match
-  expect_true(grepl(rx_anything(), "a!.>\\"))
-  expect_true(grepl(rx_anything(mode = "lazy"), "a!.>\\"))
+  expect_true(grepl(rx_anything(), new_rx("a!.>\\")))
+  expect_true(grepl(rx_anything(mode = "lazy"), new_rx("a!.>\\")))
 
   # expect pipe functionality
-  expect_equal(rx_anything(.data = "^"), "^(?:.*)")
-  expect_equal(rx_anything(.data = "^", mode = "lazy"), "^(?:.*?)")
+  expect_equal(rx_anything(.data = "^"), new_rx("^.*"))
+  expect_equal(rx_anything(.data = "^", mode = "lazy"), new_rx("^.*?"))
 
   # expect an error if invalid 'mode' is given
   expect_error(rx_anything(mode = "whatever"))

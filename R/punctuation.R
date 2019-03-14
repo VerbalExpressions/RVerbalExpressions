@@ -4,12 +4,12 @@
 #' \code{! \" # $ \% & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~}.
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' punctuation). Use \code{TRUE} to \emph{not} match punctuation.
+#' @param negate Invert match behavior, defaults to \code{FALSE} (match
+#' punctuation). Use \code{FALSE} to \emph{not} match punctuation.
 #'
 #' @examples
 #' rx_punctuation()
-#' rx_punctuation(inverse = TRUE)
+#' rx_punctuation(negate = TRUE)
 #'
 #' # create an expression
 #' x <- rx_punctuation()
@@ -21,13 +21,10 @@
 #' regmatches(string, gregexpr(x, string))
 #'
 #' # dont extract punctuation
-#' y <- rx_punctuation(inverse = TRUE)
+#' y <- rx_punctuation(negate = TRUE)
 #' regmatches(string, gregexpr(y, string))
 #' @export
-rx_punctuation <- function(.data = NULL, inverse = FALSE) {
-  switch(as.character(inverse),
-    "FALSE" = paste0(.data, "[[:punct:]]"),
-    "TRUE" = paste0(.data, "[^[:punct:]]"),
-    stop("Inverse accepts either TRUE (don't match punctuation) or FALSE (default, match punctuation)")
-  )
+rx_punctuation <- function(.data = NULL, rep=NULL, mode="greedy", negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "[[:punct:]]"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

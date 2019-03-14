@@ -21,10 +21,7 @@
 #' regmatches(string, gregexpr(x, string))
 #' regmatches(string, gregexpr(y, string))
 #' @export
-rx_lowercase <- function(.data = NULL, inverse = FALSE) {
-  switch (as.character(inverse),
-    "FALSE" = paste0(.data, "[a-z]"),
-    "TRUE" = paste0(.data, "[^a-z]"),
-    stop("Inverse accepts either TRUE (don't match lower case characters) or FALSE (default, match lower case characters)")
-  )
+rx_lowercase <- function(.data = NULL, rep=NULL, mode="greedy", negate =FALSE) {
+  res <- paste0(.data, parse_negate(negate, "[[:lower:]]"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

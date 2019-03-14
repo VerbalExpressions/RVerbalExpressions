@@ -4,7 +4,8 @@
 \alias{rx_range}
 \title{Match any character within the range defined by the parameters.}
 \usage{
-rx_range(.data = NULL, value)
+rx_range(.data = NULL, value, rep = NULL, mode = "greedy",
+  negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

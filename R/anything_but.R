@@ -21,17 +21,11 @@
 #' @references
 #' Character Class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
-rx_anything_but <- function(.data = NULL, value, mode = "greedy") {
-  message_usr <- "Note: rx_anything_but() expected a value but none was given."
-
-  switch(as.character(missing(value)),
-    "TRUE" = {message(paste(strwrap(message_usr), collapse = "\n")); .data},
-    "FALSE" = value
-  )
-
-  switch(mode,
-    greedy = paste0(.data, "(?:[^", sanitize(value), "]*)"),
-    lazy = paste0(.data, "(?:[^", sanitize(value), "]*?)"),
-    stop("Please, provide valid 'mode' argument")
-    )
+#rx_anything_but <- function(.data = NULL, ..., mode = "greedy") {
+#  res <- paste0(.data, "[^", sanitize_args(...), "]", parse_rep_mode("any", mode))
+#  new_rx(res)
+#}
+rx_anything_but <- function(.data = NULL, ..., mode = "greedy"){
+  if (!inherits(.data, "rx_string")) stop("This function is not to be used as first element of the pipe! Please start pipe with constructor funcion rx()")
+  rx_one_of(.data=.data, new_rx("^"), ..., rep="any", mode = mode)
 }

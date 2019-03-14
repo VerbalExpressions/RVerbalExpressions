@@ -7,11 +7,8 @@
 #'
 #' @export
 rx_begin_capture <- function(.data = NULL) {
-  if(is.null(.data)) {
-    paste0("(")
-  } else {
-    paste0("(", .data)
-  }
+    res <- paste0("(", .data)
+    new_rx(res)
 }
 
 #' End a capture group.
@@ -23,10 +20,7 @@ rx_begin_capture <- function(.data = NULL) {
 #'
 #' @export
 rx_end_capture <- function(.data = NULL) {
-  if(is.null(.data)) {
-    paste0(")")
-  } else {
-    paste0(.data, ")")
-  }
+    res <- paste0(.data, ")")
+    new_rx(res)
 }
 

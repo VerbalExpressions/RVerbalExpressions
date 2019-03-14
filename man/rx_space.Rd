@@ -2,25 +2,25 @@
 % Please edit documentation in R/space.R
 \name{rx_space}
 \alias{rx_space}
-\title{Match a space character.}
+\title{Match a regular space character.}
 \usage{
-rx_space(.data = NULL, inverse = FALSE)
+rx_space(.data = NULL, rep = NULL, mode = "greedy", negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
-\item{inverse}{Invert match behavior, defaults to \code{FALSE} (match
-space). Use \code{TRUE} to \emph{not} match space.}
+\item{negate}{Invert match behavior, defaults to \code{FALSE} (match
+space). Use \code{FALSE} to \emph{not} match space.}
 }
 \description{
-Matches a space character.
+Matches a literal space character.
 }
 \examples{
 # match space, default
 rx_space()
 
 # dont match space
-rx_space(inverse = TRUE)
+rx_space(negate = TRUE)
 
 # create an expression
 x <- rx_space()
@@ -32,6 +32,6 @@ string <- "1 apple\\t"
 regmatches(string, regexpr(x, string))
 
 # extract no whitespace by inverting behavior
-y <- rx_space(inverse = TRUE)
+y <- rx_space(negate = TRUE)
 regmatches(string, gregexpr(y, string))
 }

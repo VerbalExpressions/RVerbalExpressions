@@ -32,16 +32,9 @@
 #' Character class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
 rx_one_of <- function(.data = NULL, ..., rep=NULL, mode="greedy") {
-  UseMethod("rx_one_of", .data)
-}
-
-#' @export
-rx_one_of.rx_string <- function(.data = NULL, ..., rep=NULL, mode="greedy") {
-  res <- paste0(.data, "[", sanitize_args(...), "]", parse_rep_mode(rep, mode))
+  if (!inherits(.data, "rx_string")) stop("This function is not to be used as first element of the pipe! Please start pipe with constructor funcion rx()")
+  san_args <- sapply(list(...), sanitize)
+  san_args_peeled <- peel_set(san_args)
+  res <- paste0(.data, wrap_set(paste0(san_args_peeled, collapse = "")), parse_rep_mode(rep, mode))
   new_rx(res)
-}
-
-#' @export
-rx_one_of.default <- function(.data = NULL, ..., rep=NULL, mode="greedy") {
-  stop("This function is not to be used as first element of the pipe! Please start pipe with constructor funcion rx()")
 }

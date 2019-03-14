@@ -7,7 +7,7 @@
 \usage{
 rx_line_break(.data = NULL)
 
-rx_br(.data = NULL)
+rx_br(.data = NULL, rep = NULL, mode = "greedy", negate = FALSE)
 }
 \arguments{
 \item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}

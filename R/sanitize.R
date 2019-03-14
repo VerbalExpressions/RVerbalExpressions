@@ -15,24 +15,21 @@
 #' sanitize("^+?")
 #' #export - nade not exported
 #'
-#'
+#' @export
 sanitize <- function(x){
   UseMethod("sanitize", x)
 }
 
+#' @export
 sanitize.rx_string <- function(x) {
-  .data
+  x
 }
 
-sanitize.default <- function(x) {
-  if(missing(.data))
+#' @export
+sanitize.character <- function(x) {
+  if(missing(x))
     stop("The 'value' argument is missing. Did you forget to start the rx chain with rx()?")
   esc <- c(".", "|", "*", "?", "+", "(", ")", "{", "}", "^", "$", "\\", ":", "=", "[", "]")
-  gsub(paste0("([\\", paste0(collapse = "\\", esc), "])"), "\\\\\\1", .data, perl = TRUE)
+  gsub(paste0("([\\", paste0(collapse = "\\", esc), "])"), "\\\\\\1", x, perl = TRUE)
 }
 
-sanitize_args <- function(...){
-  if (missing(...)) return(NULL)
-  res <- sapply(list(...), sanitize)
-  Reduce(paste0, res)
-}

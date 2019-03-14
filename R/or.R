@@ -23,5 +23,13 @@
 #'
 #' @export
 rx_or <- function(.data, value) {
-  paste0("(?:", .data, ")|(?:", value, ")")
+  # Not sure if I like this. I would prefer:
+  #
+  # find(value = "foo") %>%
+  #   or() %>%
+  #   find("bar")
+  #
+  # Rather than having to nest a rule inside of or(), maybe use glue?
+  res <- paste0("(?:", .data, ")|(?:", value, ")")
+  new_rx(res)
 }

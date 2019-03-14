@@ -12,15 +12,15 @@
 #' }
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
-#' @param inverse Invert match behavior, defaults to \code{FALSE} (match
-#' whitespace). Use \code{TRUE} to \emph{not} match whitespace.
+#' @param negate Invert match behavior, defaults to \code{FALSE} (match
+#' whitespace). Use \code{FALSE} to \emph{not} match whitespace.
 #'
 #' @examples
 #' # match whitespace, default
 #' rx_whitespace()
 #'
 #' # dont match whitespace
-#' rx_whitespace(inverse = TRUE)
+#' rx_whitespace(negate = TRUE)
 #'
 #' # create an expression
 #' x <- rx_whitespace()
@@ -32,13 +32,10 @@
 #' regmatches(string, regexpr(x, string))
 #'
 #' # extract no whitespace by inverting behavior
-#' y <- rx_whitespace(inverse = TRUE)
+#' y <- rx_whitespace(negate = TRUE)
 #' regmatches(string, gregexpr(y, string))
 #' @export
-rx_whitespace <- function(.data = NULL, inverse = FALSE) {
-  switch(as.character(inverse),
-    "FALSE" = paste0(.data, "\\s"),
-    "TRUE" = paste0(.data, "[^ \t\r\n]"),
-    stop("Inverse accepts either TRUE (don't match whitespace) or FALSE (default, match whitespace)")
-  )
+rx_whitespace <- function(.data = NULL, rep=NULL, mode="greedy", negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "\\s", "\\S"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

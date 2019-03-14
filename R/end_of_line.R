@@ -8,15 +8,13 @@
 #' character in the string.
 #'
 #' @param .data Expression to match, typically pulled from the pipe \code{ \%>\% }
-#' @param enable Whether to enable this behavior, defaults to \code{TRUE}
 #'
 #' @examples
-#' rx_end_of_line(enable = TRUE)
-#' rx_end_of_line(enable = FALSE)
-#' rx_end_of_line("abc", enable = TRUE)
+#' rx_end_of_line()
+#' rx_end_of_line("abc")
 #'
 #' # create expression
-#' x <- rx_start_of_line(FALSE) %>%
+#' x <- rx_start_of_line() %>%
 #'   rx_find("apple") %>%
 #'   rx_end_of_line()
 #'
@@ -26,10 +24,7 @@
 #' @references
 #' Anchors: \url{https://www.regular-expressions.info/anchors.html}
 #' @export
-rx_end_of_line <- function(.data = NULL, enable = TRUE) {
-  if (enable) {
-    paste0(.data, "$")
-  } else {
-    .data
-  }
+rx_end_of_line <- function(.data = NULL) {
+  res <- paste0(.data, "$")
+  new_rx(res)
 }

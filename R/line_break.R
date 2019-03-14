@@ -31,6 +31,7 @@ rx_line_break <- function(.data = NULL) {
 
 #' @rdname rx_line_break
 #' @export
-rx_br <- function(.data = NULL) {
-  paste0(.data, "(?:\\r\\n|\\r|\\n)")
+rx_br <- function(.data = NULL, rep=NULL, mode="greedy", negate = FALSE) {
+  res <- paste0(.data, parse_negate(negate, "(?:\\r\\n|\\r|\\n)", "\\r\\n"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }

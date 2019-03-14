@@ -21,10 +21,8 @@
 #' regmatches(string, gregexpr(x, string))
 #' regmatches(string, gregexpr(y, string))
 #' @export
-rx_uppercase <- function(.data = NULL, inverse = FALSE) {
-  switch (as.character(inverse),
-    "FALSE" = paste0(.data, "[A-Z]"),
-    "TRUE" = paste0(.data, "[^A-Z]"),
-    stop("Inverse accepts either TRUE (don't match upper case characters) or FALSE (default, match upper case characters)")
-  )
+rx_uppercase <- function(.data = NULL, rep=NULL, mode="greedy", negate =FALSE) {
+  res <- paste0(.data, parse_negate(negate, "[[:upper:]]"), parse_rep_mode(rep, mode))
+  new_rx(res)
 }
+

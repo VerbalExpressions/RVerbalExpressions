@@ -18,6 +18,6 @@
 #' grepl(x, "apple")     # should be true
 #' @export
 rx_start_of_line <- function(.data = NULL, enable = TRUE) {
-  if (enable) paste0(.data, "^")
+  res <- paste0(.data, "^")
+  new_rx(res)
 }
-
