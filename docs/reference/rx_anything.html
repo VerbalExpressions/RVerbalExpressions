@@ -173,12 +173,11 @@ end of the string and then back-tracks to the last match.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_anything</span>()</div><div class='output co'>#&gt; [1] "(.*)"</div><div class='input'><span class='fu'>rx_anything</span>(<span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"lazy"</span>)</div><div class='output co'>#&gt; [1] "(.*?)"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_anything</span>()</div><div class='output co'>#&gt; <span class='error'>Error in rx_anything(): could not find function "rx_anything"</span></div><div class='input'><span class='fu'>rx_anything</span>(<span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"lazy"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rx_anything(mode = "lazy"): could not find function "rx_anything"</span></div><div class='input'>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx_start_of_line.html'>rx_start_of_line</a></span>() <span class='kw'>%&gt;%</span>
   <span class='fu'>rx_anything</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='rx_end_of_line.html'>rx_end_of_line</a></span>()
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"anything!"</span>)     <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'>rx_anything</span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='rx_something.html'>rx_something</a></span>(), <span class='st'>""</span>) <span class='co'># this should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+  <span class='fu'><a href='rx_end_of_line.html'>rx_end_of_line</a></span>()</div><div class='output co'>#&gt; <span class='error'>Error in rx_start_of_line(): could not find function "rx_start_of_line"</span></div><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"anything!"</span>)     <span class='co'># this should be true</span></div><div class='output co'>#&gt; <span class='error'>Error in grepl(x, "anything!"): object 'x' not found</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'>rx_anything</span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; <span class='error'>Error in rx_anything(): could not find function "rx_anything"</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='rx_something.html'>rx_something</a></span>(), <span class='st'>""</span>) <span class='co'># this should be false</span></div><div class='output co'>#&gt; <span class='error'>Error in rx_something(): could not find function "rx_something"</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -196,7 +195,7 @@ end of the string and then back-tracks to the last match.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield.</p>
+  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
 </div>
 
 <div class="pkgdown">

@@ -158,16 +158,15 @@ searching until end of the string and then back-tracks to the last match.</p></t
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_none_or_more</span>()</div><div class='output co'>#&gt; [1] "*"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_none_or_more</span>()</div><div class='output co'>#&gt; <span class='error'>Error in rx_none_or_more(): could not find function "rx_none_or_more"</span></div><div class='input'>
 <span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"a"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>rx_none_or_more</span>()
-
+  <span class='fu'>rx_none_or_more</span>()</div><div class='output co'>#&gt; <span class='error'>Error in rx_find(value = "a"): could not find function "rx_find"</span></div><div class='input'>
 <span class='co'># create input</span>
 <span class='no'>input</span> <span class='kw'>&lt;-</span> <span class='st'>"aaa"</span>
 
 <span class='co'># extract match</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>input</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>input</span>))</div><div class='output co'>#&gt; [1] "aaa"</div></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>input</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>input</span>))</div><div class='output co'>#&gt; <span class='error'>Error in regexpr(x, input): object 'x' not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -182,7 +181,7 @@ searching until end of the string and then back-tracks to the last match.</p></t
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield.</p>
+  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
 </div>
 
 <div class="pkgdown">

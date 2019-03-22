@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • RVerbalExpressions</title>
+<title>Repeat the previous item exactly count times. — rx_repeat_previous • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,9 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Repeat the previous item exactly count times. — rx_repeat_previous" />
+
+<meta property="og:description" content="Repeat the previous item exactly count times." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -60,7 +62,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -127,40 +129,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Repeat the previous item exactly count times.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/modifiers.R'><code>R/modifiers.R</code></a></small>
+    <div class="hidden name"><code>rx_repeat_previous.Rd</code></div>
     </div>
 
-    <div id="rverbalexpressions-0-0-0-9000" class="section level1">
-<h1 class="page-header">
-<a href="#rverbalexpressions-0-0-0-9000" class="anchor"></a>RVerbalExpressions 0.0.0.9000</h1>
-<ul>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-<li>Deprecated <code>then()</code> and <code><a href="https://www.rdocumentation.org/packages/base/topics/any">any()</a></code> in favor of <code>any_of()</code> and <code><a href="https://www.rdocumentation.org/packages/utils/topics/apropos">find()</a></code>.</li>
-<li>
-<code>rx_</code> prefix added per <a href="https://github.com/dmi3kno">Dmytro Perepolkin’s</a> suggestion <a href="https://github.com/VerbalExpressions/RVerbalExpressions/issues/1">(<a href='https://github.com/tyluRp/RVerbalExpressions/issues/1'>#1</a>)</a>
-</li>
-<li>Add <code><a href="../reference/rx.html">rx()</a></code> constructor (<a href='https://github.com/tyluRp/RVerbalExpressions/issues/4'>#4</a>)</li>
-<li>Added lazy mode for <code><a href="../reference/rx_anything.html">rx_anything()</a></code>, <code><a href="../reference/rx_anything_but.html">rx_anything_but()</a></code>, <code><a href="../reference/rx_something.html">rx_something()</a></code>, <code><a href="../reference/rx_something_but.html">rx_something_but()</a></code>.</li>
-<li>Added <code><a href="../reference/rx_lowercase.html">rx_lowercase()</a></code>, <code><a href="../reference/rx_uppercase.html">rx_uppercase()</a></code>, <code><a href="../reference/rx_alnum.html">rx_alnum()</a></code>, <code><a href="../reference/rx_alpha.html">rx_alpha()</a></code>.</li>
-<li>Added <code><a href="../reference/rx_word_char.html">rx_word_char()</a></code>, <code><a href="../reference/rx_word_edge.html">rx_word_edge()</a></code>, extended <code>rx_count()</code> to ranges of repetition</li>
-<li>Added <code><a href="../reference/rx_space.html">rx_space()</a></code>
-</li>
-<li>Added <code>inverse</code> argument to invert matching behavior, this applies to <code><a href="../reference/rx_digit.html">rx_digit()</a></code>, <code>rx_digits()</code>, <code><a href="../reference/rx_alnum.html">rx_alnum()</a></code>, <code><a href="../reference/rx_space.html">rx_space()</a></code>, <code><a href="../reference/rx_punctuation.html">rx_punctuation()</a></code>, <code><a href="../reference/rx_whitespace.html">rx_whitespace()</a></code>, <code><a href="../reference/rx_space.html">rx_space()</a></code>
-</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    
+    <p>Repeat the previous item exactly count times.</p>
+    
+    </div>
 
+    <pre class="usage"><span class='fu'>rx_repeat_previous</span>(<span class='no'>.data</span>, <span class='no'>n</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>.data</th>
+      <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>Number of times to repeat</p></td>
+    </tr>
+    </table>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#rverbalexpressions-0-0-0-9000">0.0.0.9000</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+                </ul>
 
+  </div>
 </div>
 
       <footer>
