@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 pre, code {
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Inconsolata', monospace;
 }

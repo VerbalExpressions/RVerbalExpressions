@@ -30,13 +30,13 @@
 
 
 
-  <link href="../extra.css" rel="stylesheet">
-  
 <meta property="og:title" content="Match a digit (0–9). — rx_digit" />
 
 <meta property="og:description" content="The function rx_digit()looks for tabs with the following
 expression: %%d and matches single digit. Plural version matches
 specified number of digits n (equivalent to rx_digit() %&amp;gt;% rx_count(n))." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,6 +100,9 @@ specified number of digits n (equivalent to rx_digit() %&amp;gt;% rx_count(n))."
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/differences-between-the-js-repo.html">Differences Between the JS Repo</a>
+    </li>
+    <li>
       <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
@@ -129,7 +132,7 @@ specified number of digits n (equivalent to rx_digit() %&amp;gt;% rx_count(n))."
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Match a digit (0–9).</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/digit.R'><code>R/digit.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/special_characters.R'><code>R/special_characters.R</code></a></small>
     <div class="hidden name"><code>rx_digit.Rd</code></div>
     </div>
 
@@ -141,9 +144,7 @@ specified number of digits <code>n</code> (equivalent to <code>rx_digit() %&gt;%
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_digit</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>rx_digits</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_digit</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,10 +157,6 @@ specified number of digits <code>n</code> (equivalent to <code>rx_digit() %&gt;%
       <th>inverse</th>
       <td><p>Invert match behavior, defaults to <code>FALSE</code> (match
 digit characters). Use <code>TRUE</code> to <em>not</em> match digit characters.</p></td>
-    </tr>
-    <tr>
-      <th>n</th>
-      <td><p>Exact number of digits to match.</p></td>
     </tr>
     </table>
     
@@ -188,7 +185,7 @@ digit characters). Use <code>TRUE</code> to <em>not</em> match digit characters.
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">

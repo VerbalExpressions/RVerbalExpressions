@@ -5,18 +5,21 @@ template:
     ganalytics: UA-135464357-1
 
 reference:
+- title: Constructor
+  desc: ~
+  contents:
+  - '`rx`'
 - title: Utilities
   desc: ~
   contents:
   - '`sanitize`'
-  - '`rx`'
+  - '`%>%`'
 - title: Rules
   desc: ~
   contents:
   - '`rx_any_of`'
   - '`rx_anything`'
   - '`rx_anything_but`'
-  - '`rx_count`'
   - '`rx_end_of_line`'
   - '`rx_find`'
   - '`rx_maybe`'
@@ -40,12 +43,12 @@ reference:
   contents:
   - '`rx_none_or_more`'
   - '`rx_one_or_more`'
+  - '`rx_multiple`'
 - title: Special Characters
   desc: ~
   contents:
   - '`rx_alnum`'
   - '`rx_alpha`'
-  - '`rx_br`'
   - '`rx_digit`'
   - '`rx_line_break`'
   - '`rx_lowercase`'

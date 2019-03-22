@@ -7,7 +7,7 @@
 rx_end_capture(.data = NULL)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 }
 \description{
 End a capture group.

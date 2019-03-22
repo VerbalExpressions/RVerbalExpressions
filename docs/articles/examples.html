@@ -9,9 +9,9 @@
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Examples">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Examples">
 <meta property="og:description" content="">
+<meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -60,6 +60,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/differences-between-the-js-repo.html">Differences Between the JS Repo</a>
+    </li>
+    <li>
       <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
@@ -98,11 +101,13 @@
     
     
 <p>This vignette compiles a variety of examples, most taken straight from <a href="https://stackoverflow.com/">Stack Overflow</a>. When possible, I will link the source of the example. To run any of the examples (i.e. copy/paste), load the following package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(RVerbalExpressions)</a></code></pre></div>
-<div id="extract-all-words-after-a-specific-tag" class="section level2">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(RVerbalExpressions)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(stringr)</a></code></pre></div>
+<p>Note that examples use the <code>stringr</code> library instead of base R functions. You may substitute with the necessary base R equivalents if you’d like.</p>
+<div id="extract-characters-that-come-after-a-specific-character" class="section level2">
 <h2 class="hasAnchor">
-<a href="#extract-all-words-after-a-specific-tag" class="anchor"></a>Extract all words after a specific tag</h2>
-<p>In this example, we want to extract every word that comes after a @, including the @. To do this, we will:</p>
+<a href="#extract-characters-that-come-after-a-specific-character" class="anchor"></a>Extract characters that come after a specific character</h2>
+<p>In this example, the goal is to extract alpha numeric characters that come after a @, including the @.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">string &lt;-<span class="st"> "nowy commit, nowa przygoda @OSKI @data2 @pankote testujemy kod @oski2"</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -110,20 +115,90 @@
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_alnum.html">rx_alnum</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_one_or_more.html">rx_one_or_more</a></span>()</a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co"># base R approach</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/regmatches">regmatches</a></span>(string, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gregexpr</a></span>(x, string)))</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; [1] "@OSKI"    "@data2"   "@pankote" "@oski2"</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># stringr approach</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># stringr::str_extract_all(string, x)</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-8" data-line-number="8">x</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] "(@)[A-z0-9]+"</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract_all</a></span>(string, x)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; [[1]]</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; [1] "@OSKI"    "@data2"   "@pankote" "@oski2"</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>First, construct the verbal expression with <code>rx</code>
 </li>
-<li>Then, <code>rx_find</code> the @ tag</li>
-<li>Then, match all alphanumeric characters</li>
-<li>Then, match <code>one_or_more</code> characters in the range</li>
+<li>Then, find the @ tag</li>
+<li>Then, match any alphanumeric characters (once)</li>
+<li>Then, match one or more alphanumeric characters (modifying the behavior in step 3)</li>
 </ol>
 <p>Source: <a href="https://stackoverflow.com/questions/31105862" class="uri">https://stackoverflow.com/questions/31105862</a></p>
+</div>
+<div id="extract-things-between-specific-characters" class="section level2">
+<h2 class="hasAnchor">
+<a href="#extract-things-between-specific-characters" class="anchor"></a>Extract things between specific characters</h2>
+<p>In this example, the goal is to extract everything between the word PRODUCT and OKAY.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">string &lt;-<span class="st"> "PRODUCT colgate good but not goodOKAY"</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_seek.html">rx_seek_prefix</a></span>(<span class="st">"PRODUCT"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_seek.html">rx_seek_suffix</a></span>(<span class="st">"OKAY"</span>)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">x</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; [1] "(?&lt;=PRODUCT)(.*)(?=OKAY)"</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; [1] " colgate good but not good"</span></a></code></pre></div>
+<p>Source: <a href="https://stackoverflow.com/questions/28267400" class="uri">https://stackoverflow.com/questions/28267400</a></p>
+</div>
+<div id="extract-things-that-contain-two-specific-words" class="section level1">
+<h1 class="hasAnchor">
+<a href="#extract-things-that-contain-two-specific-words" class="anchor"></a>Extract things that contain two specific words</h1>
+<p>In this example, the goal is to extract file names with the words “abc” and “clean” in them.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">string &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"abc_clean.csv"</span>, <span class="st">"abc_other_clean.csv"</span>, <span class="st">"abc_other_raw.csv"</span>, <span class="st">"abc_raw.csv"</span>,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">       <span class="st">"abc_something_clean.csv"</span>, <span class="st">"abc_something_raw.csv"</span>, <span class="st">"def_clean.csv"</span>,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">       <span class="st">"def_other_clean.csv"</span>, <span class="st">"def_other_raw.csv"</span>, <span class="st">"def_raw.csv"</span>, <span class="st">"def_something_clean.csv"</span>,</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">       <span class="st">"def_something_raw.csv"</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"abc"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"clean"</span>)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">x</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; [1] "(abc)(.*)(clean)"</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x)</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  [1] "abc_clean"           "abc_other_clean"     NA                   </span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  [4] NA                    "abc_something_clean" NA                   </span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;  [7] NA                    NA                    NA                   </span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; [10] NA                    NA                    NA</span></a></code></pre></div>
+<p>Source: <a href="https://stackoverflow.com/questions/55304989" class="uri">https://stackoverflow.com/questions/55304989</a></p>
+<div id="match-things-that-dont-start-with-specific-characters" class="section level2">
+<h2 class="hasAnchor">
+<a href="#match-things-that-dont-start-with-specific-characters" class="anchor"></a>Match things that don’t start with specific characters</h2>
+<p>In this example, the goal is to not match anything that starts with an “MS” and then remove the last two characters. Given the minimal reproducible example below, we could do this with a single pattern (second example) or by a pattern + a combination of <code>stringr</code> functions. Generally, I lean towards the latter.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">string &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'MSTRG.7176.1'</span>, <span class="st">'MSTRG.7176.2'</span>, <span class="st">'AT2G26340.2'</span>, <span class="st">'AT2G26355.1'</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_not.html">rx_not</a></span>(<span class="st">"MS"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>()</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a></span>(<span class="dv">1</span>, <span class="kw"><a href="https://stringr.tidyverse.org/reference/str_count.html">str_count</a></span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; [1] NA          NA          "AT2G26340" "AT2G26355"</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># or</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="../reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="st">  </span><span class="kw"><a href="../reference/rx_not.html">rx_not</a></span>(<span class="st">"MS"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything_but.html">rx_anything_but</a></span>(<span class="st">"."</span>)</a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18">x</a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; [1] "^(?!MS)([^\\.]*)"</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x)</a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; [1] NA          NA          "AT2G26340" "AT2G26355"</span></a></code></pre></div>
+<p>Source: <a href="https://stackoverflow.com/questions/55157124" class="uri">https://stackoverflow.com/questions/55157124</a></p>
+</div>
 </div>
   </div>
 
@@ -132,7 +207,13 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#extract-all-words-after-a-specific-tag">Extract all words after a specific tag</a></li>
+<li><a href="#extract-characters-that-come-after-a-specific-character">Extract characters that come after a specific character</a></li>
+      <li><a href="#extract-things-between-specific-characters">Extract things between specific characters</a></li>
+      <li>
+<a href="#extract-things-that-contain-two-specific-words">Extract things that contain two specific words</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#match-things-that-dont-start-with-specific-characters">Match things that don’t start with specific characters</a></li>
+      </ul>
+</li>
       </ul>
 </div>
       </div>
@@ -141,7 +222,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">

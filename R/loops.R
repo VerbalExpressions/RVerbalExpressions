@@ -20,7 +20,8 @@
 #' regmatches(input, regexpr(x, input))
 #' @export
 rx_one_or_more <- function(.data = NULL, mode = "greedy") {
-  switch(mode,
+  switch(
+    mode,
     greedy = paste0(.data, "+"),
     lazy = paste0(.data, "+?"),
     stop("Please, provide valid 'mode' argument")
@@ -49,9 +50,36 @@ rx_one_or_more <- function(.data = NULL, mode = "greedy") {
 #' regmatches(input, regexpr(x, input))
 #' @export
 rx_none_or_more <- function(.data = NULL, mode = "greedy") {
-  switch(mode,
+  switch(
+    mode,
     greedy = paste0(.data, "*"),
     lazy = paste0(.data, "*?"),
     stop("Please, provide valid 'mode' argument")
   )
 }
+
+#' Match the previous group any number of times.
+#'
+#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param value Item to match
+#' @param min Minimum number of times it should be present
+#' @param max Maximum number of times it should be present
+#' @export
+rx_multiple <- function(.data = NULL, value = NULL, min = NULL, max = NULL) {
+  if(!is.null(value)) {
+    value <- paste0("(", sanitize(value), ")")
+  }
+
+  if(is.null(min) & is.null(max)) {
+    rep <- paste0("*")
+  } else if(!is.null(min) & is.null(max)) {
+    rep <- paste0("{", min, ",}")
+  } else if(!is.null(min) & !is.null(max)) {
+    rep <- paste0("{", min, ",", max, "}")
+  } else if(is.null(min) & !is.null(max)) {
+    rep <- paste0("{,", max, "}")
+  }
+
+  paste0(.data, value, rep)
+}
+

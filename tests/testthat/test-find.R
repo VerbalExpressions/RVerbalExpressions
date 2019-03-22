@@ -3,7 +3,7 @@ context("test-rx_find")
 test_that("find_rule works", {
 
   # expect the correct minimal output
-  expect_equal(rx_find(value = ""), "(?:)")
+  expect_equal(rx_find(value = ""), "()")
 
   # expect a match
   expect_true(grepl(rx_find(value = "ABC"), "ABC"))

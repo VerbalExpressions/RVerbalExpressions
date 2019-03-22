@@ -30,9 +30,10 @@
 
 
 
-  <link href="../extra.css" rel="stylesheet">
-  
 <meta property="og:title" content="Function reference" />
+
+<meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -95,6 +96,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/differences-between-the-js-repo.html">Differences Between the JS Repo</a>
+    </li>
+    <li>
       <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
@@ -137,6 +141,20 @@
     <tbody>
       <tr>
         <th colspan="2">
+          <h2 id="section-constructor" class="hasAnchor"><a href="#section-constructor" class="anchor"></a>Constructor</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="rx.html">rx()</a></code> </p>
+        </td>
+        <td><p>Constructs a Verbal Expression</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
           <h2 id="section-utilities" class="hasAnchor"><a href="#section-utilities" class="anchor"></a>Utilities</h2>
           <p class="section-desc"></p>
         </th>
@@ -150,9 +168,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="rx.html">rx()</a></code> </p>
+          <p><code><a href="pipe.html">`%>%`</a></code> </p>
         </td>
-        <td><p>Constructs a Verbal Expression</p></td>
+        <td><p>Pipe operator</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -179,12 +197,6 @@
           <p><code><a href="rx_anything_but.html">rx_anything_but()</a></code> </p>
         </td>
         <td><p>Match any character(s) except these any (including zero) number of times.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rx_count.html">rx_count()</a></code> </p>
-        </td>
-        <td><p>Match the previous stuff exact number of times.</p></td>
       </tr><tr>
         
         <td>
@@ -291,6 +303,12 @@
           <p><code><a href="rx_one_or_more.html">rx_one_or_more()</a></code> </p>
         </td>
         <td><p>Match the previous stuff one or more times.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rx_multiple.html">rx_multiple()</a></code> </p>
+        </td>
+        <td><p>Match the previous group any number of times.</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -314,15 +332,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="rx_line_break.html">rx_line_break()</a></code> <code><a href="rx_line_break.html">rx_br()</a></code> </p>
+          <p><code><a href="rx_digit.html">rx_digit()</a></code> </p>
         </td>
-        <td><p>Match a line break.</p></td>
+        <td><p>Match a digit (0–9).</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="rx_digit.html">rx_digit()</a></code> <code><a href="rx_digit.html">rx_digits()</a></code> </p>
+          <p><code><a href="rx_line_break.html">rx_line_break()</a></code> </p>
         </td>
-        <td><p>Match a digit (0–9).</p></td>
+        <td><p>Match a line break.</p></td>
       </tr><tr>
         
         <td>
@@ -407,6 +425,7 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#section-constructor">Constructor</a></li>
       <li><a href="#section-utilities">Utilities</a></li>
       <li><a href="#section-rules">Rules</a></li>
       <li><a href="#section-lookarounds">Lookarounds</a></li>
@@ -420,7 +439,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">

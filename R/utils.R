@@ -1,3 +1,15 @@
+#' Pipe operator
+#'
+#' See \code{magrittr::\link[magrittr]{\%>\%}} for details.
+#'
+#' @name %>%
+#' @rdname pipe
+#' @keywords internal
+#' @export
+#' @importFrom magrittr %>%
+#' @usage lhs \%>\% rhs
+NULL
+
 #' Escape characters expected special by regex engines
 #'
 #' @description Takes a string and escapes all characters considered special by

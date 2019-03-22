@@ -30,12 +30,12 @@
 
 
 
-  <link href="../extra.css" rel="stylesheet">
-  
 <meta property="og:title" content="Match a line break. — rx_line_break" />
 
 <meta property="og:description" content="This expression looks for line breaks, both Unix and Windows
 style by using the appropriate non printable characters." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,6 +99,9 @@ style by using the appropriate non printable characters." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/differences-between-the-js-repo.html">Differences Between the JS Repo</a>
+    </li>
+    <li>
       <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
@@ -128,7 +131,7 @@ style by using the appropriate non printable characters." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Match a line break.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/line_break.R'><code>R/line_break.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/special_characters.R'><code>R/special_characters.R</code></a></small>
     <div class="hidden name"><code>rx_line_break.Rd</code></div>
     </div>
 
@@ -139,9 +142,7 @@ style by using the appropriate <em>non printable characters</em>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_line_break</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
-
-<span class='fu'>rx_br</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_line_break</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,7 +161,7 @@ style by using the appropriate <em>non printable characters</em>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_line_break</span>()</div><div class='output co'>#&gt; [1] "(?:\\r\\n|\\r|\\n)"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_line_break</span>()</div><div class='output co'>#&gt; [1] "(\\r\\n|\\r|\\n)"</div><div class='input'>
 <span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_line_break</span>()
 
@@ -186,7 +187,7 @@ style by using the appropriate <em>non printable characters</em>.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">

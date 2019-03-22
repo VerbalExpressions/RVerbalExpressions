@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# RVerbalExpressions
+# :construction\_worker\_man: :speech\_balloon: RVerbalExpressions <img src="man/figures/logo.png" align="right" height=150/>
 
 <!-- badges: start -->
 
@@ -21,22 +21,6 @@ The goal of `RVerbalExpressions` is to make it easier to construct
 regular expressions using grammar and functionality inspired by
 [VerbalExpressions](https://github.com/VerbalExpressions). Usage of
 `%>%` is encouraged to build expressions in a chain like fashion.
-
-There are a couple of functions missing from the original
-[JSVerbalExpressions](https://github.com/VerbalExpressions/JSVerbalExpressions)
-just to name a few:
-
-1.  `replace` isn’t included because there are numerous R functions for
-    this, `gsub` being one example
-2.  `add` is a utility function for appending expressions to one another
-    and isn’t included because we use `%>%` for that
-3.  `then` is not included because the pipe `%>%` is often pronounced
-    “then” and `rx_find` provides the same functionality
-
-Note there are also a handful of additional features that aren’t
-available in JSVerbalExpressions. These will be documented for clarity
-at another time (i.e. once the package is more stable). This package is
-in the early stages of developement (see experimental badge).
 
 ## Installation
 
@@ -65,9 +49,11 @@ x <- rx_start_of_line() %>%
   rx_anything_but(' ') %>% 
   rx_end_of_line()
 
+# print the expression
 x
-#> [1] "^(?:http)(?:s)?(?:\\://)(?:www\\.)?(?:[^ ]*)$"
+#> [1] "^(http)(s)?(\\://)(www\\.)?([^ ]*)$"
 
+# test for a match
 grepl(x, "https://www.google.com")
 #> [1] TRUE
 ```
@@ -101,7 +87,5 @@ problem. I encourage you to check these out:
 
 ## Contributing
 
-If you find any issues, please file an issue or submit a PR. All
-contributions are welcome\! See the list of todo items
-[here](.github/CONTRIBUTING.md) if you’re looking for something to
-specific to work on.
+If you find any issues, typos, etc., please file an issue or submit a
+PR. All contributions are welcome\!

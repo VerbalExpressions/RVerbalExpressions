@@ -30,12 +30,12 @@
 
 
 
-  <link href="../extra.css" rel="stylesheet">
-  
 <meta property="og:title" content="Match an expression. — rx_find" />
 
 <meta property="og:description" content="This expression uses a non capturing group to identify a
 specific pattern exactly." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,6 +99,9 @@ specific pattern exactly." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/differences-between-the-js-repo.html">Differences Between the JS Repo</a>
+    </li>
+    <li>
       <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
@@ -128,7 +131,7 @@ specific pattern exactly." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Match an expression.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/find.R'><code>R/find.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/rules.R'><code>R/rules.R</code></a></small>
     <div class="hidden name"><code>rx_find.Rd</code></div>
     </div>
 
@@ -161,7 +164,7 @@ specific pattern exactly.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_find</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"apple"</span>)</div><div class='output co'>#&gt; [1] "(?:apple)"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_find</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"apple"</span>)</div><div class='output co'>#&gt; [1] "(apple)"</div><div class='input'>
 <span class='co'># create expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_find</span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"apples"</span>)
 
@@ -183,7 +186,7 @@ specific pattern exactly.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">

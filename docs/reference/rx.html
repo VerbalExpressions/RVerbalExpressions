@@ -30,13 +30,13 @@
 
 
 
-  <link href="../extra.css" rel="stylesheet">
-  
 <meta property="og:title" content="Constructs a Verbal Expression — rx" />
 
 <meta property="og:description" content="Add this to the beginning of every verbal expression chain. This
 simply returns an empty character vector so that the next step in the chain
 can provide a value without explicitly writing value = &quot;blah&quot;." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,6 +100,9 @@ can provide a value without explicitly writing value = &quot;blah&quot;." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/differences-between-the-js-repo.html">Differences Between the JS Repo</a>
+    </li>
+    <li>
       <a href="../articles/examples.html">Examples</a>
     </li>
   </ul>
@@ -129,7 +132,7 @@ can provide a value without explicitly writing value = &quot;blah&quot;." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Constructs a Verbal Expression</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/rx.R'><code>R/rx.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/constructor.R'><code>R/constructor.R</code></a></small>
     <div class="hidden name"><code>rx.Rd</code></div>
     </div>
 
@@ -150,11 +153,11 @@ can provide a value without explicitly writing <code>value = "blah"</code>.</p>
 <span class='fu'>rx</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"cat"</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='rx_anything.html'>rx_anything</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"dog"</span>)</div><div class='output co'>#&gt; [1] "(?:cat)(?:.*)(?:dog)"</div><div class='input'>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"dog"</span>)</div><div class='output co'>#&gt; [1] "(cat)(.*)(dog)"</div><div class='input'>
 <span class='co'># instead of</span>
 <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"cat"</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='rx_anything.html'>rx_anything</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"dog"</span>)</div><div class='output co'>#&gt; [1] "(?:cat)(?:.*)(?:dog)"</div></pre>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"dog"</span>)</div><div class='output co'>#&gt; [1] "(cat)(.*)(dog)"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -168,7 +171,7 @@ can provide a value without explicitly writing <code>value = "blah"</code>.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">
