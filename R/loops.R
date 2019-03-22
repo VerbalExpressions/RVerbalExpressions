@@ -82,4 +82,3 @@ rx_multiple <- function(.data = NULL, value = NULL, min = NULL, max = NULL) {
 
   paste0(.data, value, rep)
 }
-
