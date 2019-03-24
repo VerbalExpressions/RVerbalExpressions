@@ -109,32 +109,28 @@ rx_maybe <- function(.data = NULL, value) {
   paste0(.data, "(", sanitize(value), ")?")
 }
 
-#' Alternatively, match another expression.
+#' Alternatively, match either expression.
 #'
 #' @description Expression to match instead. If both expressions exists, both
-#' will be returned. Note that this expression requires a verbal expression for
-#' the value parameter, see the example below. This may change in the future as
-#' I'd like to avoid nesting a function call in \code{or()}.
+#' will be returned. This just adds the vertical bar \code{|} often called an
+#' \emph{alternator} which allows the user to find this \emph{or} that, or both!
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#' @param value A verbal expression
+#' @param ... A character vector
 #'
 #' @examples
-#' # create an expression
-#' x <- rx_find(value = "foo") %>%
-#'   rx_or(rx_find(value = "bar"))
+#' x <- rx() %>%
+#'   rx_either_of("cat", "dog") %>%
+#'   rx_space() %>%
+#'   rx_find("food")
 #'
-#' # create strings
-#' string1 <- "foo!"
-#' string2 <- "bar!"
+#' string <- c("dog food", "cat food", "fish food")
 #'
-#' # extract matches
-#' regmatches(string1, gregexpr(x, string1))[[1]]
-#' regmatches(string2, gregexpr(x, string2))[[1]]
-#'
+#' grep(x, string, value = TRUE)
 #' @export
-rx_or <- function(.data, value) {
-  paste0("(", .data, ")|(", value, ")")
+rx_either_of <- function(.data, ...) {
+  args <- paste(..., sep = "|")
+  paste0(.data, "(", args, ")")
 }
 
 #' Match any character(s) any (including zero) number of times.
