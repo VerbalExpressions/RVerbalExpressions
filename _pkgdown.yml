@@ -29,7 +29,6 @@ reference:
   - '`rx_something`'
   - '`rx_something_but`'
   - '`rx_start_of_line`'
-  - '`rx_word_char`'
   - '`rx_word_edge`'
 - title: Lookarounds
   desc: ~
@@ -58,6 +57,7 @@ reference:
   - '`rx_uppercase`'
   - '`rx_whitespace`'
   - '`rx_word`'
+  - '`rx_word_char`'
 - title: Capture Groups
   desc: ~
   contents:

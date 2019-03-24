@@ -313,34 +313,6 @@ rx_word <- function(.data = NULL) {
   paste0(.data, "\\w+")
 }
 
-
-#' Find beginning or end of a word.
-#'
-#' @description Match beginning or end of a word—a string consisting of of word characters (a–z, A–Z, 0–9 or _).
-#'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#'
-#' @examples
-#' rx_word_edge()
-#'
-#'x <- rx_word_edge() %>%
-#'  rx_alpha() %>%
-#'  rx_one_or_more() %>%
-#'  rx_word_edge()
-#'
-#'# create inputs
-#'string1 <- "foobar"
-#'string2 <- "foo 23a bar"
-#'
-#'# matches 'foobar'
-#'regmatches(string1, regexpr(x, string1))
-#'# matches 'foo' and 'bar' separately
-#'regmatches(string2, gregexpr(x, string2))
-#' @export
-rx_word_edge <- function(.data = NULL){
-  paste0(.data, "\\b")
-}
-
 #' Match a word character.
 #'
 #' @description Match a word character (a–z, A–Z, 0–9 or _).
