@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Match any character(s) any (including zero) number of times. — rx_anything • RVerbalExpressions</title>
+<title>Alternatively, match either expression. — rx_either_of • RVerbalExpressions</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,13 +30,11 @@
 
 
 
-<meta property="og:title" content="Match any character(s) any (including zero) number of times. — rx_anything" />
+<meta property="og:title" content="Alternatively, match either expression. — rx_either_of" />
 
-<meta property="og:description" content="This expression will match everything except line breaks using
-the dot and the star. The Dot . is a
-metacharacter and the Star * is a quantifier. When
-combined the expression is considered greedy because it will match everything
-(except line breaks) 0 or more times." />
+<meta property="og:description" content="Expression to match instead. If both expressions exists, both
+will be returned. This just adds the vertical bar | often called an
+alternator which allows the user to find this or that, or both!" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -133,22 +131,20 @@ combined the expression is considered greedy because it will match everything
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Match any character(s) any (including zero) number of times.</h1>
+    <h1>Alternatively, match either expression.</h1>
     <small class="dont-index">Source: <a href='https://github.com/tyluRp/RVerbalExpressions/blob/master/R/rules.R'><code>R/rules.R</code></a></small>
-    <div class="hidden name"><code>rx_anything.Rd</code></div>
+    <div class="hidden name"><code>rx_either_of.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This expression will match everything except line breaks using
-the <em>dot</em> and the <em>star</em>. The Dot <code>.</code> is a
-<em>metacharacter</em> and the Star <code>*</code> is a <em>quantifier</em>. When
-combined the expression is considered greedy because it will match everything
-(except line breaks) 0 or more times.</p>
+    <p>Expression to match instead. If both expressions exists, both
+will be returned. This just adds the vertical bar <code>|</code> often called an
+<em>alternator</em> which allows the user to find this <em>or</em> that, or both!</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rx_anything</span>(<span class='kw'>.data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"greedy"</span>)</pre>
+    <pre class="usage"><span class='fu'>rx_either_of</span>(<span class='no'>.data</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,36 +154,27 @@ combined the expression is considered greedy because it will match everything
       <td><p>Expression to append, typically pulled from the pipe <code> %&gt;% </code></p></td>
     </tr>
     <tr>
-      <th>mode</th>
-      <td><p>Matching mode (<code>greedy</code> (default) or<code>lazy</code>). <code>Lazy</code>
-matching stops after the first match, <code>greedy</code> continues searching until
-end of the string and then back-tracks to the last match.</p></td>
+      <th>...</th>
+      <td><p>A character vector</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p>Dot: <a href='https://www.regular-expressions.info/dot.html'>https://www.regular-expressions.info/dot.html</a></p>
-<p>Star Quantifier: <a href='https://www.regular-expressions.info/repeat.html'>https://www.regular-expressions.info/repeat.html</a></p>
-<p>Greedy and Lazy Quantifiers: <a href='https://www.regular-expressions.info/repeat.html#greedy'>https://www.regular-expressions.info/repeat.html#greedy</a></p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_anything</span>()</div><div class='output co'>#&gt; [1] "(.*)"</div><div class='input'><span class='fu'>rx_anything</span>(<span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"lazy"</span>)</div><div class='output co'>#&gt; [1] "(.*?)"</div><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx_start_of_line.html'>rx_start_of_line</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>rx_anything</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='rx_end_of_line.html'>rx_end_of_line</a></span>()
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx.html'>rx</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>rx_either_of</span>(<span class='st'>"cat"</span>, <span class='st'>"dog"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_space.html'>rx_space</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"food"</span>)
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"anything!"</span>)     <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'>rx_anything</span>(), <span class='st'>""</span>)  <span class='co'># this should be true</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grepl</a></span>(<span class='fu'><a href='rx_something.html'>rx_something</a></span>(), <span class='st'>""</span>) <span class='co'># this should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-</div></pre>
+<span class='no'>string</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"dog food"</span>, <span class='st'>"cat food"</span>, <span class='st'>"fish food"</span>)
+
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grep</a></span>(<span class='no'>x</span>, <span class='no'>string</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "dog food" "cat food"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#references">References</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

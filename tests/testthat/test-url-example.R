@@ -2,8 +2,7 @@ context("test-url-example")
 
 test_that("url example works", {
   x <- rx_start_of_line() %>%
-    rx_find('http') %>%
-    rx_or("ftp") %>%
+    rx_either_of("http", "ftp") %>%
     rx_maybe('s') %>%
     rx_find('://') %>%
     rx_maybe('www.') %>%

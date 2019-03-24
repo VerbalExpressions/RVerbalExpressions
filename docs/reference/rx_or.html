@@ -165,13 +165,14 @@ I'd like to avoid nesting a function call in <code>or()</code>.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># create an expression</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"foo"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>rx_or</span>(<span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"bar"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in rx_find(value = "foo"): could not find function "rx_find"</span></div><div class='input'>
+  <span class='fu'>rx_or</span>(<span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"bar"</span>))
+
 <span class='co'># create strings</span>
 <span class='no'>string1</span> <span class='kw'>&lt;-</span> <span class='st'>"foo!"</span>
 <span class='no'>string2</span> <span class='kw'>&lt;-</span> <span class='st'>"bar!"</span>
 
 <span class='co'># extract matches</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string1</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>x</span>, <span class='no'>string1</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; <span class='error'>Error in gregexpr(x, string1): object 'x' not found</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string2</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>x</span>, <span class='no'>string2</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; <span class='error'>Error in gregexpr(x, string2): object 'x' not found</span></div><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string1</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>x</span>, <span class='no'>string1</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; [1] "foo"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string2</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gregexpr</a></span>(<span class='no'>x</span>, <span class='no'>string2</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; [1] "bar"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -187,7 +188,7 @@ I'd like to avoid nesting a function call in <code>or()</code>.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">

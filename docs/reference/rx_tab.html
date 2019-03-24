@@ -165,14 +165,15 @@ expression: <code>\t</code></p><ol>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rx_tab</span>()</div><div class='output co'>#&gt; <span class='error'>Error in rx_tab(): could not find function "rx_tab"</span></div><div class='input'><span class='fu'>rx_tab</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rx_tab(inverse = TRUE): could not find function "rx_tab"</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>rx_tab</span>()</div><div class='output co'>#&gt; [1] "\\t"</div><div class='input'><span class='fu'>rx_tab</span>(<span class='kw'>inverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "[^\\t]"</div><div class='input'>
 <span class='co'># create an expression</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_tab</span>()</div><div class='output co'>#&gt; <span class='error'>Error in rx_tab(): could not find function "rx_tab"</span></div><div class='input'>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_tab</span>()
+
 <span class='co'># create input</span>
 <span class='no'>string</span> <span class='kw'>&lt;-</span> <span class='st'>"foo\tbar"</span>
 
 <span class='co'># extract match</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; <span class='error'>Error in regexpr(x, string): object 'x' not found</span></div></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/regmatches'>regmatches</a></span>(<span class='no'>string</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>regexpr</a></span>(<span class='no'>x</span>, <span class='no'>string</span>))</div><div class='output co'>#&gt; [1] "\t"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -189,7 +190,7 @@ expression: <code>\t</code></p><ol>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tyler Littlefield, Dmytro Perepolkin.</p>
+  <p>Developed by Tyler Littlefield.</p>
 </div>
 
 <div class="pkgdown">
