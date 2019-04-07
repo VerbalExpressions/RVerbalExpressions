@@ -7,7 +7,7 @@
 rx_word_edge(.data = NULL)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 }
 \description{
 Match beginning or end of a word—a string consisting of of word

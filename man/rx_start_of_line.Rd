@@ -7,7 +7,7 @@
 rx_start_of_line(.data = NULL, enable = TRUE)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{enable}{Whether to enable this behavior, defaults to \code{TRUE}}
 }

@@ -7,13 +7,12 @@
 rx_find(.data = NULL, value)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{value}{Exact expression to match}
 }
 \description{
-This expression uses a \emph{non capturing group} to identify a
-specific pattern exactly.
+Identify a specific pattern exactly.
 }
 \examples{
 rx_find(value = "apple")
@@ -26,7 +25,7 @@ grepl(x, "apples") # should be true
 
 }
 \references{
-Non capturing group: \url{https://www.regular-expressions.info/brackets.html}
+Capturing group: \url{https://www.regular-expressions.info/brackets.html}
 
 Stack Overflow: \url{https://stackoverflow.com/questions/3512471}
 }
