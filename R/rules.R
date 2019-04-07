@@ -18,7 +18,11 @@
 #' grepl(x, "apple")     # should be true
 #' @export
 rx_start_of_line <- function(.data = NULL, enable = TRUE) {
-  if (enable) paste0(.data, "^")
+  if (enable) {
+    paste0(.data, "^")
+  } else {
+    .data
+  }
 }
 
 #' Match the expression only if it appears till the end of the line.
@@ -50,7 +54,11 @@ rx_start_of_line <- function(.data = NULL, enable = TRUE) {
 #' Anchors: \url{https://www.regular-expressions.info/anchors.html}
 #' @export
 rx_end_of_line <- function(.data = NULL, enable = TRUE) {
-  if (enable) paste0(.data, "$")
+  if (enable) {
+    paste0(.data, "$")
+  } else {
+    .data
+  }
 }
 
 #' Match an expression.
