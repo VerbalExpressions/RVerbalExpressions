@@ -7,7 +7,7 @@
 rx_either_of(.data, ...)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{...}{A character vector}
 }

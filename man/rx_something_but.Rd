@@ -7,7 +7,7 @@
 rx_something_but(.data = NULL, value, mode = "greedy")
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{value}{Expression to optionally match}
 

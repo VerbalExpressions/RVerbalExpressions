@@ -7,7 +7,7 @@
 rx_not(.data = NULL, value)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{value}{Value to ensure absence of}
 }

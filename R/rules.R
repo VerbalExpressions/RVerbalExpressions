@@ -3,7 +3,7 @@
 #' @description Control whether to match the expression only if it appears from
 #' the beginning of the line.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param enable Whether to enable this behavior, defaults to \code{TRUE}
 #'
 #' @examples
@@ -18,7 +18,11 @@
 #' grepl(x, "apple")     # should be true
 #' @export
 rx_start_of_line <- function(.data = NULL, enable = TRUE) {
-  if (enable) paste0(.data, "^")
+  if (enable) {
+    paste0(.data, "^")
+  } else {
+    .data
+  }
 }
 
 #' Match the expression only if it appears till the end of the line.
@@ -30,7 +34,7 @@ rx_start_of_line <- function(.data = NULL, enable = TRUE) {
 #' certain position, in this case the dollar sign matches right after the last
 #' character in the string.
 #'
-#' @param .data Expression to match, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to match, typically pulled from the pipe \code{\%>\%}
 #' @param enable Whether to enable this behavior, defaults to \code{TRUE}
 #'
 #' @examples
@@ -59,10 +63,9 @@ rx_end_of_line <- function(.data = NULL, enable = TRUE) {
 
 #' Match an expression.
 #'
-#' @description This expression uses a \emph{non capturing group} to identify a
-#' specific pattern exactly.
+#' @description Identify a specific pattern exactly.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Exact expression to match
 #'
 #' @examples
@@ -75,7 +78,7 @@ rx_end_of_line <- function(.data = NULL, enable = TRUE) {
 #' grepl(x, "apples") # should be true
 #'
 #' @references
-#' Non capturing group: \url{https://www.regular-expressions.info/brackets.html}
+#' Capturing group: \url{https://www.regular-expressions.info/brackets.html}
 #'
 #' Stack Overflow: \url{https://stackoverflow.com/questions/3512471}
 #' @export
@@ -89,7 +92,7 @@ rx_find <- function(.data = NULL, value) {
 #' match things. Specifically, the question mark makes the preceding token in
 #' the regular expression optional.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Expression to optionally match
 #'
 #' @examples
@@ -115,7 +118,7 @@ rx_maybe <- function(.data = NULL, value) {
 #' will be returned. This just adds the vertical bar \code{|} often called an
 #' \emph{alternator} which allows the user to find this \emph{or} that, or both!
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param ... A character vector
 #'
 #' @examples
@@ -129,7 +132,7 @@ rx_maybe <- function(.data = NULL, value) {
 #' grep(x, string, value = TRUE)
 #' @export
 rx_either_of <- function(.data, ...) {
-  args <- paste(..., sep = "|")
+  args <- paste(sapply(list(...), sanitize), collapse = "|")
   paste0(.data, "(", args, ")")
 }
 
@@ -141,7 +144,7 @@ rx_either_of <- function(.data, ...) {
 #' combined the expression is considered greedy because it will match everything
 #' (except line breaks) 0 or more times.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy}
 #' matching stops after the first match, \code{greedy} continues searching until
 #' end of the string and then back-tracks to the last match.
@@ -185,7 +188,7 @@ rx_anything <- function(.data = NULL, mode = "greedy") {
 #' class to match line breaks, you need to include the line break characters in
 #' the class.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Characters to not match
 #' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
 #' searching until end of the string and then back-tracks to the last match.
@@ -218,7 +221,7 @@ rx_anything_but <- function(.data = NULL, value, mode = "greedy") {
 #' means \code{rx_something()} expects \emph{something} whereas
 #' \code{anything()} expects \emph{anything} including... nothing!
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
 #' searching until end of the string and then back-tracks to the last match.
 #'
@@ -252,7 +255,7 @@ rx_something <- function(.data = NULL, mode = "greedy") {
 #' means \code{rx_something_but()} expects \emph{something} whereas
 #' \code{rx_anything_but()} expects \emph{anything} including... nothing!
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Expression to optionally match
 #' @param mode Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy} matching stops after the first match, \code{greedy} continues
 #' searching until end of the string and then back-tracks to the last match.
@@ -327,7 +330,7 @@ rx_any_of <- function(.data = NULL, value) {
 #' letter \emph{q} but not the letter \emph{u} you might translate this to,
 #' "find the letter q everytime the letter u does \emph{not} come after it".
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Value to ensure absence of
 #'
 #' @examples
@@ -364,7 +367,7 @@ rx_not <- function(.data = NULL, value) {
 #' character within the ranges a–z (ascii x–y) or 0–9 (ascii x–y). The method
 #' expects an even number of parameters; unpaired parameters are ignored.
 #'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
 #' @param value Range of characters. The method expects an even number of
 #' parameters; unpaired parameters are ignored.
 #'
@@ -382,4 +385,32 @@ rx_range <- function(.data = NULL, value) {
   value <- value[lengths(value) == 2]
   value <- lapply(value, function(i) paste0(i[1], "-", i[2]))
   paste0(.data, "[", paste0(unlist(value, use.names = FALSE), collapse = ""), "]")
+}
+
+#' Find beginning or end of a word.
+#'
+#' @description Match beginning or end of a word—a string consisting of of word
+#' characters (a–z, A–Z, 0–9 or _).
+#'
+#' @param .data Expression to append, typically pulled from the pipe \code{\%>\%}
+#'
+#' @examples
+#' rx_word_edge()
+#'
+#'x <- rx_word_edge() %>%
+#'  rx_alpha() %>%
+#'  rx_one_or_more() %>%
+#'  rx_word_edge()
+#'
+#'# create inputs
+#'string1 <- "foobar"
+#'string2 <- "foo 23a bar"
+#'
+#'# matches 'foobar'
+#'regmatches(string1, regexpr(x, string1))
+#'# matches 'foo' and 'bar' separately
+#'regmatches(string2, gregexpr(x, string2))
+#' @export
+rx_word_edge <- function(.data = NULL){
+  paste0(.data, "\\b")
 }

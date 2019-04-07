@@ -7,7 +7,7 @@
 rx_range(.data = NULL, value)
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{value}{Range of characters. The method expects an even number of
 parameters; unpaired parameters are ignored.}
