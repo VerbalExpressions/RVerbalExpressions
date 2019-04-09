@@ -22,4 +22,6 @@ There are a handful of differences between the JavaScript repository. Below is a
 4. In a similar not, aliases in general are not included because I want the number of functions to be as minimal as possible.
 5. The function `add` is not included because the pipe is used instead.
 6. The function `replace` is not included because there are R functions already designed for this purpose.
+7. The function `or` is excluded in favor of `rx_either_of`.
+8. Function names are prefixed with `rx_` for convenience and avoiding namespace collisions. 
 

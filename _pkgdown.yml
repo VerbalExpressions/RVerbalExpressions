@@ -20,16 +20,15 @@ reference:
   - '`rx_any_of`'
   - '`rx_anything`'
   - '`rx_anything_but`'
+  - '`rx_either_of`'
   - '`rx_end_of_line`'
   - '`rx_find`'
   - '`rx_maybe`'
   - '`rx_not`'
-  - '`rx_or`'
   - '`rx_range`'
   - '`rx_something`'
   - '`rx_something_but`'
   - '`rx_start_of_line`'
-  - '`rx_word_char`'
   - '`rx_word_edge`'
 - title: Lookarounds
   desc: ~
@@ -58,6 +57,7 @@ reference:
   - '`rx_uppercase`'
   - '`rx_whitespace`'
   - '`rx_word`'
+  - '`rx_word_char`'
 - title: Capture Groups
   desc: ~
   contents:

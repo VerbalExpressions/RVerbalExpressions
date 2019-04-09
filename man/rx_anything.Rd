@@ -7,7 +7,7 @@
 rx_anything(.data = NULL, mode = "greedy")
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{mode}{Matching mode (\code{greedy} (default) or\code{lazy}). \code{Lazy}
 matching stops after the first match, \code{greedy} continues searching until

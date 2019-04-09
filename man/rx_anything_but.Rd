@@ -7,7 +7,7 @@
 rx_anything_but(.data = NULL, value, mode = "greedy")
 }
 \arguments{
-\item{.data}{Expression to append, typically pulled from the pipe \code{ \%>\% }}
+\item{.data}{Expression to append, typically pulled from the pipe \code{\%>\%}}
 
 \item{value}{Characters to not match}
 
