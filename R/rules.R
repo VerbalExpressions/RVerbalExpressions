@@ -314,13 +314,7 @@ rx_something_but <- function(.data = NULL, value, mode="greedy") {
 #' Character class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
 rx_any_of <- function(.data = NULL, value) {
-  message_usr <- "Note: rx_any_of() expected a value but none was given."
-
-  switch(
-    as.character(missing(value)),
-    "TRUE" = {message(paste(strwrap(message_usr), collapse = "\n")); .data},
-    "FALSE" = paste0(.data, "[", sanitize(value), "]")
-  )
+  paste0(.data, "[", sanitize(value), "]")
 }
 
 #' Ensure that the parameter does not follow.
