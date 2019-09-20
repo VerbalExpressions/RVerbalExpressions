@@ -3,7 +3,7 @@ context("test-rx_maybe")
 test_that("maybe rule works", {
 
   # expect minimal output
-  expect_equal(rx_maybe(value = ""), "()?")
+  expect_equal(rx_maybe(value = "") %>% as.character(), "()?")
 
   # expect 0 or more match
   expect_true(grepl(rx_maybe(value = "xyz"), "abc"))

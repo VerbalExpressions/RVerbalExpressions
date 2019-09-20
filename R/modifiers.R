@@ -21,9 +21,9 @@
 #' @export
 rx_with_any_case <- function(.data = NULL, enable = TRUE) {
   if(is.null(.data) & enable == TRUE) {
-    paste0("(?i)")
+    new_rx(paste0("(?i)"))
   } else if(!is.null(.data) & enable == TRUE) {
-    paste0("(?i)", .data)
+    new_rx(paste0("(?i)", .data))
   } else {
     .data
   }
@@ -37,7 +37,7 @@ rx_with_any_case <- function(.data = NULL, enable = TRUE) {
 rx_repeat_previous <- function(.data, n) {
   switch (
     as.character(missing(n)),
-    "FALSE" = paste0(.data, "{", n, "}"),
+    "FALSE" = new_rx(paste0(.data, "{", n, "}")),
     "TRUE" = stop("n requires an integer")
   )
 }

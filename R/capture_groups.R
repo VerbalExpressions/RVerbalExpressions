@@ -7,7 +7,7 @@
 #'
 #' @export
 rx_begin_capture <- function(.data = NULL) {
-  paste0(.data, "(")
+  new_rx(paste0(.data, "("))
 }
 
 #' End a capture group.
@@ -19,6 +19,6 @@ rx_begin_capture <- function(.data = NULL) {
 #'
 #' @export
 rx_end_capture <- function(.data = NULL) {
-  paste0(.data, ")")
+  new_rx(paste0(.data, ")"))
 }
 

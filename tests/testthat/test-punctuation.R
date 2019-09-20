@@ -3,8 +3,8 @@ context("test-rx_punctuation")
 test_that("punctuation special character works", {
 
   # expect minimal output
-  expect_equal(rx_punctuation(), "[[:punct:]]")
-  expect_equal(rx_punctuation(inverse = TRUE), "[^[:punct:]]")
+  expect_equal(rx_punctuation() %>% as.character(), "[[:punct:]]")
+  expect_equal(rx_punctuation(inverse = TRUE) %>% as.character(), "[^[:punct:]]")
 
   # expect match
   expect_true(grepl(rx_punctuation(), "!"))

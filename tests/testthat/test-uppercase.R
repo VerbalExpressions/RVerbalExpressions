@@ -10,7 +10,7 @@ test_that("uppercase works", {
   expect_false(grepl(rx_uppercase(), "!"))
 
   # expect pipe functionality
-  expect_equal(rx() %>% rx_start_of_line() %>% rx_uppercase(), "^[A-Z]")
+  expect_equal(rx() %>% rx_start_of_line() %>% rx_uppercase() %>% as.character(), "^[A-Z]")
 
   # expect inverse
   expect_true(grepl(rx_uppercase(inverse = TRUE), "abc"))

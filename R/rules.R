@@ -19,7 +19,7 @@
 #' @export
 rx_start_of_line <- function(.data = NULL, enable = TRUE) {
   if (enable) {
-    paste0(.data, "^")
+    new_rx(paste0(.data, "^"))
   } else {
     .data
   }
@@ -55,7 +55,7 @@ rx_start_of_line <- function(.data = NULL, enable = TRUE) {
 #' @export
 rx_end_of_line <- function(.data = NULL, enable = TRUE) {
   if (enable) {
-    paste0(.data, "$")
+    new_rx(paste0(.data, "$"))
   } else {
     .data
   }
@@ -83,7 +83,7 @@ rx_end_of_line <- function(.data = NULL, enable = TRUE) {
 #' Stack Overflow: \url{https://stackoverflow.com/questions/3512471}
 #' @export
 rx_find <- function(.data = NULL, value) {
-  paste0(.data, "(", sanitize(value), ")")
+  new_rx(paste0(.data, "(", sanitize(value), ")"))
 }
 
 #' Optionally match an expression.
@@ -109,7 +109,7 @@ rx_find <- function(.data = NULL, value) {
 #' Quantifiers: \url{https://www.regular-expressions.info/optional.html}
 #' @export
 rx_maybe <- function(.data = NULL, value) {
-  paste0(.data, "(", sanitize(value), ")?")
+  new_rx(paste0(.data, "(", sanitize(value), ")?"))
 }
 
 #' Alternatively, match either expression.
@@ -133,7 +133,7 @@ rx_maybe <- function(.data = NULL, value) {
 #' @export
 rx_either_of <- function(.data, ...) {
   args <- paste(sapply(list(...), sanitize), collapse = "|")
-  paste0(.data, "(", args, ")")
+  new_rx(paste0(.data, "(", args, ")"))
 }
 
 #' Match any character(s) any (including zero) number of times.
@@ -169,10 +169,11 @@ rx_either_of <- function(.data, ...) {
 #' Greedy and Lazy Quantifiers: \url{https://www.regular-expressions.info/repeat.html#greedy}
 #' @export
 rx_anything <- function(.data = NULL, mode = "greedy") {
-  switch(mode,
-         greedy = paste0(.data, "(.*)"),
-         lazy = paste0(.data, "(.*?)"),
-         stop("Please, provide valid 'mode' argument")
+  switch(
+    mode,
+    greedy = new_rx(paste0(.data, "(.*)")),
+    lazy = new_rx(paste0(.data, "(.*?)")),
+    stop("Please, provide valid 'mode' argument")
   )
 }
 
@@ -208,8 +209,8 @@ rx_anything_but <- function(.data = NULL, value, mode = "greedy") {
   )
 
   switch(mode,
-         greedy = paste0(.data, "([^", sanitize(value), "]*)"),
-         lazy = paste0(.data, "([^", sanitize(value), "]*?)"),
+         greedy = new_rx(paste0(.data, "([^", sanitize(value), "]*)")),
+         lazy = new_rx(paste0(.data, "([^", sanitize(value), "]*?)")),
          stop("Please, provide valid 'mode' argument")
   )
 }
@@ -242,8 +243,8 @@ rx_anything_but <- function(.data = NULL, value, mode = "greedy") {
 #' @export
 rx_something <- function(.data = NULL, mode = "greedy") {
   switch(mode,
-         greedy = paste0(.data, "(.+)"),
-         lazy = paste0(.data, "(.+?)"),
+         greedy = new_rx(paste0(.data, "(.+)")),
+         lazy = new_rx(paste0(.data, "(.+?)")),
          stop("Please, provide valid 'mode' argument")
   )
 }
@@ -276,8 +277,8 @@ rx_something <- function(.data = NULL, mode = "greedy") {
 #' @export
 rx_something_but <- function(.data = NULL, value, mode="greedy") {
   switch(mode,
-         greedy = paste0(.data, "([^", sanitize(value), "]+)"),
-         lazy = paste0(.data, "([^", sanitize(value), "]+?)"),
+         greedy = new_rx(paste0(.data, "([^", sanitize(value), "]+)")),
+         lazy = new_rx(paste0(.data, "([^", sanitize(value), "]+?)")),
          stop("Please, provide valid 'mode' argument")
   )
 }
@@ -313,7 +314,7 @@ rx_something_but <- function(.data = NULL, value, mode="greedy") {
 #' Character class: \url{https://www.regular-expressions.info/charclass.html}
 #' @export
 rx_any_of <- function(.data = NULL, value) {
-  paste0(.data, "[", sanitize(value), "]")
+  new_rx(paste0(.data, "[", sanitize(value), "]"))
 }
 
 #' Ensure that the parameter does not follow.
@@ -351,7 +352,7 @@ rx_any_of <- function(.data = NULL, value) {
 #'
 #' @export
 rx_not <- function(.data = NULL, value) {
-  paste0(.data, "(?!", sanitize(value), ")")
+  new_rx(paste0(.data, "(?!", sanitize(value), ")"))
 }
 
 #' Match any character within the range defined by the parameters.
@@ -378,7 +379,7 @@ rx_range <- function(.data = NULL, value) {
   value <- split(value, ceiling(seq_along(value)/2))
   value <- value[lengths(value) == 2]
   value <- lapply(value, function(i) paste0(i[1], "-", i[2]))
-  paste0(.data, "[", paste0(unlist(value, use.names = FALSE), collapse = ""), "]")
+  new_rx(paste0(.data, "[", paste0(unlist(value, use.names = FALSE), collapse = ""), "]"))
 }
 
 #' Find beginning or end of a word.
@@ -406,5 +407,5 @@ rx_range <- function(.data = NULL, value) {
 #'regmatches(string2, gregexpr(x, string2))
 #' @export
 rx_word_edge <- function(.data = NULL){
-  paste0(.data, "\\b")
+  new_rx(paste0(.data, "\\b"))
 }

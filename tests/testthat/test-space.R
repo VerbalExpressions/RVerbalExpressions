@@ -3,7 +3,7 @@ context("test-rx_space")
 test_that("space special character works", {
 
   # expect minimum output
-  expect_equal(rx_space(), " ")
+  expect_equal(rx_space() %>% as.character(), " ")
 
   # expect match
   expect_true(grepl(rx_space(), " "))

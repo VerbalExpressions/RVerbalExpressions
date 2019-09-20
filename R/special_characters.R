@@ -100,8 +100,8 @@ rx_alpha <- function(.data = NULL, inverse = FALSE) {
 rx_digit <- function(.data = NULL, inverse = FALSE) {
   switch(
     as.character(inverse),
-    "FALSE" = paste0(.data, "\\d"),
-    "TRUE" = paste0(.data, "\\D"),
+    "FALSE" = new_rx(paste0(.data, "\\d")),
+    "TRUE" = new_rx(paste0(.data, "\\D")),
     stop("Inverse accepts either TRUE (don't match digit characters) or FALSE (default, match digit characters)")
   )
 }
@@ -134,7 +134,7 @@ rx_digit <- function(.data = NULL, inverse = FALSE) {
 #' @rdname rx_line_break
 #' @export
 rx_line_break <- function(.data = NULL) {
-  paste0(.data, "(\\r\\n|\\r|\\n)")
+  new_rx(paste0(.data, "(\\r\\n|\\r|\\n)"))
 }
 
 #' Match punctuation characters.
@@ -166,8 +166,8 @@ rx_line_break <- function(.data = NULL) {
 rx_punctuation <- function(.data = NULL, inverse = FALSE) {
   switch(
     as.character(inverse),
-    "FALSE" = paste0(.data, "[[:punct:]]"),
-    "TRUE" = paste0(.data, "[^[:punct:]]"),
+    "FALSE" = new_rx(paste0(.data, "[[:punct:]]")),
+    "TRUE" = new_rx(paste0(.data, "[^[:punct:]]")),
     stop("Inverse accepts either TRUE (don't match punctuation) or FALSE (default, match punctuation)")
   )
 }
@@ -203,8 +203,8 @@ rx_punctuation <- function(.data = NULL, inverse = FALSE) {
 rx_space <- function(.data = NULL, inverse = FALSE) {
   switch(
     as.character(inverse),
-    "FALSE" = paste0(.data, " "),
-    "TRUE" = paste0(.data, "[^ ]"),
+    "FALSE" = new_rx(paste0(.data, " ")),
+    "TRUE" = new_rx(paste0(.data, "[^ ]")),
     stop("Inverse accepts either TRUE (don't match space) or FALSE (default, match space)")
   )
 }
@@ -237,8 +237,8 @@ rx_space <- function(.data = NULL, inverse = FALSE) {
 rx_tab <- function(.data = NULL, inverse = FALSE) {
   switch(
     as.character(inverse),
-    "FALSE" = paste0(.data, "\\t"),
-    "TRUE" = paste0(.data, "[^\\t]"),
+    "FALSE" = new_rx(paste0(.data, "\\t")),
+    "TRUE" = new_rx(paste0(.data, "[^\\t]")),
     stop("Inverse accepts either TRUE (don't match tabs) or FALSE (default, match tabs)")
   )
 }
@@ -282,8 +282,8 @@ rx_tab <- function(.data = NULL, inverse = FALSE) {
 #' @export
 rx_whitespace <- function(.data = NULL, inverse = FALSE) {
   switch(as.character(inverse),
-         "FALSE" = paste0(.data, "\\s"),
-         "TRUE" = paste0(.data, "[^ \t\r\n]"),
+         "FALSE" = new_rx(paste0(.data, "\\s")),
+         "TRUE" = new_rx(paste0(.data, "[^ \t\r\n]")),
          stop("Inverse accepts either TRUE (don't match whitespace) or FALSE (default, match whitespace)")
   )
 }
@@ -310,7 +310,7 @@ rx_whitespace <- function(.data = NULL, inverse = FALSE) {
 #' regmatches(string2, regexpr(x, string2)) # doesn't match -
 #' @export
 rx_word <- function(.data = NULL) {
-  paste0(.data, "\\w+")
+  new_rx(paste0(.data, "\\w+"))
 }
 
 #' Match a word character.
@@ -328,7 +328,7 @@ rx_word <- function(.data = NULL) {
 #'
 #' @export
 rx_word_char<- function(.data = NULL){
-  paste0(.data, "\\w")
+  new_rx(paste0(.data, "\\w"))
 }
 
 #' Match lower case letters.
@@ -357,8 +357,8 @@ rx_word_char<- function(.data = NULL){
 rx_lowercase <- function(.data = NULL, inverse = FALSE) {
   switch(
     as.character(inverse),
-    "FALSE" = paste0(.data, "[a-z]"),
-    "TRUE" = paste0(.data, "[^a-z]"),
+    "FALSE" = new_rx(paste0(.data, "[a-z]")),
+    "TRUE" = new_rx(paste0(.data, "[^a-z]")),
     stop("Inverse accepts either TRUE (don't match lower case characters) or FALSE (default, match lower case characters)")
   )
 }
@@ -389,8 +389,8 @@ rx_lowercase <- function(.data = NULL, inverse = FALSE) {
 rx_uppercase <- function(.data = NULL, inverse = FALSE) {
   switch(
     as.character(inverse),
-    "FALSE" = paste0(.data, "[A-Z]"),
-    "TRUE" = paste0(.data, "[^A-Z]"),
+    "FALSE" = new_rx(paste0(.data, "[A-Z]")),
+    "TRUE" = new_rx(paste0(.data, "[^A-Z]")),
     stop("Inverse accepts either TRUE (don't match upper case characters) or FALSE (default, match upper case characters)")
   )
 }

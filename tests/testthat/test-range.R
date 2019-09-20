@@ -3,7 +3,7 @@ context("test-rx_range")
 test_that("range rule works", {
 
   # expect minimal output
-  expect_equal(rx_range(value = ""), "[]")
+  expect_equal(rx_range(value = "") %>% as.character(), "[]")
 
   # expect equal length even if unequal length given
   expect_length(

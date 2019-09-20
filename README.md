@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# :construction\_worker\_man: :speech\_balloon: RVerbalExpressions <img src="man/figures/logo.png" align="right" height=150/>
+# RVerbalExpressions <img src="man/figures/logo.png" align="right" height=150/>
 
 <!-- badges: start -->
 

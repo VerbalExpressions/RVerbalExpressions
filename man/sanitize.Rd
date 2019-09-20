@@ -4,15 +4,15 @@
 \alias{sanitize}
 \title{Escape characters expected special by regex engines}
 \usage{
-sanitize(.data = NULL)
+sanitize(x)
 }
 \arguments{
-\item{.data}{String to sanitize}
+\item{x}{String to sanitize}
 }
 \description{
 Takes a string and escapes all characters considered special by
 the regex engine. This is used internally when you add a string to the
-\code{.data} parameter in most of the available functions. It is exported
+\code{value} parameter in most of the available functions. It is exported
 and useable externally for users that want to escape all special characters
 in their desired match. The following special characters are escaped
 \code{. | * ? + ( ) { } ^ $ \\ : = [ ]}
@@ -21,4 +21,6 @@ in their desired match. The following special characters are escaped
 sanitize("^")
 sanitize("^+")
 sanitize("^+?")
+#export - nade not exported
+
 }

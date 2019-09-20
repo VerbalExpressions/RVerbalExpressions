@@ -18,4 +18,4 @@
 #'   rx_anything() %>%
 #'   rx_find("dog")
 #' @export
-rx <- function() character()
+rx <- function() new_rx(character())

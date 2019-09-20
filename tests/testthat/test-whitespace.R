@@ -3,7 +3,7 @@ context("test-rx_whitespace")
 test_that("whitespace special character works", {
 
   # expect minimal output
-  expect_equal(rx_whitespace(), "\\s")
+  expect_equal(rx_whitespace() %>% as.character(), "\\s")
 
   # expect match
   expect_true(grepl(rx_whitespace(), " "))

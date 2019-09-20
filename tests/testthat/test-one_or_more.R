@@ -15,8 +15,8 @@ test_that("quanitfiers work", {
   expect_true(grepl(yl, "UK"))
 
   # expect match
-  expect_equal(rx_one_or_more(), "+")
-  expect_equal(rx_none_or_more(), "*")
+  expect_equal(rx_one_or_more() %>% as.character(), "+")
+  expect_equal(rx_none_or_more() %>% as.character(), "*")
 
   expect_error(rx_one_or_more(mode = "whatever"))
   expect_error(rx_none_or_more(mode = "whatever"))

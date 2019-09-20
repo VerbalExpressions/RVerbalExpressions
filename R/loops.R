@@ -22,8 +22,8 @@
 rx_one_or_more <- function(.data = NULL, mode = "greedy") {
   switch(
     mode,
-    greedy = paste0(.data, "+"),
-    lazy = paste0(.data, "+?"),
+    greedy = new_rx(paste0(.data, "+")),
+    lazy = new_rx(paste0(.data, "+?")),
     stop("Please, provide valid 'mode' argument")
   )
 }
@@ -52,8 +52,8 @@ rx_one_or_more <- function(.data = NULL, mode = "greedy") {
 rx_none_or_more <- function(.data = NULL, mode = "greedy") {
   switch(
     mode,
-    greedy = paste0(.data, "*"),
-    lazy = paste0(.data, "*?"),
+    greedy = new_rx(paste0(.data, "*")),
+    lazy = new_rx(paste0(.data, "*?")),
     stop("Please, provide valid 'mode' argument")
   )
 }
@@ -67,7 +67,7 @@ rx_none_or_more <- function(.data = NULL, mode = "greedy") {
 #' @export
 rx_multiple <- function(.data = NULL, value = NULL, min = NULL, max = NULL) {
   if(!is.null(value)) {
-    value <- paste0("(", sanitize(value), ")")
+    value <- new_rx(paste0("(", sanitize(value), ")"))
   }
 
   if(is.null(min) & is.null(max)) {

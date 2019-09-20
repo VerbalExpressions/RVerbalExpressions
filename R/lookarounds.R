@@ -16,13 +16,13 @@
 #' @rdname rx_avoid
 #' @export
 rx_avoid_prefix <- function(.data = NULL, value) {
-  paste0(.data, "(?<!", sanitize(value), ")")
+  new_rx(paste0(.data, "(?<!", sanitize(value), ")"))
 }
 
 #' @rdname rx_avoid
 #' @export
 rx_avoid_suffix <- function(.data = NULL, value) {
-  paste0(.data, "(?!", sanitize(value), ")")
+  new_rx(paste0(.data, "(?!", sanitize(value), ")"))
 }
 
 #' Positive lookaround functions
@@ -43,11 +43,11 @@ rx_avoid_suffix <- function(.data = NULL, value) {
 #' @rdname rx_seek
 #' @export
 rx_seek_prefix <- function(.data = NULL, value) {
-  paste0(.data, "(?<=", sanitize(value), ")")
+  new_rx(paste0(.data, "(?<=", sanitize(value), ")"))
 }
 
 #' @rdname rx_seek
 #' @export
 rx_seek_suffix <- function(.data = NULL, value) {
-  paste0(.data, "(?=", sanitize(value), ")")
+  new_rx(paste0(.data, "(?=", sanitize(value), ")"))
 }
