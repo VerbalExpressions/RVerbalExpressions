@@ -12,106 +12,80 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-```
 
-This vignette compiles a variety of examples, most taken straight from [Stack Overflow](https://stackoverflow.com/). When possible, I will link the source of the example. To run any of the examples (i.e. copy/paste), load the following package:
-
-```{r setup, message=FALSE}
 library(RVerbalExpressions)
-library(stringr)
 ```
 
-Note that examples use the `stringr` library instead of base R functions. You may substitute with the necessary base R equivalents if you'd like.
+The goal of this vignette is to provide some basic examples that solve common regular expression tasks. The `print` and `grepl` calls are attached at the end of each chain to show the regular expression that is constructed and what it matches.
 
-## Extract characters that come after a specific character
-
-In this example, the goal is to extract alpha numeric characters that come after a @, including the @.
+## Contains two words
 
 ```{r}
-string <- "nowy commit, nowa przygoda @OSKI @data2 @pankote testujemy kod @oski2"
-
-x <- rx() %>% 
-  rx_find(value = "@") %>% 
-  rx_alnum() %>% 
-  rx_one_or_more()
-
-x
-
-str_extract_all(string, x)
-```
-
-1. First, construct the verbal expression with `rx`
-2. Then, find the @ tag
-3. Then, match any alphanumeric characters (once)
-4. Then, match one or more alphanumeric characters (modifying the behavior in step 3)
-
-Source: https://stackoverflow.com/questions/31105862
-
-## Extract things between specific characters
-
-In this example, the goal is to extract everything between the word PRODUCT and OKAY.
-
-```{r}
-string <- "PRODUCT colgate good but not goodOKAY"
-
-x <- rx() %>% 
-  rx_seek_prefix("PRODUCT") %>% 
+# find something that must contain two words
+rx() %>% 
+  rx_find("cat") %>% 
   rx_anything() %>% 
-  rx_seek_suffix("OKAY")
-
-x
-
-str_extract(string, x)
+  rx_find("dog") %>% 
+  print() %>% 
+  grepl(c("cat dog", "cat", "dog"))
 ```
 
-Source: https://stackoverflow.com/questions/28267400
-
-# Extract things that contain two specific words
-
-In this example, the goal is to extract file names with the words "abc" and "clean" in them.
+## Between two words
 
 ```{r}
-string <- c("abc_clean.csv", "abc_other_clean.csv", "abc_other_raw.csv", "abc_raw.csv",
-       "abc_something_clean.csv", "abc_something_raw.csv", "def_clean.csv",
-       "def_other_clean.csv", "def_other_raw.csv", "def_raw.csv", "def_something_clean.csv",
-       "def_something_raw.csv")
+# find something between two words
+rx() %>% 
+  rx_seek_prefix("cat") %>% 
+  rx_something() %>% 
+  rx_seek_suffix("dog") %>% 
+  print() %>% 
+  grepl(c("cat something dog", "catdog"), perl = TRUE)
+```
 
-x <- rx() %>% 
-  rx_find("abc") %>% 
+## Starts with word
+
+```{r}
+# find something that starts with word
+rx() %>% 
+  rx_start_of_line() %>% 
+  rx_find("cat") %>% 
+  print() %>% 
+  grepl(c("cat", "cat dog", "dog cat"))
+```
+
+## Ends with word
+
+```{r}
+# find something that ends with word
+rx() %>% 
+  rx_find("cat") %>% 
+  rx_end_of_line() %>% 
+  print() %>% 
+  grepl(c("cat", "cat dog", "dog cat"))
+```
+
+## Starts and end with words
+
+```{r}
+# find something that starts with and ends with words
+rx() %>% 
+  rx_start_of_line() %>% 
+  rx_find("cat") %>% 
   rx_anything() %>% 
-  rx_find("clean")
-
-x
-
-str_extract(string, x)
+  rx_find("dog") %>% 
+  rx_end_of_line() %>% 
+  print() %>% 
+  grepl(c("cat", "cat dog", "dog cat"))
 ```
 
-Source: https://stackoverflow.com/questions/55304989
-
-## Match things that don't start with specific characters
-
-In this example, the goal is to not match anything that starts with an "MS" and then remove the last two characters. Given the minimal reproducible example below, we could do this with a single pattern (second example) or by a pattern + a combination of `stringr` functions. Generally, I lean towards the latter.
+## Case insensitive
 
 ```{r}
-string <- c('MSTRG.7176.1', 'MSTRG.7176.2', 'AT2G26340.2', 'AT2G26355.1')
-
-x <- rx() %>% 
-  rx_start_of_line() %>% 
-  rx_not("MS") %>% 
-  rx_anything()
-
-str_extract(string, x) %>% 
-  str_sub(1, str_count(x) - 2)
-
-# or
-x <- rx() %>% 
-  rx_start_of_line() %>% 
-  rx_not("MS") %>% 
-  rx_anything_but(".")
-
-x
-
-str_extract(string, x)
+# find something regardless of case
+rx() %>% 
+  rx_find("cat") %>% 
+  rx_with_any_case() %>% 
+  print() %>% 
+  grepl(c("cat", "CAT"))
 ```
 
-Source: https://stackoverflow.com/questions/55157124

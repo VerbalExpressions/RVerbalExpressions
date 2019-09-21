@@ -105,105 +105,83 @@
 
     
     
-<p>This vignette compiles a variety of examples, most taken straight from <a href="https://stackoverflow.com/">Stack Overflow</a>. When possible, I will link the source of the example. To run any of the examples (i.e. copy/paste), load the following package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(RVerbalExpressions)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(stringr)</a></code></pre></div>
-<p>Note that examples use the <code>stringr</code> library instead of base R functions. You may substitute with the necessary base R equivalents if you’d like.</p>
-<div id="extract-characters-that-come-after-a-specific-character" class="section level2">
+<p>The goal of this vignette is to provide some basic examples that solve common regular expression tasks. The <code>print</code> and <code>grepl</code> calls are attached at the end of each chain to show the regular expression that is constructed and what it matches.</p>
+<div id="contains-two-words" class="section level2">
 <h2 class="hasAnchor">
-<a href="#extract-characters-that-come-after-a-specific-character" class="anchor"></a>Extract characters that come after a specific character</h2>
-<p>In this example, the goal is to extract alpha numeric characters that come after a @, including the @.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">string &lt;-<span class="st"> "nowy commit, nowa przygoda @OSKI @data2 @pankote testujemy kod @oski2"</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="dt">value =</span> <span class="st">"@"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_alnum.html">rx_alnum</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_one_or_more.html">rx_one_or_more</a></span>()</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">x</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] "(@)[A-z0-9]+"</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract_all</a></span>(string, x)</a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; [1] "@OSKI"    "@data2"   "@pankote" "@oski2"</span></a></code></pre></div>
-<ol style="list-style-type: decimal">
-<li>First, construct the verbal expression with <code>rx</code>
-</li>
-<li>Then, find the @ tag</li>
-<li>Then, match any alphanumeric characters (once)</li>
-<li>Then, match one or more alphanumeric characters (modifying the behavior in step 3)</li>
-</ol>
-<p>Source: <a href="https://stackoverflow.com/questions/31105862" class="uri">https://stackoverflow.com/questions/31105862</a></p>
+<a href="#contains-two-words" class="anchor"></a>Contains two words</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># find something that must contain two words</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"cat"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"dog"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat dog"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>))</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt; [1] "(cat)(.*)(dog)"</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt; [1]  TRUE FALSE FALSE</span></a></code></pre></div>
 </div>
-<div id="extract-things-between-specific-characters" class="section level2">
+<div id="between-two-words" class="section level2">
 <h2 class="hasAnchor">
-<a href="#extract-things-between-specific-characters" class="anchor"></a>Extract things between specific characters</h2>
-<p>In this example, the goal is to extract everything between the word PRODUCT and OKAY.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">string &lt;-<span class="st"> "PRODUCT colgate good but not goodOKAY"</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_seek.html">rx_seek_prefix</a></span>(<span class="st">"PRODUCT"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_seek.html">rx_seek_suffix</a></span>(<span class="st">"OKAY"</span>)</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">x</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; [1] "(?&lt;=PRODUCT)(.*)(?=OKAY)"</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x)</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; [1] " colgate good but not good"</span></a></code></pre></div>
-<p>Source: <a href="https://stackoverflow.com/questions/28267400" class="uri">https://stackoverflow.com/questions/28267400</a></p>
+<a href="#between-two-words" class="anchor"></a>Between two words</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># find something between two words</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/rx_seek.html">rx_seek_prefix</a></span>(<span class="st">"cat"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_something.html">rx_something</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_seek.html">rx_seek_suffix</a></span>(<span class="st">"dog"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat something dog"</span>, <span class="st">"catdog"</span>), <span class="dt">perl =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; [1] "(?&lt;=cat)(.+)(?=dog)"</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1]  TRUE FALSE</span></a></code></pre></div>
 </div>
-<div id="extract-things-that-contain-two-specific-words" class="section level1">
-<h1 class="hasAnchor">
-<a href="#extract-things-that-contain-two-specific-words" class="anchor"></a>Extract things that contain two specific words</h1>
-<p>In this example, the goal is to extract file names with the words “abc” and “clean” in them.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">string &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc_clean.csv"</span>, <span class="st">"abc_other_clean.csv"</span>, <span class="st">"abc_other_raw.csv"</span>, <span class="st">"abc_raw.csv"</span>,</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">       <span class="st">"abc_something_clean.csv"</span>, <span class="st">"abc_something_raw.csv"</span>, <span class="st">"def_clean.csv"</span>,</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">       <span class="st">"def_other_clean.csv"</span>, <span class="st">"def_other_raw.csv"</span>, <span class="st">"def_raw.csv"</span>, <span class="st">"def_something_clean.csv"</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">       <span class="st">"def_something_raw.csv"</span>)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"abc"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"clean"</span>)</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">x</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; [1] "(abc)(.*)(clean)"</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x)</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  [1] "abc_clean"           "abc_other_clean"     NA                   </span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  [4] NA                    "abc_something_clean" NA                   </span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;  [7] NA                    NA                    NA                   </span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; [10] NA                    NA                    NA</span></a></code></pre></div>
-<p>Source: <a href="https://stackoverflow.com/questions/55304989" class="uri">https://stackoverflow.com/questions/55304989</a></p>
-<div id="match-things-that-dont-start-with-specific-characters" class="section level2">
+<div id="starts-with-word" class="section level2">
 <h2 class="hasAnchor">
-<a href="#match-things-that-dont-start-with-specific-characters" class="anchor"></a>Match things that don’t start with specific characters</h2>
-<p>In this example, the goal is to not match anything that starts with an “MS” and then remove the last two characters. Given the minimal reproducible example below, we could do this with a single pattern (second example) or by a pattern + a combination of <code>stringr</code> functions. Generally, I lean towards the latter.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">string &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'MSTRG.7176.1'</span>, <span class="st">'MSTRG.7176.2'</span>, <span class="st">'AT2G26340.2'</span>, <span class="st">'AT2G26355.1'</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_not.html">rx_not</a></span>(<span class="st">"MS"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>()</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a></span>(<span class="dv">1</span>, <span class="kw"><a href="https://stringr.tidyverse.org/reference/str_count.html">str_count</a></span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; [1] NA          NA          "AT2G26340" "AT2G26355"</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># or</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="../reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="st">  </span><span class="kw"><a href="../reference/rx_not.html">rx_not</a></span>(<span class="st">"MS"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything_but.html">rx_anything_but</a></span>(<span class="st">"."</span>)</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">x</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; [1] "^(?!MS)([^\\.]*)"</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span>(string, x)</a>
-<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; [1] NA          NA          "AT2G26340" "AT2G26355"</span></a></code></pre></div>
-<p>Source: <a href="https://stackoverflow.com/questions/55157124" class="uri">https://stackoverflow.com/questions/55157124</a></p>
+<a href="#starts-with-word" class="anchor"></a>Starts with word</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># find something that starts with word</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"cat"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat"</span>, <span class="st">"cat dog"</span>, <span class="st">"dog cat"</span>))</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [1] "^(cat)"</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></a></code></pre></div>
 </div>
+<div id="ends-with-word" class="section level2">
+<h2 class="hasAnchor">
+<a href="#ends-with-word" class="anchor"></a>Ends with word</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># find something that ends with word</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"cat"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_end_of_line.html">rx_end_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat"</span>, <span class="st">"cat dog"</span>, <span class="st">"dog cat"</span>))</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [1] "(cat)$"</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [1]  TRUE FALSE  TRUE</span></a></code></pre></div>
+</div>
+<div id="starts-and-end-with-words" class="section level2">
+<h2 class="hasAnchor">
+<a href="#starts-and-end-with-words" class="anchor"></a>Starts and end with words</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># find something that starts with and ends with words</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"cat"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/rx_anything.html">rx_anything</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"dog"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../reference/rx_end_of_line.html">rx_end_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat"</span>, <span class="st">"cat dog"</span>, <span class="st">"dog cat"</span>))</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; [1] "^(cat)(.*)(dog)$"</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; [1] FALSE  TRUE FALSE</span></a></code></pre></div>
+</div>
+<div id="case-insensitive" class="section level2">
+<h2 class="hasAnchor">
+<a href="#case-insensitive" class="anchor"></a>Case insensitive</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># find something regardless of case</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="../reference/rx.html">rx</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/rx_find.html">rx_find</a></span>(<span class="st">"cat"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/rx_with_any_case.html">rx_with_any_case</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat"</span>, <span class="st">"CAT"</span>))</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; [1] "(?i)(cat)"</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; [1] TRUE TRUE</span></a></code></pre></div>
 </div>
   </div>
 
@@ -213,13 +191,12 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#extract-characters-that-come-after-a-specific-character">Extract characters that come after a specific character</a></li>
-      <li><a href="#extract-things-between-specific-characters">Extract things between specific characters</a></li>
-      <li>
-<a href="#extract-things-that-contain-two-specific-words">Extract things that contain two specific words</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#match-things-that-dont-start-with-specific-characters">Match things that don’t start with specific characters</a></li>
-      </ul>
-</li>
+<li><a href="#contains-two-words">Contains two words</a></li>
+      <li><a href="#between-two-words">Between two words</a></li>
+      <li><a href="#starts-with-word">Starts with word</a></li>
+      <li><a href="#ends-with-word">Ends with word</a></li>
+      <li><a href="#starts-and-end-with-words">Starts and end with words</a></li>
+      <li><a href="#case-insensitive">Case insensitive</a></li>
       </ul>
 </div>
       </div>
