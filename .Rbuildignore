@@ -10,3 +10,4 @@
 ^README\.Rmd$
 ^RVerbalExpressions\.Rproj$
 ^\.Rproj\.user$
+^cran-comments\.md$

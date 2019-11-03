@@ -28,16 +28,3 @@ rx_with_any_case <- function(.data = NULL, enable = TRUE) {
     .data
   }
 }
-
-#' Repeat the previous item exactly count times.
-#'
-#' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
-#' @param n Number of times to repeat
-#' @export
-rx_repeat_previous <- function(.data, n) {
-  switch (
-    as.character(missing(n)),
-    "FALSE" = new_rx(paste0(.data, "{", n, "}")),
-    "TRUE" = stop("n requires an integer")
-  )
-}
