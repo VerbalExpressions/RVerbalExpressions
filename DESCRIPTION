@@ -1,12 +1,12 @@
 Package: RVerbalExpressions
-Title: Create regular expressions easily
+Title: Create Regular Expressions Easily
 Version: 0.0.0.9000
 Authors@R: c(
     person("Tyler", "Littlefield", email = "tylurp1@gmail.com", role = c("aut", "cre"), comment=c(ORCID="0000-0002-6020-1125")),
     person("Dmytro", "Perepolkin", email = "dperepolkin@gmail.com", role = c("ctb"), comment=c(ORCID="0000-0001-8558-6183")))
 Description: The goal of RVerbalExpressions is to make it easier to build regular 
     expressions using grammar and functionality inspired by 
-    [VerbalExpressions](https://github.com/VerbalExpressions). Usage of the 
+    <https://github.com/VerbalExpressions>. Usage of the 
     `%>%` is encouraged to build expressions in a chain-like fashion.
 License: MIT + file LICENSE
 Encoding: UTF-8

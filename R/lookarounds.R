@@ -1,7 +1,7 @@
 #' Negative lookaround functions
 #'
 #' @description This function facilitates matching by providing negative assurances for surrounding symbols/groups of symbols.
-#' It allows for building expressions that are dependent on context of occurence.
+#' It allows for building expressions that are dependent on context of occurrence.
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #' @param value Exact expression to match
@@ -28,7 +28,7 @@ rx_avoid_suffix <- function(.data = NULL, value) {
 #' Positive lookaround functions
 #'
 #' @description This function facilitates matching by providing assurances for surrounding symbols/groups of symbols.
-#' It allows for building expressions that are dependent on context of occurence.
+#' It allows for building expressions that are dependent on context of occurrence.
 #'
 #' @param .data Expression to append, typically pulled from the pipe \code{ \%>\% }
 #' @param value Exact expression to match

@@ -16,7 +16,7 @@ rx_seek_suffix(.data = NULL, value)
 }
 \description{
 This function facilitates matching by providing assurances for surrounding symbols/groups of symbols.
-It allows for building expressions that are dependent on context of occurence.
+It allows for building expressions that are dependent on context of occurrence.
 }
 \examples{
 # this will match anything between square brackets

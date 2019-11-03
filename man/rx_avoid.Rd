@@ -16,7 +16,7 @@ rx_avoid_suffix(.data = NULL, value)
 }
 \description{
 This function facilitates matching by providing negative assurances for surrounding symbols/groups of symbols.
-It allows for building expressions that are dependent on context of occurence.
+It allows for building expressions that are dependent on context of occurrence.
 }
 \examples{
 # matches any number of digits, but not preceded by "USD"
