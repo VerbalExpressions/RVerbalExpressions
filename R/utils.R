@@ -25,7 +25,6 @@ NULL
 #' sanitize("^")
 #' sanitize("^+")
 #' sanitize("^+?")
-#' #export - nade not exported
 #'
 #' @export
 sanitize <- function(x) {

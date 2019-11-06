@@ -8,10 +8,15 @@
 #'
 #' @examples
 #' # matches any number of digits, but not preceded by "USD"
-#' rx() %>% rx_avoid_prefix('USD') %>% rx_digit() %>% rx_one_or_more()
+#' rx() %>%
+#'   rx_avoid_prefix('USD') %>%
+#'   rx_digit() %>%
+#'   rx_one_or_more()
 #'
 #' #matches a digit, but not followed by " dollars"
-#' rx() %>% rx_digit() %>% rx_avoid_suffix(' dollars')
+#' rx() %>%
+#'   rx_digit() %>%
+#'   rx_avoid_suffix(' dollars')
 #'
 #' @rdname rx_avoid
 #' @export

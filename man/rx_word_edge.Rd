@@ -16,7 +16,8 @@ characters (a–z, A–Z, 0–9 or _).
 \examples{
 rx_word_edge()
 
-x <- rx_word_edge() \%>\%
+x <- rx() \%>\%
+ rx_word_edge() \%>\%
  rx_alpha() \%>\%
  rx_one_or_more() \%>\%
  rx_word_edge()

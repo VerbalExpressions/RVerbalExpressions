@@ -21,6 +21,5 @@ in their desired match. The following special characters are escaped
 sanitize("^")
 sanitize("^+")
 sanitize("^+?")
-#export - nade not exported
 
 }

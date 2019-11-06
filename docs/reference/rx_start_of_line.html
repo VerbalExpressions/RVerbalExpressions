@@ -168,7 +168,8 @@ the beginning of the line.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>rx_start_of_line</span>(<span class='kw'>enable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "^"</div><div class='input'><span class='fu'>rx_start_of_line</span>(<span class='kw'>enable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'>
 <span class='co'># create expression</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_start_of_line</span>() <span class='kw'>%&gt;%</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx.html'>rx</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>rx_start_of_line</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='rx_find.html'>rx_find</a></span>(<span class='st'>"apple"</span>)
 
 <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"pineapple"</span>) <span class='co'># should be false</span></div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span>(<span class='no'>x</span>, <span class='st'>"apple"</span>)     <span class='co'># should be true</span></div><div class='output co'>#&gt; [1] TRUE</div></pre>

@@ -163,7 +163,8 @@ characters (a–z, A–Z, 0–9 or _).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>rx_word_edge</span>()</div><div class='output co'>#&gt; [1] "\\b"</div><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rx_word_edge</span>() <span class='kw'>%&gt;%</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rx.html'>rx</a></span>() <span class='kw'>%&gt;%</span>
+ <span class='fu'>rx_word_edge</span>() <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='rx_alpha.html'>rx_alpha</a></span>() <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='rx_one_or_more.html'>rx_one_or_more</a></span>() <span class='kw'>%&gt;%</span>
  <span class='fu'>rx_word_edge</span>()

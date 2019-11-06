@@ -24,7 +24,8 @@ combined the expression is considered greedy because it will match everything
 rx_anything()
 rx_anything(mode = "lazy")
 
-x <- rx_start_of_line() \%>\%
+x <- rx() \%>\%
+  rx_start_of_line() \%>\%
   rx_anything() \%>\%
   rx_end_of_line()
 

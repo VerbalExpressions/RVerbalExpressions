@@ -22,7 +22,8 @@ letter \emph{q} but not the letter \emph{u} you might translate this to,
 rx_not(value = "FEB-28")
 
 # construct expression
-x <- rx_start_of_line() \%>\%
+x <- rx() \%>\%
+  rx_start_of_line() \%>\%
   rx_find('FEB-29') \%>\%
   rx_not("FEB-28")
 
@@ -33,7 +34,8 @@ string <- c("FEB-29-2017", "FEB-28-2017")
 regmatches(string, regexpr(x, string, perl = TRUE))
 
 # another example
-rx_find(value = "q") \%>\%
+rx() \%>\%
+  rx_find("q") \%>\%
   rx_not("u") \%>\%
   grepl(x = c("qu", "qa", "qq", "q", "q u"), perl = TRUE)
 

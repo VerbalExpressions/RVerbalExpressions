@@ -21,11 +21,13 @@ Equivalent to adding or removing the i modifier.
 rx_with_any_case()
 
 # case insensitive
-x <- rx_find(value = "abc") \%>\%
+x <- rx() \%>\%
+  rx_find("abc") \%>\%
   rx_with_any_case()
 
 # case sensitive
-y <- rx_find(value = "abc") \%>\%
+y <- rx() \%>\%
+  rx_find("abc") \%>\%
   rx_with_any_case(enable = FALSE)
 
 grepl(x, "ABC") # should be true

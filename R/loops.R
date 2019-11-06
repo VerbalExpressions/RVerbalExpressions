@@ -10,7 +10,8 @@
 #' rx_one_or_more()
 #'
 #' # create an expression
-#' x <- rx_find(value = "a") %>%
+#' x <- rx() %>%
+#'   rx_find("a") %>%
 #'   rx_one_or_more()
 #'
 #' # create input
@@ -40,7 +41,8 @@ rx_one_or_more <- function(.data = NULL, mode = "greedy") {
 #' rx_none_or_more()
 #'
 #' # create an expression
-#' x <- rx_find(value = "a") %>%
+#' x <- rx() %>%
+#'   rx_find("a") %>%
 #'   rx_none_or_more()
 #'
 #' # create input

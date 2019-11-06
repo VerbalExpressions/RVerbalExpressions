@@ -20,7 +20,8 @@ rx_start_of_line(enable = TRUE)
 rx_start_of_line(enable = FALSE)
 
 # create expression
-x <- rx_start_of_line() \%>\%
+x <- rx() \%>\%
+  rx_start_of_line() \%>\%
   rx_find("apple")
 
 grepl(x, "pineapple") # should be false

@@ -19,7 +19,8 @@ This function simply adds a * to the end of the expression.
 rx_none_or_more()
 
 # create an expression
-x <- rx_find(value = "a") \%>\%
+x <- rx() \%>\%
+  rx_find("a") \%>\%
   rx_none_or_more()
 
 # create input

@@ -11,7 +11,8 @@
 #' rx_start_of_line(enable = FALSE)
 #'
 #' # create expression
-#' x <- rx_start_of_line() %>%
+#' x <- rx() %>%
+#'   rx_start_of_line() %>%
 #'   rx_find("apple")
 #'
 #' grepl(x, "pineapple") # should be false
@@ -43,7 +44,8 @@ rx_start_of_line <- function(.data = NULL, enable = TRUE) {
 #' rx_end_of_line("abc", enable = TRUE)
 #'
 #' # create expression
-#' x <- rx_start_of_line(FALSE) %>%
+#' x <- rx() %>%
+#'   rx_start_of_line(FALSE) %>%
 #'   rx_find("apple") %>%
 #'   rx_end_of_line()
 #'
@@ -99,7 +101,8 @@ rx_find <- function(.data = NULL, value) {
 #' rx_maybe(value = "abc")
 #'
 #' # create expression
-#' x <- rx_start_of_line() %>%
+#' x <- rx() %>%
+#'   rx_start_of_line() %>%
 #'   rx_maybe("abc") %>%
 #'   rx_end_of_line(enable = FALSE)
 #'
@@ -153,7 +156,8 @@ rx_either_of <- function(.data, ...) {
 #' rx_anything()
 #' rx_anything(mode = "lazy")
 #'
-#' x <- rx_start_of_line() %>%
+#' x <- rx() %>%
+#'   rx_start_of_line() %>%
 #'   rx_anything() %>%
 #'   rx_end_of_line()
 #'
@@ -332,7 +336,8 @@ rx_any_of <- function(.data = NULL, value) {
 #' rx_not(value = "FEB-28")
 #'
 #' # construct expression
-#' x <- rx_start_of_line() %>%
+#' x <- rx() %>%
+#'   rx_start_of_line() %>%
 #'   rx_find('FEB-29') %>%
 #'   rx_not("FEB-28")
 #'
@@ -343,7 +348,8 @@ rx_any_of <- function(.data = NULL, value) {
 #' regmatches(string, regexpr(x, string, perl = TRUE))
 #'
 #' # another example
-#' rx_find(value = "q") %>%
+#' rx() %>%
+#'   rx_find("q") %>%
 #'   rx_not("u") %>%
 #'   grepl(x = c("qu", "qa", "qq", "q", "q u"), perl = TRUE)
 #'
@@ -392,7 +398,8 @@ rx_range <- function(.data = NULL, value) {
 #' @examples
 #' rx_word_edge()
 #'
-#'x <- rx_word_edge() %>%
+#'x <- rx() %>%
+#'  rx_word_edge() %>%
 #'  rx_alpha() %>%
 #'  rx_one_or_more() %>%
 #'  rx_word_edge()

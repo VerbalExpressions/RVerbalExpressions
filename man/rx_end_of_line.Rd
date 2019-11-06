@@ -25,7 +25,8 @@ rx_end_of_line(enable = FALSE)
 rx_end_of_line("abc", enable = TRUE)
 
 # create expression
-x <- rx_start_of_line(FALSE) \%>\%
+x <- rx() \%>\%
+  rx_start_of_line(FALSE) \%>\%
   rx_find("apple") \%>\%
   rx_end_of_line()
 

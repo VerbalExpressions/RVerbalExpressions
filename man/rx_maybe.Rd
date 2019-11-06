@@ -20,7 +20,8 @@ the regular expression optional.
 rx_maybe(value = "abc")
 
 # create expression
-x <- rx_start_of_line() \%>\%
+x <- rx() \%>\%
+  rx_start_of_line() \%>\%
   rx_maybe("abc") \%>\%
   rx_end_of_line(enable = FALSE)
 
