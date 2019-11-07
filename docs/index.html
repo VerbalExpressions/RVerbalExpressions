@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">RVerbalExpressions</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -106,32 +106,34 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install <code>RVerbalExpressions</code> from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"VerbalExpressions/RVerbalExpressions"</span>)</a></code></pre></div>
+<p>Install the released version of <code>RVerbalExpressions</code> from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"RVerbalExpressions"</span>)</a></code></pre></div>
+<p>Or install the development version from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"VerbalExpressions/RVerbalExpressions"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This is a basic example which shows you how to build a regular expression:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(RVerbalExpressions)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># construct an expression</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw"><a href="reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/rx_find.html">rx_find</a></span>(<span class="st">'http'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/rx_maybe.html">rx_maybe</a></span>(<span class="st">'s'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/rx_find.html">rx_find</a></span>(<span class="st">'://'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/rx_maybe.html">rx_maybe</a></span>(<span class="st">'www.'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/rx_anything_but.html">rx_anything_but</a></span>(<span class="st">' '</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/rx_end_of_line.html">rx_end_of_line</a></span>()</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># print the expression</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">x</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; [1] "^(http)(s)?(\\://)(www\\.)?([^ ]*)$"</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co"># test for a match</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(x, <span class="st">"https://www.google.com"</span>)</a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(RVerbalExpressions)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># construct an expression</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">x &lt;-<span class="st"> </span><span class="kw"><a href="reference/rx_start_of_line.html">rx_start_of_line</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/rx_find.html">rx_find</a></span>(<span class="st">'http'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/rx_maybe.html">rx_maybe</a></span>(<span class="st">'s'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/rx_find.html">rx_find</a></span>(<span class="st">'://'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/rx_maybe.html">rx_maybe</a></span>(<span class="st">'www.'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/rx_anything_but.html">rx_anything_but</a></span>(<span class="st">' '</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/rx_end_of_line.html">rx_end_of_line</a></span>()</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># print the expression</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">x</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; [1] "^(http)(s)?(\\://)(www\\.)?([^ ]*)$"</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co"># test for a match</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(x, <span class="st">"https://www.google.com"</span>)</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
 </div>
 <div id="other-implementations" class="section level2">
 <h2 class="hasAnchor">
@@ -174,6 +176,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=RVerbalExpressions">https://​cloud.r-project.org/​package=RVerbalExpressions</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/tyluRp/RVerbalExpressions">https://​github.com/​tyluRp/​RVerbalExpressions</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/tyluRp/RVerbalExpressions/issues">https://​github.com/​tyluRp/​RVerbalExpressions/​issues</a>
@@ -200,9 +204,9 @@
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/VerbalExpressions/RVerbalExpressions"><img src="https://travis-ci.org/VerbalExpressions/RVerbalExpressions.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/tyluRp/rverbalexpressions-4tt0n"><img src="https://ci.appveyor.com/api/projects/status/phr93q0rp7edf376?svg=true" alt="AppVeyor Build status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=RVerbalExpressions"><img src="https://www.r-pkg.org/badges/version/RVerbalExpressions" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=RVerbalExpressions"><img src="https://cranlogs.r-pkg.org/badges/RVerbalExpressions" alt="CRAN_Download_Badge"></a></li>
 <li><a href="https://codecov.io/gh/VerbalExpressions/RVerbalExpressions?branch=master"><img src="https://codecov.io/gh/VerbalExpressions/RVerbalExpressions/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://app.netlify.com/sites/rverbalexpressions/deploys"><img src="https://api.netlify.com/api/v1/badges/e49a67b8-17c9-40ba-9e53-3f9d83590e87/deploy-status" alt="Netlify Status"></a></li>
 </ul>
 </div>
 </div>

@@ -9,12 +9,11 @@
 status](https://travis-ci.org/VerbalExpressions/RVerbalExpressions.svg?branch=master)](https://travis-ci.org/VerbalExpressions/RVerbalExpressions)
 [![AppVeyor Build
 status](https://ci.appveyor.com/api/projects/status/phr93q0rp7edf376?svg=true)](https://ci.appveyor.com/project/tyluRp/rverbalexpressions-4tt0n)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/RVerbalExpressions)](https://CRAN.R-project.org/package=RVerbalExpressions)
+[![CRAN\_Download\_Badge](https://cranlogs.r-pkg.org/badges/RVerbalExpressions)](https://cran.r-project.org/package=RVerbalExpressions)
 [![Codecov test
 coverage](https://codecov.io/gh/VerbalExpressions/RVerbalExpressions/branch/master/graph/badge.svg)](https://codecov.io/gh/VerbalExpressions/RVerbalExpressions?branch=master)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Netlify
-Status](https://api.netlify.com/api/v1/badges/e49a67b8-17c9-40ba-9e53-3f9d83590e87/deploy-status)](https://app.netlify.com/sites/rverbalexpressions/deploys)
 <!-- badges: end -->
 
 The goal of `RVerbalExpressions` is to make it easier to construct
@@ -24,8 +23,13 @@ regular expressions using grammar and functionality inspired by
 
 ## Installation
 
-You can install `RVerbalExpressions` from [GitHub](https://github.com/)
-with:
+Install the released version of `RVerbalExpressions` from CRAN:
+
+``` r
+install.packages("RVerbalExpressions")
+```
+
+Or install the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
