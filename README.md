@@ -23,7 +23,8 @@ regular expressions using grammar and functionality inspired by
 
 ## Installation
 
-Install the released version of `RVerbalExpressions` from CRAN:
+Install the released version of `RVerbalExpressions` from
+[CRAN](https://cran.r-project.org/package=RVerbalExpressions):
 
 ``` r
 install.packages("RVerbalExpressions")

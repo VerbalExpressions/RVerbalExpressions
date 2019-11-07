@@ -27,7 +27,7 @@ The goal of `RVerbalExpressions` is to make it easier to construct regular expre
 
 ## Installation
 
-Install the released version of `RVerbalExpressions` from CRAN:
+Install the released version of `RVerbalExpressions` from [CRAN](https://cran.r-project.org/package=RVerbalExpressions):
 
 ```r
 install.packages("RVerbalExpressions")
