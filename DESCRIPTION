@@ -1,6 +1,6 @@
 Package: RVerbalExpressions
 Title: Create Regular Expressions Easily
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: c(
     person("Tyler", "Littlefield", email = "tylurp1@gmail.com", role = c("aut", "cre"), comment=c(ORCID="0000-0002-6020-1125")),
     person("Dmytro", "Perepolkin", email = "dperepolkin@gmail.com", role = c("ctb"), comment=c(ORCID="0000-0001-8558-6183")))
@@ -9,8 +9,7 @@ Description: Build regular expressions using grammar and functionality inspired
     build expressions in a chain-like fashion.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.3
 Depends: R (>= 2.10)
 Imports: 
     magrittr
@@ -21,5 +20,5 @@ Suggests:
     covr,
     stringr
 VignetteBuilder: knitr
-URL: https://github.com/tyluRp/RVerbalExpressions
-BugReports: https://github.com/tyluRp/RVerbalExpressions/issues
+URL: https://github.com/VerbalExpressions/RVerbalExpressions
+BugReports: https://github.com/VerbalExpressions/RVerbalExpressions/issues

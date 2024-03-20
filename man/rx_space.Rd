@@ -26,7 +26,7 @@ rx_space(inverse = TRUE)
 x <- rx_space()
 
 # create input
-string <- "1 apple\\t"
+string <- "1 apple\t"
 
 # extract match
 regmatches(string, regexpr(x, string))

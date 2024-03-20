@@ -20,7 +20,7 @@ rx_line_break()
 x <- rx_line_break()
 
 # create input
-string <- "foo\\nbar"
+string <- "foo\nbar"
 
 # extract match
 regmatches(string, regexpr(x, string))

@@ -30,7 +30,7 @@ rx_tab(inverse = TRUE)
 x <- rx_tab()
 
 # create input
-string <- "foo\\tbar"
+string <- "foo\tbar"
 
 # extract match
 regmatches(string, regexpr(x, string))
